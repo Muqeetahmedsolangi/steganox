@@ -1,318 +1,294 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Icon } from '@iconify/react';
+import { portfolioData } from '../constant/data';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const ParallaxShowcase = () => {
-  const containerRef = useRef(null);
-  const layersRef = useRef([]);
+  const sectionRef = useRef(null);
   const titleRef = useRef(null);
-
-  const projects = [
-    {
-      title: "AI-Powered Analytics Platform",
-      client: "TechCorp Solutions",
-      tech: ["Python", "TensorFlow", "React", "AWS"],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-      stats: { users: "1M+", accuracy: "99.2%", speed: "0.3s" }
-    },
-    {
-      title: "Real-time Trading System",
-      client: "FinanceHub",
-      tech: ["Node.js", "WebSocket", "Redis", "Docker"],
-      image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80",
-      stats: { trades: "50K/day", latency: "<1ms", uptime: "99.99%" }
-    },
-    {
-      title: "Healthcare Mobile App",
-      client: "MediCare Plus",
-      tech: ["React Native", "Firebase", "Node.js", "MongoDB"],
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
-      stats: { downloads: "500K+", rating: "4.9★", hospitals: "200+" }
-    }
-  ];
+  const projectRefs = useRef([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Pin the showcase section
-      ScrollTrigger.create({
-        trigger: containerRef.current,
-        start: "top top",
-        end: "bottom top",
-        pin: true,
-        pinSpacing: true,
-      });
-
       // Title animation
       gsap.fromTo(titleRef.current,
         {
           opacity: 0,
-          y: 100,
-          scale: 0.9
+          y: 50
         },
         {
           opacity: 1,
           y: 0,
-          scale: 1,
           duration: 1,
+          ease: "power3.out",
           scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top bottom-=200",
-            end: "top center",
-            scrub: 1
+            trigger: sectionRef.current,
+            start: "top 80%",
+            once: true
           }
         }
       );
 
-      // Stacked cards effect with enhanced parallax
-      layersRef.current.forEach((layer, index) => {
-        if (layer) {
-          const depth = index + 1;
-          const speed = 1 + (index * 0.3);
-          
-          // Set initial position for stacking
-          gsap.set(layer, {
-            zIndex: projects.length - index,
-            y: index * 60
-          });
-          
-          // Parallax movement
-          gsap.fromTo(layer,
+      // Project cards animation
+      projectRefs.current.forEach((project, index) => {
+        if (project) {
+          gsap.fromTo(project,
             {
-              yPercent: 50 * speed,
-              scale: 0.9 + (index * 0.03),
-              rotateX: -10
+              opacity: 0,
+              y: 60,
+              scale: 0.95
             },
             {
-              yPercent: -50 * speed,
-              scale: 1 + (index * 0.02),
-              rotateX: 0,
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 0.8,
+              delay: index * 0.15,
+              ease: "power2.out",
               scrollTrigger: {
-                trigger: containerRef.current,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 1,
-                onUpdate: (self) => {
-                  const progress = self.progress;
-                  const rotation = (progress - 0.5) * 10 * (index % 2 === 0 ? 1 : -1);
-                  gsap.set(layer, { rotateY: rotation });
-                }
+                trigger: project,
+                start: "top 85%",
+                once: true
               }
             }
           );
 
-          // Enhanced hover effects with 3D tilt
-          layer.addEventListener('mouseenter', (e) => {
-            gsap.to(layer, {
-              scale: 1.05,
-              z: 100,
+          // Hover effects
+          project.addEventListener('mouseenter', () => {
+            gsap.to(project, {
+              y: -10,
+              scale: 1.02,
               duration: 0.3,
               ease: "power2.out"
             });
           });
 
-          layer.addEventListener('mouseleave', () => {
-            gsap.to(layer, {
-              scale: 1 + (index * 0.02),
-              z: 0,
-              rotateX: 0,
-              rotateY: 0,
-              duration: 0.3,
-              ease: "power2.out"
-            });
-          });
-
-          layer.addEventListener('mousemove', (e) => {
-            const rect = layer.getBoundingClientRect();
-            const x = (e.clientX - rect.left) / rect.width - 0.5;
-            const y = (e.clientY - rect.top) / rect.height - 0.5;
-            
-            gsap.to(layer, {
-              rotateY: x * 15,
-              rotateX: -y * 15,
+          project.addEventListener('mouseleave', () => {
+            gsap.to(project, {
+              y: 0,
+              scale: 1,
               duration: 0.3,
               ease: "power2.out"
             });
           });
         }
       });
-    }, containerRef);
+    }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
     <section 
-      ref={containerRef} 
+      ref={sectionRef} 
       id="portfolio" 
-      className="relative overflow-hidden py-20"
-      style={{ 
-        backgroundColor: '#000000',
-        minHeight: '150vh'
-      }}
+      className="relative py-16 md:py-24 lg:py-32 bg-black overflow-hidden"
     >
-      {/* Background elements */}
+      {/* Background gradient */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/10 to-black" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/5 via-black to-blue-900/5" />
       </div>
 
       {/* Title */}
-      <div ref={titleRef} className="text-center mb-32 relative z-10">
+      <div ref={titleRef} className="text-center mb-12 md:mb-16 px-4 relative z-10">
+        <div className="inline-block mb-4">
+          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-purple-600/30">
+            <Icon icon="fluent:folder-lightning-24-filled" className="w-5 h-5 text-purple-400" />
+            <span className="text-sm font-medium text-purple-300">Portfolio</span>
+          </div>
+        </div>
+
         <h2 
-          className="font-bold mb-4"
+          className="font-bold mb-6"
           style={{
             fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-            color: '#ffffff'
+            lineHeight: '1.1'
           }}
         >
-          Featured Projects
+          <span className="text-white">Success </span>
+          <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            Stories
+          </span>
         </h2>
         <p 
-          style={{
-            fontSize: '1.3rem',
-            color: 'rgba(255,255,255,0.6)'
-          }}
+          className="text-lg md:text-xl max-w-3xl mx-auto text-gray-400"
         >
-          Transforming ideas into powerful digital solutions
+          Transforming ideas into powerful digital solutions that drive real business impact
         </p>
       </div>
 
-      {/* Parallax layers */}
-      <div 
-        className="relative max-w-6xl mx-auto px-6"
-        style={{ 
-          height: '80vh',
-          perspective: '1000px',
-          transformStyle: 'preserve-3d'
-        }}
-      >
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            ref={el => layersRef.current[index] = el}
-            className="absolute inset-0 flex items-center justify-center"
-            style={{
-              transformStyle: "preserve-3d"
-            }}
-          >
-            <div 
-              className="w-full max-w-5xl rounded-3xl overflow-hidden border transition-all duration-500"
-              style={{
-                backgroundColor: 'rgba(255,255,255,0.05)',
-                backdropFilter: 'blur(20px)',
-                borderColor: 'rgba(255,255,255,0.1)',
-                height: '500px'
-              }}
+      {/* Projects Grid */}
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="grid lg:grid-cols-1 gap-8 md:gap-12 max-w-6xl mx-auto">
+          {portfolioData.map((project, index) => (
+            <div
+              key={index}
+              ref={el => projectRefs.current[index] = el}
+              className="group cursor-pointer"
             >
-              <div className="grid md:grid-cols-2 h-full">
-                {/* Image side */}
-                <div className="relative overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
-                  
-                  {/* Client badge */}
-                  <div 
-                    className="absolute top-6 left-6 px-4 py-2 rounded-full border"
-                    style={{
-                      backgroundColor: 'rgba(255,255,255,0.1)',
-                      backdropFilter: 'blur(10px)',
-                      borderColor: 'rgba(255,255,255,0.2)',
-                      color: '#ffffff',
-                      fontWeight: '500'
-                    }}
-                  >
-                    {project.client}
-                  </div>
-                </div>
-
-                {/* Content side */}
-                <div className="p-12 flex flex-col justify-between">
-                  <div>
-                    <h3 
-                      className="font-bold mb-6"
+              <div className="relative">
+                {/* Card glow effect */}
+                <div 
+                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"
+                  style={{
+                    background: 'radial-gradient(circle at center, rgba(168,85,247,0.2), transparent 70%)'
+                  }}
+                />
+                
+                <div 
+                  className="relative rounded-2xl overflow-hidden border transition-all duration-500 bg-gradient-to-br from-gray-900/90 to-gray-900/50 backdrop-blur-xl"
+                  style={{
+                    borderColor: 'rgba(255,255,255,0.1)'
+                  }}
+                >
+                <div className="grid md:grid-cols-2 gap-0">
+                  {/* Image side */}
+                  <div className="relative h-64 md:h-96 overflow-hidden order-2 md:order-1">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
+                    
+                    {/* Industry badge */}
+                    <div 
+                      className="absolute top-4 left-4 px-4 py-2 rounded-full border text-xs md:text-sm font-medium"
                       style={{
-                        fontSize: '2rem',
+                        backgroundColor: 'rgba(255,255,255,0.1)',
+                        backdropFilter: 'blur(10px)',
+                        borderColor: 'rgba(255,255,255,0.2)',
                         color: '#ffffff'
                       }}
                     >
-                      {project.title}
-                    </h3>
-                    
-                    {/* Tech stack */}
-                    <div className="flex flex-wrap gap-2 mb-8">
-                      {project.tech.map((tech, idx) => (
-                        <span
-                          key={idx}
-                          className="px-3 py-1 rounded-full text-sm"
-                          style={{
-                            backgroundColor: 'rgba(255,255,255,0.1)',
-                            color: 'rgba(255,255,255,0.8)',
-                            border: '1px solid rgba(255,255,255,0.2)'
-                          }}
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                      {project.industry}
                     </div>
                   </div>
 
-                  {/* Stats */}
-                  <div className="grid grid-cols-3 gap-6 pt-8 border-t" style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
-                    {Object.entries(project.stats).map(([key, value], idx) => (
-                      <div key={idx} className="text-center">
-                        <div 
-                          className="font-bold mb-1"
-                          style={{
-                            fontSize: '1.5rem',
-                            color: '#ffffff'
-                          }}
-                        >
-                          {value}
-                        </div>
-                        <div 
-                          className="capitalize"
-                          style={{
-                            fontSize: '0.9rem',
-                            color: 'rgba(255,255,255,0.6)'
-                          }}
-                        >
-                          {key}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                  {/* Content side */}
+                  <div className="p-8 md:p-12 flex flex-col justify-between order-1 md:order-2">
+                    <div>
+                      {/* Client */}
+                      <p 
+                        className="text-sm font-medium mb-2"
+                        style={{
+                          color: 'rgba(168,85,247,0.8)'
+                        }}
+                      >
+                        {project.client}
+                      </p>
 
-                  {/* View button */}
-                  <button 
-                    className="mt-8 group flex items-center gap-2 transition-all duration-300"
-                    style={{
-                      color: '#ffffff',
-                      fontSize: '1.1rem',
-                      fontWeight: '500'
-                    }}
-                  >
-                    <span>View Case Study</span>
-                    <svg 
-                      className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300" 
-                      fill="none" 
-                      viewBox="0 0 24 24" 
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </button>
+                      <h3 
+                        className="font-bold mb-4 md:mb-6"
+                        style={{
+                          fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
+                          color: '#ffffff',
+                          lineHeight: '1.2'
+                        }}
+                      >
+                        {project.title}
+                      </h3>
+
+                      <p 
+                        className="text-sm md:text-base mb-6 md:mb-8"
+                        style={{
+                          color: 'rgba(255,255,255,0.7)',
+                          lineHeight: '1.6'
+                        }}
+                      >
+                        {project.description}
+                      </p>
+                      
+                      {/* Tech stack */}
+                      <div className="flex flex-wrap gap-2 mb-8">
+                        {project.technologies.map((tech, idx) => (
+                          <span
+                            key={idx}
+                            className="px-3 py-1.5 rounded-full text-xs md:text-sm border"
+                            style={{
+                              backgroundColor: 'rgba(255,255,255,0.05)',
+                              color: 'rgba(255,255,255,0.8)',
+                              borderColor: 'rgba(255,255,255,0.1)'
+                            }}
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Impact Stats */}
+                    <div>
+                      <h4 
+                        className="text-sm font-medium mb-4"
+                        style={{ color: 'rgba(255,255,255,0.5)' }}
+                      >
+                        PROJECT IMPACT
+                      </h4>
+                      <div className="grid grid-cols-3 gap-4 md:gap-6">
+                        {Object.entries(project.impact).map(([key, value], idx) => (
+                          <div key={idx}>
+                            <div 
+                              className="font-bold mb-1"
+                              style={{
+                                fontSize: 'clamp(1.2rem, 2vw, 1.8rem)',
+                                background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
+                                WebkitBackgroundClip: 'text',
+                                WebkitTextFillColor: 'transparent'
+                              }}
+                            >
+                              {value}
+                            </div>
+                            <div 
+                              className="text-xs capitalize"
+                              style={{
+                                color: 'rgba(255,255,255,0.5)'
+                              }}
+                            >
+                              {key.replace(/_/g, ' ')}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* View Case Study Button */}
+                      <button 
+                        className="mt-8 group/btn inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-purple-600/30 hover:border-purple-600/50 transition-all duration-300"
+                      >
+                        <span className="text-white font-medium">View Case Study</span>
+                        <Icon icon="fluent:arrow-right-24-filled" className="w-5 h-5 text-purple-400 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                      </button>
+                    </div>
+                  </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        {/* View All Projects Button */}
+        <div className="text-center mt-12 md:mt-16">
+          <button 
+            className="px-6 md:px-8 py-3 md:py-4 rounded-full font-medium transition-all duration-300 hover:scale-105"
+            style={{
+              background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
+              color: '#ffffff',
+              boxShadow: '0 10px 30px rgba(168,85,247,0.3)'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.boxShadow = '0 15px 40px rgba(168,85,247,0.5)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.boxShadow = '0 10px 30px rgba(168,85,247,0.3)';
+            }}
+          >
+            View All Projects
+          </button>
+        </div>
       </div>
     </section>
   );

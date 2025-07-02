@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { industriesData } from '../constant/data';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,152 +10,84 @@ const IndustriesSection = () => {
   const titleRef = useRef(null);
   const hexRefs = useRef([]);
 
-  const industries = [
-    {
-      icon: "💰",
-      title: "Fintech & Banking",
-      description: "Digital banking solutions, payment gateways, trading platforms, and blockchain integration",
-      color: "#4F46E5"
-    },
-    {
-      icon: "🏥",
-      title: "Healthcare & MedTech",
-      description: "Telemedicine platforms, patient management systems, and health monitoring apps",
-      color: "#059669"
-    },
-    {
-      icon: "🛍️",
-      title: "Retail & eCommerce",
-      description: "Online marketplaces, inventory management, and omnichannel retail solutions",
-      color: "#DC2626"
-    },
-    {
-      icon: "🏭",
-      title: "Manufacturing & Logistics",
-      description: "Supply chain optimization, IoT integration, and warehouse management systems",
-      color: "#7C3AED"
-    },
-    {
-      icon: "📚",
-      title: "Education & eLearning",
-      description: "Learning management systems, virtual classrooms, and educational content platforms",
-      color: "#2563EB"
-    },
-    {
-      icon: "✈️",
-      title: "Travel & Hospitality",
-      description: "Booking platforms, property management systems, and travel experience apps",
-      color: "#F59E0B"
-    },
-    {
-      icon: "🏢",
-      title: "Enterprise & SaaS",
-      description: "Business process automation, CRM systems, and enterprise resource planning",
-      color: "#8B5CF6"
-    }
-  ];
-
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Title animation
       gsap.fromTo(titleRef.current,
         {
           opacity: 0,
-          y: 100,
-          scale: 0.8
+          y: 50
         },
         {
           opacity: 1,
           y: 0,
-          scale: 1,
-          duration: 1.5,
-          ease: "power4.out",
+          duration: 1,
+          ease: "power3.out",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top center",
-            end: "top top",
-            scrub: 1
+            start: "top 80%",
+            once: true
           }
         }
       );
 
-      // Hexagon animations
-      hexRefs.current.forEach((hex, index) => {
-        if (hex) {
-          // Initial state
-          gsap.set(hex, {
-            scale: 0,
-            rotation: -180,
-            opacity: 0
-          });
-
-          // Scroll triggered animation
-          ScrollTrigger.create({
-            trigger: hex,
-            start: "top bottom-=100",
-            onEnter: () => {
-              gsap.to(hex, {
-                scale: 1,
-                rotation: 0,
-                opacity: 1,
-                duration: 1,
-                delay: (index % 3) * 0.1,
-                ease: "back.out(1.5)"
-              });
+      // Industry cards animations
+      hexRefs.current.forEach((card, index) => {
+        if (card) {
+          gsap.fromTo(card,
+            {
+              scale: 0.8,
+              opacity: 0,
+              y: 30
             },
-            onLeaveBack: () => {
-              gsap.to(hex, {
-                scale: 0,
-                rotation: -180,
-                opacity: 0,
-                duration: 0.8,
-                ease: "power2.in"
-              });
+            {
+              scale: 1,
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              delay: (index % 3) * 0.1,
+              ease: "back.out(1.2)",
+              scrollTrigger: {
+                trigger: card,
+                start: "top 85%",
+                once: true
+              }
             }
-          });
+          );
 
           // Hover effects
-          hex.addEventListener('mouseenter', () => {
-            gsap.to(hex, {
-              scale: 1.1,
-              z: 50,
+          card.addEventListener('mouseenter', () => {
+            gsap.to(card, {
+              scale: 1.05,
+              y: -10,
               duration: 0.3,
               ease: "power2.out"
             });
             
-            gsap.to(hex.querySelector('.hex-icon'), {
+            gsap.to(card.querySelector('.industry-icon'), {
               scale: 1.2,
-              rotation: 360,
-              duration: 0.6,
+              rotation: 10,
+              duration: 0.4,
               ease: "power2.out"
             });
           });
 
-          hex.addEventListener('mouseleave', () => {
-            gsap.to(hex, {
+          card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
               scale: 1,
-              z: 0,
+              y: 0,
               duration: 0.3,
               ease: "power2.out"
             });
             
-            gsap.to(hex.querySelector('.hex-icon'), {
+            gsap.to(card.querySelector('.industry-icon'), {
               scale: 1,
               rotation: 0,
-              duration: 0.6,
+              duration: 0.4,
               ease: "power2.out"
             });
           });
         }
-      });
-
-      // Background animation
-      gsap.to(".industry-bg-gradient", {
-        backgroundPosition: "100% 100%",
-        duration: 30,
-        repeat: -1,
-        yoyo: true,
-        ease: "none"
       });
 
     }, sectionRef);
@@ -165,30 +98,16 @@ const IndustriesSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative py-32 overflow-hidden"
-      style={{ backgroundColor: '#000000' }}
+      className="py-16 md:py-24 lg:py-32 bg-black overflow-hidden"
     >
-      {/* Animated gradient background */}
-      <div 
-        className="industry-bg-gradient absolute inset-0 opacity-20"
-        style={{
-          backgroundImage: `
-            radial-gradient(circle at 20% 50%, rgba(168,85,247,0.3) 0%, transparent 50%),
-            radial-gradient(circle at 80% 50%, rgba(59,130,246,0.3) 0%, transparent 50%),
-            radial-gradient(circle at 50% 100%, rgba(236,72,153,0.3) 0%, transparent 50%)
-          `,
-          backgroundSize: '200% 200%'
-        }}
-      />
-
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 md:px-6">
         {/* Title */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 md:mb-16">
           <h2 
             ref={titleRef}
-            className="font-bold mb-6"
+            className="font-bold mb-4 md:mb-6"
             style={{
-              fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+              fontSize: 'clamp(2rem, 5vw, 3.5rem)',
               color: '#ffffff',
               lineHeight: '1.1'
             }}
@@ -203,36 +122,33 @@ const IndustriesSection = () => {
             </span>
           </h2>
           <p 
-            className="max-w-3xl mx-auto text-xl"
+            className="max-w-3xl mx-auto text-base md:text-xl px-4"
             style={{ color: 'rgba(255,255,255,0.7)' }}
           >
             Delivering tailored solutions across diverse sectors with deep domain expertise
           </p>
         </div>
 
-        {/* Hexagon Grid */}
+        {/* Industries Grid */}
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 hexagon-grid">
-            {industries.map((industry, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {industriesData.map((industry, index) => (
               <div
                 key={index}
                 ref={el => hexRefs.current[index] = el}
                 className="group relative cursor-pointer"
-                style={{ perspective: '1000px' }}
               >
                 <div 
-                  className="relative p-8 rounded-2xl border transition-all duration-300"
+                  className="relative p-6 md:p-8 rounded-xl md:rounded-2xl border transition-all duration-300"
                   style={{
                     backgroundColor: 'rgba(255,255,255,0.05)',
                     borderColor: 'rgba(255,255,255,0.1)',
-                    backdropFilter: 'blur(20px)',
-                    transformStyle: 'preserve-3d',
-                    transform: 'translateZ(0)'
+                    backdropFilter: 'blur(20px)'
                   }}
                 >
                   {/* Icon */}
                   <div 
-                    className="hex-icon text-6xl mb-6 transition-transform duration-300"
+                    className="industry-icon text-4xl md:text-5xl mb-4 md:mb-6 transition-transform duration-300"
                     style={{ 
                       display: 'inline-block',
                       filter: `drop-shadow(0 0 20px ${industry.color}50)`
@@ -243,22 +159,34 @@ const IndustriesSection = () => {
 
                   {/* Content */}
                   <h3 
-                    className="text-xl font-bold mb-3"
+                    className="text-lg md:text-xl font-bold mb-2 md:mb-3"
                     style={{ color: '#ffffff' }}
                   >
                     {industry.title}
                   </h3>
                   
                   <p 
-                    className="text-sm"
+                    className="text-sm md:text-base mb-4"
                     style={{ color: 'rgba(255,255,255,0.7)' }}
                   >
                     {industry.description}
                   </p>
 
+                  {/* Clients badge */}
+                  <div 
+                    className="inline-block px-3 py-1.5 rounded-full text-xs font-medium"
+                    style={{
+                      backgroundColor: `${industry.color}20`,
+                      color: industry.color,
+                      border: `1px solid ${industry.color}40`
+                    }}
+                  >
+                    {industry.clients}
+                  </div>
+
                   {/* Hover gradient */}
                   <div 
-                    className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    className="absolute inset-0 rounded-xl md:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     style={{
                       background: `linear-gradient(135deg, ${industry.color}20 0%, transparent 100%)`,
                       pointerEvents: 'none'
@@ -267,7 +195,7 @@ const IndustriesSection = () => {
 
                   {/* Glow effect */}
                   <div 
-                    className="absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"
+                    className="absolute -inset-1 rounded-xl md:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"
                     style={{
                       background: `linear-gradient(135deg, ${industry.color}40 0%, transparent 100%)`,
                       zIndex: -1
@@ -280,15 +208,15 @@ const IndustriesSection = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-12 md:mt-16">
           <p 
-            className="text-lg mb-8"
+            className="text-base md:text-lg mb-6 md:mb-8 px-4"
             style={{ color: 'rgba(255,255,255,0.7)' }}
           >
             Don't see your industry? We adapt our expertise to meet unique sector requirements.
           </p>
           <button 
-            className="px-8 py-4 rounded-full font-medium transition-all duration-300 hover:scale-105"
+            className="px-6 md:px-8 py-3 md:py-4 rounded-full font-medium transition-all duration-300 hover:scale-105"
             style={{
               background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
               color: '#ffffff',

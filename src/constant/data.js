@@ -1812,3 +1812,306 @@ export const officeLocations = [
   }
 ];
 
+// Hero Section Data
+export const heroData = {
+  title: "Steganox",
+  subtitle: "Enterprise Software Solutions",
+  description: "Transform Your Business with AI-Powered Technology",
+  subDescription: "Trusted by Fortune 500 companies worldwide for mission-critical applications",
+  buttons: [
+    { text: "Schedule Consultation", primary: true },
+    { text: "View Case Studies", primary: false }
+  ]
+};
+
+// About Section Data
+export const aboutData = {
+  title: "About Steganox",
+  mainText: "We are a global technology consultancy specializing in enterprise-grade software solutions. With over a decade of experience, we've helped transform businesses across 25+ countries.",
+  secondaryText: "Our team of 150+ certified engineers combines deep technical expertise with industry-specific knowledge to deliver solutions that drive measurable business impact.",
+  highlights: {
+    title: "Excellence in Every Line of Code",
+    description: "We don't just build software; we architect digital ecosystems that scale with your ambitions."
+  },
+  stats: [
+    { value: 500, label: "Enterprise Clients", suffix: "+" },
+    { value: 150, label: "Expert Engineers", suffix: "+" },
+    { value: 25, label: "Countries Served", suffix: "+" },
+    { value: 98, label: "Client Retention Rate", suffix: "%" }
+  ]
+};
+
+// Services Data
+export const servicesData = [
+  {
+    icon: "⚡",
+    title: "Digital Transformation",
+    subtitle: "Consulting",
+    description: "End-to-end digital transformation strategies that modernize legacy systems and optimize business processes.",
+    features: ["Cloud Migration", "Process Automation", "Data Analytics", "Change Management"],
+    gradient: "from-purple-500 to-pink-500"
+  },
+  {
+    icon: "🤖",
+    title: "Artificial Intelligence",
+    subtitle: "Solutions",
+    description: "Custom AI models and machine learning pipelines that automate decision-making and unlock insights.",
+    features: ["Predictive Analytics", "NLP Solutions", "Computer Vision", "MLOps"],
+    gradient: "from-blue-500 to-cyan-500"
+  },
+  {
+    icon: "💼",
+    title: "Enterprise Software",
+    subtitle: "Development",
+    description: "Scalable enterprise applications built with microservices architecture and cloud-native principles.",
+    features: ["ERP Systems", "CRM Platforms", "Supply Chain", "HR Tech"],
+    gradient: "from-green-500 to-teal-500"
+  },
+  {
+    icon: "🔐",
+    title: "Cybersecurity",
+    subtitle: "& Compliance",
+    description: "Comprehensive security frameworks ensuring data protection and regulatory compliance.",
+    features: ["Security Audits", "GDPR/HIPAA", "Zero Trust", "SOC 2"],
+    gradient: "from-red-500 to-orange-500"
+  },
+  {
+    icon: "☁️",
+    title: "Cloud Infrastructure",
+    subtitle: "& DevOps",
+    description: "Cloud-native architectures with automated CI/CD pipelines for rapid, reliable deployments.",
+    features: ["Multi-Cloud", "Kubernetes", "IaC", "Monitoring"],
+    gradient: "from-indigo-500 to-purple-500"
+  },
+  {
+    icon: "📊",
+    title: "Data Engineering",
+    subtitle: "& Analytics",
+    description: "Modern data platforms that transform raw data into actionable business intelligence.",
+    features: ["Data Lakes", "Real-time Analytics", "ETL Pipelines", "BI Dashboards"],
+    gradient: "from-yellow-500 to-red-500"
+  }
+];
+
+// Industries Data
+export const industriesData = [
+  {
+    icon: "🏦",
+    title: "Banking & Financial Services",
+    description: "Digital banking platforms, risk management systems, and regulatory compliance solutions",
+    clients: "50+ Major Banks",
+    color: "#4F46E5"
+  },
+  {
+    icon: "🏥",
+    title: "Healthcare & Life Sciences",
+    description: "HIPAA-compliant telemedicine platforms, EHR systems, and clinical trial management",
+    clients: "100+ Healthcare Providers",
+    color: "#059669"
+  },
+  {
+    icon: "🛍️",
+    title: "Retail & E-commerce",
+    description: "Omnichannel retail solutions, inventory management, and personalization engines",
+    clients: "200+ Retail Brands",
+    color: "#DC2626"
+  },
+  {
+    icon: "🏭",
+    title: "Manufacturing & Supply Chain",
+    description: "IoT-enabled factory automation, predictive maintenance, and supply chain optimization",
+    clients: "75+ Manufacturers",
+    color: "#7C3AED"
+  },
+  {
+    icon: "🚗",
+    title: "Automotive & Mobility",
+    description: "Connected vehicle platforms, fleet management, and autonomous driving solutions",
+    clients: "30+ Automotive Companies",
+    color: "#EA580C"
+  },
+  {
+    icon: "⚡",
+    title: "Energy & Utilities",
+    description: "Smart grid solutions, renewable energy management, and predictive analytics",
+    clients: "40+ Energy Providers",
+    color: "#0891B2"
+  }
+];
+
+// Tech Stack Data
+export const techStackData = [
+  {
+    category: "Frontend",
+    icon: "🎨",
+    color: "#e11d48",
+    technologies: [
+      { name: "React/Next.js", level: 98, expertise: "Expert", projects: "200+" },
+      { name: "Angular", level: 95, expertise: "Expert", projects: "150+" },
+      { name: "Vue.js", level: 92, expertise: "Advanced", projects: "100+" },
+      { name: "TypeScript", level: 96, expertise: "Expert", projects: "250+" }
+    ]
+  },
+  {
+    category: "Backend",
+    icon: "⚙️",
+    color: "#7c3aed",
+    technologies: [
+      { name: "Node.js", level: 97, expertise: "Expert", projects: "300+" },
+      { name: "Python/Django", level: 95, expertise: "Expert", projects: "250+" },
+      { name: ".NET Core", level: 93, expertise: "Advanced", projects: "180+" },
+      { name: "Java Spring", level: 94, expertise: "Expert", projects: "200+" }
+    ]
+  },
+  {
+    category: "Cloud & DevOps",
+    icon: "☁️",
+    color: "#059669",
+    technologies: [
+      { name: "AWS", level: 98, expertise: "Expert", projects: "400+" },
+      { name: "Azure", level: 95, expertise: "Expert", projects: "300+" },
+      { name: "Kubernetes", level: 93, expertise: "Advanced", projects: "200+" },
+      { name: "Terraform", level: 91, expertise: "Advanced", projects: "150+" }
+    ]
+  },
+  {
+    category: "Data & AI",
+    icon: "🤖",
+    color: "#dc2626",
+    technologies: [
+      { name: "TensorFlow", level: 92, expertise: "Advanced", projects: "100+" },
+      { name: "PyTorch", level: 90, expertise: "Advanced", projects: "80+" },
+      { name: "Spark", level: 94, expertise: "Expert", projects: "150+" },
+      { name: "Kafka", level: 93, expertise: "Advanced", projects: "120+" }
+    ]
+  }
+];
+
+// Process Timeline Data
+export const processData = [
+  {
+    phase: "01",
+    title: "Discovery & Analysis",
+    description: "We conduct thorough business analysis, stakeholder interviews, and technical assessments to understand your unique challenges.",
+    icon: "🔍",
+    duration: "2-3 weeks",
+    deliverables: ["Business Requirements", "Technical Architecture", "Project Roadmap", "Risk Assessment"]
+  },
+  {
+    phase: "02",
+    title: "Solution Design",
+    description: "Our architects design scalable solutions with detailed technical specifications and user experience blueprints.",
+    icon: "📐",
+    duration: "3-4 weeks",
+    deliverables: ["System Architecture", "API Design", "Database Schema", "UI/UX Mockups"]
+  },
+  {
+    phase: "03",
+    title: "Agile Development",
+    description: "Using proven agile methodologies, we build your solution in iterative sprints with continuous stakeholder feedback.",
+    icon: "💻",
+    duration: "8-16 weeks",
+    deliverables: ["Sprint Releases", "Code Documentation", "Test Reports", "Demo Sessions"]
+  },
+  {
+    phase: "04",
+    title: "Quality Assurance",
+    description: "Rigorous testing ensures your application meets the highest standards of performance, security, and reliability.",
+    icon: "✅",
+    duration: "2-3 weeks",
+    deliverables: ["Test Automation", "Security Audit", "Performance Report", "UAT Sign-off"]
+  },
+  {
+    phase: "05",
+    title: "Deployment & Support",
+    description: "Seamless production deployment with 24/7 monitoring, maintenance, and continuous improvement.",
+    icon: "🚀",
+    duration: "Ongoing",
+    deliverables: ["Production Release", "Training Materials", "SLA Agreement", "Support Portal"]
+  }
+];
+
+// Portfolio/Case Studies Data
+export const portfolioData = [
+  {
+    title: "Global Banking Platform",
+    client: "Leading European Bank",
+    industry: "Financial Services",
+    impact: {
+      users: "10M+",
+      transactions: "$50B+/year",
+      uptime: "99.99%"
+    },
+    technologies: ["React", "Node.js", "AWS", "Kubernetes"],
+    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80",
+    description: "Modernized legacy banking system to cloud-native microservices architecture"
+  },
+  {
+    title: "AI-Powered Healthcare Platform",
+    client: "National Health Network",
+    industry: "Healthcare",
+    impact: {
+      patients: "5M+",
+      accuracy: "97%",
+      cost_saved: "$20M/year"
+    },
+    technologies: ["Python", "TensorFlow", "Azure", "FHIR"],
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
+    description: "Developed predictive analytics platform for early disease detection"
+  },
+  {
+    title: "Supply Chain Optimization",
+    client: "Fortune 500 Retailer",
+    industry: "Retail",
+    impact: {
+      efficiency: "+45%",
+      cost_reduction: "30%",
+      delivery_time: "-2 days"
+    },
+    technologies: ["Java", "Kafka", "MongoDB", "React"],
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80",
+    description: "Real-time inventory management and demand forecasting system"
+  }
+];
+
+// Why Choose Data
+export const whyChooseData = [
+  {
+    icon: "🏆",
+    title: "Industry Leaders",
+    description: "Recognized by Gartner and Forrester as a top technology consulting firm with proven expertise across industries.",
+    highlight: "Top 1% Talent"
+  },
+  {
+    icon: "🔒",
+    title: "Enterprise Security",
+    description: "ISO 27001 certified with SOC 2 Type II compliance. Your data security is our highest priority.",
+    highlight: "Bank-Grade Security"
+  },
+  {
+    icon: "⚡",
+    title: "Agile Delivery",
+    description: "95% on-time delivery rate with flexible engagement models that adapt to your business needs.",
+    highlight: "2x Faster Delivery"
+  },
+  {
+    icon: "🌍",
+    title: "Global Expertise",
+    description: "24/7 support across time zones with dedicated teams that understand local markets and regulations.",
+    highlight: "25+ Countries"
+  }
+];
+
+// Mission Vision Data
+export const missionVisionData = {
+  description: "At Steganox, we turn complexity into clarity. Our name is inspired by Steganographers — experts in precision, encryption, and hidden meaning.",
+  mission: {
+    statement: "To empower businesses through intelligent, reliable, and future-ready software — turning complex challenges into powerful digital opportunities.",
+    values: ["Innovation at our core", "Security at our core", "Scalability at our core"]
+  },
+  vision: {
+    statement: "To be a trusted global technology partner, known for precision engineering, innovation, and delivering solutions that make a meaningful impact.",
+    goals: ["Global Reach", "Trusted Partner", "Meaningful Impact"]
+  }
+};
+

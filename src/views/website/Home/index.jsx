@@ -1,22 +1,23 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Stats3D from '../../../components/Stats3D';
+import FAQSection from '../../../components/FAQSection';
 import FuturisticHero from '../../../components/FuturisticHero';
 import AboutSection from '../../../components/AboutSection';
-import ExpertiseSection from '../../../components/ExpertiseSection';
 import ServicesSection from '../../../components/ServicesSection';
 import IndustriesSection from '../../../components/IndustriesSection';
 import WhyChooseSection from '../../../components/WhyChooseSection';
 import MissionVisionSection from '../../../components/MissionVisionSection';
-import InfiniteScroll3D from '../../../components/InfiniteScroll3D';
+import ExpertiseSection from '../../../components/ExpertiseSection';
 import ParallaxShowcase from '../../../components/ParallaxShowcase';
 import TimelineScroll from '../../../components/TimelineScroll';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
-function Home() {
+const Home = () => {
   const location = useLocation();
 
   useEffect(() => {
@@ -63,76 +64,93 @@ function Home() {
       {/* About Section */}
       <AboutSection />
 
-      {/* Expertise Section */}
-      <ExpertiseSection />
-
       {/* Services Section */}
       <ServicesSection />
 
-      {/* Industries Section */}
+      {/* Industries We Serve */}
       <IndustriesSection />
 
       {/* Why Choose Section */}
       <WhyChooseSection />
 
-      {/* Mission & Vision Section */}
+      {/* Mission & Vision */}
       <MissionVisionSection />
 
-      {/* 3D Infinite Scroll Tech */}
-      <InfiniteScroll3D />
+      {/* Tech Stack */}
+      <ExpertiseSection />
+
+      {/* Portfolio Showcase */}
+      <ParallaxShowcase />
 
       {/* Process Timeline */}
       <TimelineScroll />
 
-      {/* Parallax Portfolio Showcase */}
-      <ParallaxShowcase />
-
       {/* Stats Section with Count Animation */}
-      <section 
-        className="relative py-32"
-        style={{ backgroundColor: '#000000' }}
-      >
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/10 to-black" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl" />
-        </div>
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { number: "500+", label: "Projects Delivered", icon: "🚀" },
-              { number: "50M+", label: "Users Served", icon: "👥" },
-              { number: "99.9%", label: "Uptime SLA", icon: "⚡" },
-              { number: "24/7", label: "Support Available", icon: "🛡️" }
-            ].map((stat, index) => (
-              <div key={index} className="text-center group cursor-pointer">
-                <div 
-                  className="mb-4 transition-transform duration-300 group-hover:scale-110"
-                  style={{ fontSize: '3rem' }}
-                >
-                  {stat.icon}
-                </div>
-                <div 
-                  className="font-bold mb-2"
-                  style={{
-                    fontSize: 'clamp(2rem, 4vw, 3rem)',
-                    color: '#ffffff'
-                  }}
-                >
-                  {stat.number}
-                </div>
-                <div 
-                  style={{
-                    color: 'rgba(255,255,255,0.6)'
-                  }}
-                >
-                  {stat.label}
-                </div>
-              </div>
-            ))}
+      {/* <Stats3D /> */}
+
+      {/* FAQ Section */}
+      {/* <FAQSection /> */}
+
+      {/* CTA Section */}
+      <div className="py-32 bg-black">
+        <div className="container mx-auto px-6 text-center relative z-10">
+          <h2 
+            className="font-bold mb-6"
+            style={{
+              fontSize: 'clamp(2.5rem, 8vw, 5rem)',
+              color: '#ffffff',
+              lineHeight: '1.1'
+            }}
+          >
+            Ready to Build the Future?
+          </h2>
+          <p 
+            className="mb-12 max-w-3xl mx-auto"
+            style={{
+              fontSize: '1.3rem',
+              color: 'rgba(255,255,255,0.6)'
+            }}
+          >
+            Let's create something extraordinary together. Get a free consultation and project estimate.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <button 
+              className="group relative px-8 py-4 rounded-full transition-all duration-300 hover:scale-105"
+              style={{
+                backgroundColor: '#ffffff',
+                color: '#000000',
+                fontWeight: '600',
+                border: 'none'
+              }}
+            >
+              <span className="relative z-10">
+                Start Your Project
+              </span>
+            </button>
+            
+            <button 
+              className="px-8 py-4 rounded-full transition-all duration-300 hover:scale-105"
+              style={{
+                backgroundColor: 'transparent',
+                color: '#ffffff',
+                border: '2px solid rgba(255,255,255,0.3)',
+                fontWeight: '600'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.borderColor = 'rgba(255,255,255,0.6)';
+                e.target.style.backgroundColor = 'rgba(255,255,255,0.1)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.borderColor = 'rgba(255,255,255,0.3)';
+                e.target.style.backgroundColor = 'transparent';
+              }}
+            >
+              Schedule a Call
+            </button>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* Testimonials with 3D Cards */}
       <section 
@@ -239,75 +257,6 @@ function Home() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section 
-        className="relative py-32"
-        style={{ backgroundColor: '#000000' }}
-      >
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 to-black" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-3xl" />
-        </div>
-        
-        <div className="container mx-auto px-6 text-center relative z-10">
-          <h2 
-            className="font-bold mb-6"
-            style={{
-              fontSize: 'clamp(2.5rem, 8vw, 5rem)',
-              color: '#ffffff',
-              lineHeight: '1.1'
-            }}
-          >
-            Ready to Build the Future?
-          </h2>
-          <p 
-            className="mb-12 max-w-3xl mx-auto"
-            style={{
-              fontSize: '1.3rem',
-              color: 'rgba(255,255,255,0.6)'
-            }}
-          >
-            Let's create something extraordinary together. Get a free consultation and project estimate.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button 
-              className="group relative px-8 py-4 rounded-full transition-all duration-300 hover:scale-105"
-              style={{
-                backgroundColor: '#ffffff',
-                color: '#000000',
-                fontWeight: '600',
-                border: 'none'
-              }}
-            >
-              <span className="relative z-10">
-                Start Your Project
-              </span>
-            </button>
-            
-            <button 
-              className="px-8 py-4 rounded-full transition-all duration-300 hover:scale-105"
-              style={{
-                backgroundColor: 'transparent',
-                color: '#ffffff',
-                border: '2px solid rgba(255,255,255,0.3)',
-                fontWeight: '600'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.borderColor = 'rgba(255,255,255,0.6)';
-                e.target.style.backgroundColor = 'rgba(255,255,255,0.1)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.borderColor = 'rgba(255,255,255,0.3)';
-                e.target.style.backgroundColor = 'transparent';
-              }}
-            >
-              Schedule a Call
-            </button>
           </div>
         </div>
       </section>

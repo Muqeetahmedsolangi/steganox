@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { heroData } from '../constant/data';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,13 +23,13 @@ const FuturisticHero = () => {
           trigger: containerRef.current,
           start: "top top",
           end: "bottom top",
-          scrub: 0.5, // Faster response to scroll
+          scrub: 0.5,
           pin: true,
           pinSpacing: false
         }
       });
 
-      // Background parallax - starts immediately
+      // Background parallax
       heroTimeline.to(bgRef.current, {
         yPercent: -30,
         scale: 1.2,
@@ -36,7 +37,7 @@ const FuturisticHero = () => {
         duration: 1
       }, 0);
 
-      // Main title animation - starts early
+      // Main title animation
       heroTimeline.to(textRef.current, {
         yPercent: -100,
         scale: 0.7,
@@ -59,14 +60,14 @@ const FuturisticHero = () => {
         duration: 0.6
       }, 0.2);
 
-      // Scroll indicator disappears quickly
+      // Scroll indicator
       heroTimeline.to(scrollIndicatorRef.current, {
         opacity: 0,
         scale: 0.5,
         duration: 0.3
       }, 0);
 
-      // Floating code elements animation
+      // Floating code elements
       codeRefs.current.forEach((el, index) => {
         if (el) {
           gsap.to(el, {
@@ -141,7 +142,7 @@ const FuturisticHero = () => {
               scale: 0.8
             },
             {
-              opacity: 0.6,
+              opacity: window.innerWidth > 768 ? 0.6 : 0.4,
               y: 0,
               scale: 1,
               duration: 1,
@@ -158,10 +159,10 @@ const FuturisticHero = () => {
   }, []);
 
   const codeSnippets = [
-    "const ai = await ML.train(data);",
-    "deploy({ scale: 'infinite' });",
-    "security.encrypt(sensitive);",
-    "performance.optimize();"
+    "const innovation = await deploy();",
+    "security.encrypt(data);",
+    "scale({ limit: 'none' });",
+    "ai.optimize(performance);"
   ];
 
   return (
@@ -171,7 +172,7 @@ const FuturisticHero = () => {
       className="relative h-screen overflow-hidden"
       style={{ backgroundColor: '#000000' }}
     >
-      {/* Background with better gradient */}
+      {/* Background */}
       <div ref={bgRef} className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-purple-900/10 to-black" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%]">
@@ -181,7 +182,7 @@ const FuturisticHero = () => {
 
       {/* Grid pattern */}
       <div 
-        className="absolute inset-0 opacity-20"
+        className="absolute inset-0 opacity-10 md:opacity-20"
         style={{
           backgroundImage: `linear-gradient(rgba(168,85,247,0.1) 1px, transparent 1px),
                            linear-gradient(90deg, rgba(168,85,247,0.1) 1px, transparent 1px)`,
@@ -189,8 +190,8 @@ const FuturisticHero = () => {
         }}
       />
 
-      {/* Floating code snippets - positioned better */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* Floating code snippets - hidden on mobile */}
+      <div className="absolute inset-0 pointer-events-none hidden md:block">
         {codeSnippets.map((code, i) => (
           <div
             key={i}
@@ -202,7 +203,7 @@ const FuturisticHero = () => {
             }}
           >
             <code 
-              className="px-4 py-2 rounded-lg text-sm font-mono"
+              className="px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-xs md:text-sm font-mono"
               style={{
                 backgroundColor: 'rgba(168,85,247,0.1)',
                 border: '1px solid rgba(168,85,247,0.2)',
@@ -218,7 +219,7 @@ const FuturisticHero = () => {
 
       {/* Floating particles */}
       <div className="absolute inset-0">
-        {[...Array(12)].map((_, i) => (
+        {[...Array(8)].map((_, i) => (
           <div
             key={i}
             ref={el => floatingRefs.current[i] = el}
@@ -237,12 +238,12 @@ const FuturisticHero = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
+      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 md:px-6">
         <h1 
           ref={textRef} 
-          className="font-bold mb-6"
+          className="font-bold mb-4 md:mb-6"
           style={{
-            fontSize: 'clamp(3.5rem, 9vw, 7rem)',
+            fontSize: 'clamp(2.5rem, 8vw, 7rem)',
             lineHeight: '0.95',
             letterSpacing: '-0.02em'
           }}
@@ -256,86 +257,86 @@ const FuturisticHero = () => {
               filter: 'drop-shadow(0 0 30px rgba(168,85,247,0.5))'
             }}
           >
-            Steganox
+            {heroData.title}
           </span>
           <span 
-            className="block text-3xl md:text-4xl lg:text-5xl mt-2"
+            className="block text-xl sm:text-2xl md:text-3xl lg:text-5xl mt-2"
             style={{
               background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent'
             }}
           >
-            Building Intelligent Software
+            {heroData.subtitle}
           </span>
         </h1>
 
         <p 
           ref={subRef} 
-          className="mb-10 max-w-3xl mx-auto"
+          className="mb-8 md:mb-10 max-w-3xl mx-auto px-4"
           style={{
-            fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)',
+            fontSize: 'clamp(1rem, 2vw, 1.5rem)',
             color: 'rgba(255,255,255,0.8)',
             lineHeight: '1.5'
           }}
         >
-          From Concept to Development, Intelligently Mapped.
-          <span className="block mt-2" style={{ color: 'rgba(255,255,255,0.6)' }}>
-            Empowering Ambitious Businesses with Cutting-Edge Solutions
+          {heroData.description}
+          <span className="block mt-2 text-sm md:text-base" style={{ color: 'rgba(255,255,255,0.6)' }}>
+            {heroData.subDescription}
           </span>
         </p>
 
-        <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-4">
-          <button 
-            className="group relative px-8 py-4 overflow-hidden rounded-full transition-all duration-300 hover:scale-105"
-            style={{ 
-              background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
-              boxShadow: '0 4px 30px rgba(168,85,247,0.3)'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow = '0 8px 40px rgba(168,85,247,0.5)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.boxShadow = '0 4px 30px rgba(168,85,247,0.3)';
-            }}
-          >
-            <span className="relative z-10 text-white font-semibold">
-              Start Your Project
-            </span>
-          </button>
-
-          <button 
-            className="group relative px-8 py-4 rounded-full transition-all duration-300 hover:scale-105"
-            style={{
-              backgroundColor: 'rgba(255,255,255,0.05)',
-              color: '#ffffff',
-              border: '2px solid rgba(255,255,255,0.2)',
-              backdropFilter: 'blur(10px)'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = 'rgba(168,85,247,0.6)';
-              e.currentTarget.style.backgroundColor = 'rgba(168,85,247,0.1)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
-              e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)';
-            }}
-          >
-            <span className="font-semibold">Explore Our Work</span>
-          </button>
+        <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-3 md:gap-4 w-full sm:w-auto px-4 sm:px-0">
+          {heroData.buttons.map((button, index) => (
+            <button 
+              key={index}
+              className={`group relative px-6 md:px-8 py-3 md:py-4 overflow-hidden rounded-full transition-all duration-300 hover:scale-105 w-full sm:w-auto ${
+                button.primary ? '' : ''
+              }`}
+              style={button.primary ? { 
+                background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
+                boxShadow: '0 4px 30px rgba(168,85,247,0.3)'
+              } : {
+                backgroundColor: 'rgba(255,255,255,0.05)',
+                color: '#ffffff',
+                border: '2px solid rgba(255,255,255,0.2)',
+                backdropFilter: 'blur(10px)'
+              }}
+              onMouseEnter={(e) => {
+                if (button.primary) {
+                  e.currentTarget.style.boxShadow = '0 8px 40px rgba(168,85,247,0.5)';
+                } else {
+                  e.currentTarget.style.borderColor = 'rgba(168,85,247,0.6)';
+                  e.currentTarget.style.backgroundColor = 'rgba(168,85,247,0.1)';
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (button.primary) {
+                  e.currentTarget.style.boxShadow = '0 4px 30px rgba(168,85,247,0.3)';
+                } else {
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+                  e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)';
+                }
+              }}
+            >
+              <span className={`relative z-10 font-semibold text-sm md:text-base ${button.primary ? 'text-white' : ''}`}>
+                {button.text}
+              </span>
+            </button>
+          ))}
         </div>
 
         {/* Scroll indicator */}
-        <div ref={scrollIndicatorRef} className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0">
+        <div ref={scrollIndicatorRef} className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 opacity-0">
           <div className="flex flex-col items-center gap-2">
             <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)' }}>
               Scroll to explore
             </span>
             <div 
-              className="w-7 h-12 rounded-full border-2 border-white/20 flex justify-center pt-2"
+              className="w-6 h-10 md:w-7 md:h-12 rounded-full border-2 border-white/20 flex justify-center pt-2"
             >
               <div 
-                className="w-1 h-3 bg-white/60 rounded-full animate-bounce"
+                className="w-1 h-2 md:h-3 bg-white/60 rounded-full animate-bounce"
               />
             </div>
           </div>
