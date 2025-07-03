@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Icon } from '@iconify/react';
 import gsap from 'gsap';
@@ -11,6 +11,7 @@ function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const headerRef = useRef(null);
   const logoRef = useRef(null);
   const navItemsRef = useRef([]);
@@ -18,8 +19,9 @@ function Header() {
 
   const navItems = [
     { name: 'Home', path: '/', icon: 'mdi:home' },
-    { name: 'Services', path: '/services', icon: 'mdi:cog' },
+    { name: 'Services', path: '/#services', icon: 'mdi:cog', scrollTo: 'services-section' },
     { name: 'Portfolio', path: '/portfolio', icon: 'mdi:briefcase' },
+    { name: 'Case Studies', path: '/case-studies', icon: 'mdi:view-grid' },
     { name: 'About', path: '/about-us', icon: 'mdi:information' },
     { name: 'Blog', path: '/blogs', icon: 'mdi:post' },
     { name: 'Contact', path: '/contact-us', icon: 'mdi:phone' }
@@ -76,6 +78,23 @@ function Header() {
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
+
+  const handleNavClick = (item) => {
+    if (item.name === 'Services') {
+      if (location.pathname !== '/') {
+        navigate('/');
+        setTimeout(() => {
+          const el = document.getElementById('services-section');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 400);
+      } else {
+        const el = document.getElementById('services-section');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      navigate(item.path);
+    }
+  };
 
   return (
     <>
@@ -186,39 +205,40 @@ function Header() {
 
             {/* Enhanced Professional Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
-              {navItems.map((item, index) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  ref={(el) => (navItemsRef.current[index] = el)}
-                  className={`group relative px-3 xl:px-4 py-2 xl:py-3 rounded-xl transition-all duration-500 hover:bg-void-800/50 hover:shadow-lg hover:shadow-neon-500/10 ${location.pathname === item.path
-                    ? 'text-neon-400 bg-gradient-to-br from-void-800/40 to-void-700/40 border border-neon-500/30 shadow-lg shadow-neon-500/20'
-                    : 'text-gray-300 hover:text-white'
+              {navItems.map((item, index) => {
+                const isActive =
+                  (item.name === 'Services' && location.pathname === '/' && window.location.hash === '#services') ||
+                  (item.path !== '/#services' && location.pathname === item.path);
+                return (
+                  <button
+                    key={item.name}
+                    ref={el => navItemsRef.current[index] = el}
+                    onClick={() => handleNavClick(item)}
+                    className={`group relative px-3 xl:px-4 py-2 xl:py-3 rounded-xl transition-all duration-500 hover:bg-void-800/50 hover:shadow-lg hover:shadow-neon-500/10 ${
+                      isActive
+                        ? 'text-neon-400 bg-gradient-to-br from-void-800/40 to-void-700/40 border border-neon-500/30 shadow-lg shadow-neon-500/20'
+                        : 'text-gray-300 hover:text-white'
                     }`}
-                >
-                  {/* Professional background effect */}
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-neon-500/5 to-cyber-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                  <div className="flex items-center gap-2 relative z-10">
-                    <Icon
-                      icon={item.icon}
-                      className={`w-4 h-4 transition-all duration-500 ${location.pathname === item.path
-                        ? 'text-neon-500 scale-110'
-                        : 'text-gray-500 group-hover:text-neon-400 group-hover:scale-110'
-                        }`}
-                    />
-                    <span className="text-sm xl:text-base font-semibold">{item.name}</span>
-                  </div>
-
-                  {/* Enhanced active indicator */}
-                  {location.pathname === item.path && (
-                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-1 bg-gradient-to-r from-neon-500 to-cyber-500 rounded-full shadow-lg shadow-neon-500/50" />
-                  )}
-
-                  {/* Professional corner accent */}
-                  <div className="absolute top-0 right-0 w-4 h-4 bg-gradient-to-bl from-neon-500/10 to-transparent rounded-tr-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </Link>
-              ))}
+                    style={{ background: isActive ? 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)' : undefined }}
+                  >
+                    {/* Professional background effect */}
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-neon-500/5 to-cyber-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="flex items-center gap-2 relative z-10">
+                      <Icon
+                        icon={item.icon}
+                        className={`w-4 h-4 transition-all duration-500 ${isActive ? 'text-neon-500 scale-110' : 'text-gray-500 group-hover:text-neon-400 group-hover:scale-110'}`}
+                      />
+                      <span className="text-sm xl:text-base font-semibold">{item.name}</span>
+                    </div>
+                    {/* Enhanced active indicator */}
+                    {isActive && (
+                      <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-1 bg-gradient-to-r from-neon-500 to-cyber-500 rounded-full shadow-lg shadow-neon-500/50" />
+                    )}
+                    {/* Professional corner accent */}
+                    <div className="absolute top-0 right-0 w-4 h-4 bg-gradient-to-bl from-neon-500/10 to-transparent rounded-tr-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  </button>
+                );
+              })}
             </nav>
 
             {/* Enhanced Professional CTA Section */}

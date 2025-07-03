@@ -116,7 +116,7 @@ const Services = () => {
       {/* Hero Section */}
       <section className="relative pt-8 pb-16 md:pb-24">
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-600/10 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
           </div>
 
@@ -124,9 +124,9 @@ const Services = () => {
           <div ref={heroRef} className="text-center max-w-4xl mx-auto">
             {/* Badge */}
             <div className="inline-block mb-6">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-600/20 to-blue-600/20 border border-cyan-600/30">
-                <Icon icon="fluent:settings-24-filled" className="w-5 h-5 text-cyan-400" />
-                <span className="text-sm font-medium text-cyan-300">Our Services</span>
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-purple-600/30">
+                <Icon icon="fluent:settings-24-filled" className="w-5 h-5 text-purple-400" />
+                <span className="text-sm font-medium text-purple-300">Our Services</span>
             </div>
           </div>
             
@@ -138,7 +138,12 @@ const Services = () => {
                 color: '#ffffff'
               }}
             >
-              Engineering <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Excellence</span>
+              Software <span style={{
+                background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}>Excellence</span>
             </h1>
             
             <p 
@@ -155,7 +160,7 @@ const Services = () => {
                   className="font-bold mb-2"
                   style={{
                     fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
-                    background: 'linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%)',
+                    background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent'
                   }}
@@ -169,7 +174,7 @@ const Services = () => {
                   className="font-bold mb-2"
                   style={{
                     fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
-                    background: 'linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%)',
+                    background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent'
                   }}
@@ -183,7 +188,7 @@ const Services = () => {
                   className="font-bold mb-2"
                   style={{
                     fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
-                    background: 'linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%)',
+                    background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent'
                   }}
@@ -197,7 +202,7 @@ const Services = () => {
                   className="font-bold mb-2"
                   style={{
                     fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
-                    background: 'linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%)',
+                    background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent'
                   }}
@@ -280,7 +285,7 @@ const Services = () => {
                   {/* Glow effect */}
                   <div 
                     className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"
-                    style={{ background: 'radial-gradient(circle at center, rgba(6,182,212,0.3), transparent 70%)' }}
+                    style={{ background: 'radial-gradient(circle at center, rgba(168,85,247,0.3), transparent 70%)' }}
                   />
 
                   {/* Card content */}
@@ -295,7 +300,7 @@ const Services = () => {
                         <Icon 
                           icon={service.icon} 
                           className="w-8 h-8"
-                          style={{ color: '#06b6d4' }}
+                          style={{ color: '#a855f7' }}
                         />
                       </div>
                       <h3 
@@ -322,7 +327,7 @@ const Services = () => {
                       <div className="space-y-3">
                         {service.features.slice(0, 4).map((feature, idx) => (
                           <div key={idx} className="flex items-center gap-3">
-                            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-400"></div>
+                            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-400 to-blue-400"></div>
                             <span
                               className="text-sm"
                               style={{ color: 'rgba(255,255,255,0.8)' }}
@@ -336,7 +341,7 @@ const Services = () => {
 
                     {/* Learn More Button */}
                     <button 
-                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-cyan-600/20 to-blue-600/20 border border-cyan-600/30 text-white hover:border-cyan-600/50 transition-all duration-300 group/btn"
+                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-purple-600/30 text-white hover:border-purple-600/50 transition-all duration-300 group/btn"
                       onClick={(e) => {
                         e.stopPropagation();
                         handleServiceClick(service.id);
@@ -383,9 +388,9 @@ const Services = () => {
                 onClick={() => navigate('/contact-us')}
                 className="px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105"
                 style={{
-                  background: 'linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%)',
+                  background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
                   color: '#ffffff',
-                  boxShadow: '0 10px 30px rgba(6,182,212,0.3)'
+                  boxShadow: '0 10px 30px rgba(168,85,247,0.3)'
                 }}
               >
                 <div className="flex items-center justify-center gap-2">

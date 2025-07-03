@@ -76,6 +76,7 @@ const ServicesSection = () => {
   return (
     <section 
       ref={sectionRef}
+      id="services"
       className="py-16 md:py-24 lg:py-32 overflow-hidden"
       style={{ backgroundColor: '#000000' }}
     >
@@ -89,7 +90,7 @@ const ServicesSection = () => {
         {/* Title */}
         <div className="text-center mb-16 md:mb-20">
           <div className="inline-block mb-6">
-            <span className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm font-semibold rounded-full">
+            <span className="px-4 py-2 bg-gradient-to-r from-purple-600/20 to-blue-600/20 text-purple-300 text-sm font-semibold rounded-full border border-purple-600/30">
               OUR SERVICES
             </span>
           </div>
@@ -103,8 +104,13 @@ const ServicesSection = () => {
               color: '#ffffff'
             }}
           >
-            Engineering{' '}
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+            Our{' '}
+            <span style={{
+              background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}>
               Solutions
             </span>
           </h2>
@@ -175,7 +181,7 @@ const ServicesSection = () => {
                   <div className="space-y-3">
                     {service.features.slice(0, 4).map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-3">
-                        <div className="w-2 h-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-400"></div>
+                        <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-400 to-blue-400"></div>
                         <span
                           className="text-sm"
                           style={{ color: 'rgba(255,255,255,0.8)' }}
@@ -189,7 +195,7 @@ const ServicesSection = () => {
 
                 {/* Learn More Button */}
                 <button 
-                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-white/10 to-white/5 border border-white/20 text-white hover:border-white/30 transition-all duration-300 group/btn"
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-purple-600/30 text-white hover:border-purple-600/50 transition-all duration-300 group/btn"
                   onClick={(e) => {
                     e.stopPropagation();
                     handleServiceClick(service.id);

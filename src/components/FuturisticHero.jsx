@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { heroData } from '../constant/data';
+import './heroGrid.css';
+import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,21 +69,30 @@ const FuturisticHero = () => {
         duration: 0.3
       }, 0);
 
-      // Floating code elements
+      // Floating code elements (animate in/out on scroll up/down)
       codeRefs.current.forEach((el, index) => {
         if (el) {
-          gsap.to(el, {
-            yPercent: -150 - (index * 30),
-            opacity: 0,
-            scale: 0.8,
-            rotation: 180 * (index % 2 === 0 ? 1 : -1),
-            scrollTrigger: {
-              trigger: containerRef.current,
-              start: "top top",
-              end: "bottom top",
-              scrub: 0.5
+          gsap.fromTo(el,
+            {
+              yPercent: 0,
+              opacity: window.innerWidth > 768 ? 0.6 : 0.4,
+              scale: 1,
+              rotation: 0
+            },
+            {
+              yPercent: -150 - (index * 30),
+              opacity: 0,
+              scale: 0.8,
+              rotation: 180 * (index % 2 === 0 ? 1 : -1),
+              scrollTrigger: {
+                trigger: containerRef.current,
+                start: 'top top',
+                end: 'bottom top',
+                scrub: 0.5,
+                toggleActions: 'play reverse play reverse',
+              }
             }
-          });
+          );
         }
       });
 
@@ -169,7 +180,7 @@ const FuturisticHero = () => {
     <section 
       ref={containerRef} 
       id="home" 
-      className="relative h-screen overflow-hidden"
+      className="relative h-screen overflow-hidden hero-grid-bg"
       style={{ backgroundColor: '#000000' }}
     >
       {/* Background */}
@@ -287,43 +298,44 @@ const FuturisticHero = () => {
         </p>
 
         <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-3 md:gap-4 w-full sm:w-auto px-4 sm:px-0">
-          {heroData.buttons.map((button, index) => (
+          <Link to="/contact-us" className="w-full sm:w-auto">
             <button 
-              key={index}
-              className={`group relative px-6 md:px-8 py-3 md:py-4 overflow-hidden rounded-full transition-all duration-300 hover:scale-105 w-full sm:w-auto ${
-                button.primary ? '' : ''
-              }`}
-              style={button.primary ? { 
+              className="group relative px-6 md:px-8 py-3 md:py-4 overflow-hidden rounded-full transition-all duration-300 hover:scale-105 w-full sm:w-auto"
+              style={{ 
                 background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
                 boxShadow: '0 4px 30px rgba(168,85,247,0.3)'
-              } : {
+              }}
+              onMouseEnter={e => e.currentTarget.style.boxShadow = '0 8px 40px rgba(168,85,247,0.5)'}
+              onMouseLeave={e => e.currentTarget.style.boxShadow = '0 4px 30px rgba(168,85,247,0.3)'}
+            >
+              <span className="relative z-10 font-semibold text-sm md:text-base text-white">
+                Schedule Consultation
+              </span>
+            </button>
+          </Link>
+          <Link to="/case-studies" className="w-full sm:w-auto">
+            <button 
+              className="group relative px-6 md:px-8 py-3 md:py-4 overflow-hidden rounded-full transition-all duration-300 hover:scale-105 w-full sm:w-auto"
+              style={{
                 backgroundColor: 'rgba(255,255,255,0.05)',
                 color: '#ffffff',
                 border: '2px solid rgba(255,255,255,0.2)',
                 backdropFilter: 'blur(10px)'
               }}
-              onMouseEnter={(e) => {
-                if (button.primary) {
-                  e.currentTarget.style.boxShadow = '0 8px 40px rgba(168,85,247,0.5)';
-                } else {
-                  e.currentTarget.style.borderColor = 'rgba(168,85,247,0.6)';
-                  e.currentTarget.style.backgroundColor = 'rgba(168,85,247,0.1)';
-                }
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = 'rgba(168,85,247,0.6)';
+                e.currentTarget.style.backgroundColor = 'rgba(168,85,247,0.1)';
               }}
-              onMouseLeave={(e) => {
-                if (button.primary) {
-                  e.currentTarget.style.boxShadow = '0 4px 30px rgba(168,85,247,0.3)';
-                } else {
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
-                  e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)';
-                }
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
+                e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)';
               }}
             >
-              <span className={`relative z-10 font-semibold text-sm md:text-base ${button.primary ? 'text-white' : ''}`}>
-                {button.text}
+              <span className="relative z-10 font-semibold text-sm md:text-base">
+                View Case Studies
               </span>
             </button>
-          ))}
+          </Link>
         </div>
 
         {/* Scroll indicator */}

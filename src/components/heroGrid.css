@@ -1,0 +1,25 @@
+.hero-grid-bg {
+  /* Modular grid pattern for hero backgrounds */
+  background-color: #0a001a;
+  position: relative;
+}
+.hero-grid-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.13;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(168,85,247,0.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59,130,246,0.13) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+:root {
+  --primary-purple: #a855f7;
+  --primary-blue: #3b82f6;
+  --hero-bg: #0a001a;
+  --hero-glass: rgba(255,255,255,0.05);
+  --hero-border: rgba(255,255,255,0.1);
+} 

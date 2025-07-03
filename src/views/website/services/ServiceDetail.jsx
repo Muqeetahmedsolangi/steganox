@@ -154,7 +154,7 @@ const ServiceDetail = () => {
       {/* Hero Section */}
       <section ref={heroRef} className="relative pt-8 pb-16 md:pb-24">
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-600/10 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
         </div>
 
@@ -170,7 +170,7 @@ const ServiceDetail = () => {
                 <Icon 
                   icon={service.icon} 
                   className="w-10 h-10"
-                  style={{ color: '#06b6d4' }}
+                  style={{ color: '#a855f7' }}
                 />
               </div>
             </div>
@@ -202,7 +202,7 @@ const ServiceDetail = () => {
                   className="font-bold mb-2"
                   style={{
                     fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
-                    background: 'linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%)',
+                    background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent'
                   }}
@@ -216,7 +216,7 @@ const ServiceDetail = () => {
                   className="font-bold mb-2"
                   style={{
                     fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
-                    background: 'linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%)',
+                    background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent'
                   }}
@@ -230,7 +230,7 @@ const ServiceDetail = () => {
                   className="font-bold mb-2"
                   style={{
                     fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
-                    background: 'linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%)',
+                    background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent'
                   }}
@@ -244,7 +244,7 @@ const ServiceDetail = () => {
                   className="font-bold mb-2"
                   style={{
                     fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
-                    background: 'linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%)',
+                    background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent'
                   }}
@@ -277,7 +277,7 @@ const ServiceDetail = () => {
               <div className="space-y-6">
                 {service.features.map((feature, index) => (
                   <div key={index} className="flex items-start gap-4">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center flex-shrink-0 mt-1">
                       <Icon icon="fluent:checkmark-24-filled" className="w-4 h-4 text-white" />
                     </div>
                     <div>
@@ -304,7 +304,7 @@ const ServiceDetail = () => {
               <div className="space-y-4">
                 {benefits.map((benefit, index) => (
                   <div key={index} className="flex items-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-400"></div>
+                    <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-400 to-blue-400"></div>
                     <span style={{ color: 'rgba(255,255,255,0.8)' }}>{benefit}</span>
                   </div>
                 ))}
@@ -338,24 +338,24 @@ const ServiceDetail = () => {
                 {/* Glow effect */}
                 <div 
                   className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"
-                  style={{ background: 'radial-gradient(circle at center, rgba(6,182,212,0.3), transparent 70%)' }}
+                  style={{ background: 'radial-gradient(circle at center, rgba(168,85,247,0.3), transparent 70%)' }}
                 />
                 
                 <div className="relative z-10 flex flex-col items-center text-center">
                   <div 
                     className="w-12 h-12 rounded-xl flex items-center justify-center mb-3 transition-transform duration-300 group-hover:scale-110"
-                    style={{ backgroundColor: 'rgba(6,182,212,0.1)' }}
+                    style={{ backgroundColor: 'rgba(168,85,247,0.1)' }}
                   >
                     <Icon 
                       icon="fluent:settings-24-filled" 
                       className="w-6 h-6"
-                      style={{ color: '#06b6d4' }}
+                      style={{ color: '#a855f7' }}
                     />
                   </div>
                   <h4 className="text-sm font-semibold text-white mb-1">{tech.name}</h4>
                   <div className="w-full bg-gray-700 rounded-full h-1.5 mb-2">
                     <div 
-                      className="bg-gradient-to-r from-cyan-400 to-blue-400 h-1.5 rounded-full transition-all duration-300"
+                      className="bg-gradient-to-r from-purple-400 to-blue-400 h-1.5 rounded-full transition-all duration-300"
                       style={{ width: `${tech.level}%` }}
                     ></div>
                   </div>
@@ -391,7 +391,7 @@ const ServiceDetail = () => {
                 <div className="flex items-start gap-4">
                   <div 
                     className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ background: 'linear-gradient(135deg, #06b6d4, #3b82f6)' }}
+                    style={{ background: 'linear-gradient(135deg, #a855f7, #3b82f6)' }}
                   >
                     <Icon icon={step.icon} className="w-6 h-6 text-white" />
                   </div>
@@ -400,8 +400,8 @@ const ServiceDetail = () => {
                       <span 
                         className="text-xs font-bold px-2 py-1 rounded-full"
                         style={{ 
-                          background: 'rgba(6,182,212,0.2)', 
-                          color: '#06b6d4' 
+                          background: 'rgba(168,85,247,0.2)', 
+                          color: '#a855f7' 
                         }}
                       >
                         STEP {step.step}
@@ -439,7 +439,7 @@ const ServiceDetail = () => {
                   backdropFilter: 'blur(20px)'
                 }}
               >
-                <Icon icon="fluent:clock-24-filled" className="w-12 h-12 mx-auto mb-4" style={{ color: '#06b6d4' }} />
+                <Icon icon="fluent:clock-24-filled" className="w-12 h-12 mx-auto mb-4" style={{ color: '#a855f7' }} />
                 <h3 className="text-xl font-semibold text-white mb-2">Timeline</h3>
                 <p style={{ color: 'rgba(255,255,255,0.7)' }}>2-8 weeks depending on complexity</p>
               </div>
@@ -451,7 +451,7 @@ const ServiceDetail = () => {
                   backdropFilter: 'blur(20px)'
                 }}
               >
-                <Icon icon="fluent:money-24-filled" className="w-12 h-12 mx-auto mb-4" style={{ color: '#06b6d4' }} />
+                <Icon icon="fluent:money-24-filled" className="w-12 h-12 mx-auto mb-4" style={{ color: '#a855f7' }} />
                 <h3 className="text-xl font-semibold text-white mb-2">Starting From</h3>
                 <p style={{ color: 'rgba(255,255,255,0.7)' }}>$3,000 - $15,000</p>
               </div>
@@ -463,7 +463,7 @@ const ServiceDetail = () => {
                   backdropFilter: 'blur(20px)'
                 }}
               >
-                <Icon icon="fluent:people-24-filled" className="w-12 h-12 mx-auto mb-4" style={{ color: '#06b6d4' }} />
+                <Icon icon="fluent:people-24-filled" className="w-12 h-12 mx-auto mb-4" style={{ color: '#a855f7' }} />
                 <h3 className="text-xl font-semibold text-white mb-2">Team Size</h3>
                 <p style={{ color: 'rgba(255,255,255,0.7)' }}>2-5 engineers dedicated</p>
               </div>
@@ -496,11 +496,11 @@ const ServiceDetail = () => {
               >
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-12 h-12 rounded-xl flex items-center justify-center"
-                       style={{ backgroundColor: 'rgba(6,182,212,0.1)' }}>
+                       style={{ backgroundColor: 'rgba(168,85,247,0.1)' }}>
                     <Icon 
                       icon={relatedService.icon} 
                       className="w-6 h-6"
-                      style={{ color: '#06b6d4' }}
+                      style={{ color: '#a855f7' }}
                     />
                   </div>
                   <h4 className="text-lg font-semibold text-white">{relatedService.title}</h4>
@@ -508,7 +508,7 @@ const ServiceDetail = () => {
                 <p style={{ color: 'rgba(255,255,255,0.7)' }} className="text-sm mb-4">
                   {relatedService.description.substring(0, 120)}...
                 </p>
-                <button className="inline-flex items-center gap-2 text-cyan-400 font-medium text-sm group-hover:text-cyan-300 transition-colors">
+                <button className="inline-flex items-center gap-2 text-purple-400 font-medium text-sm group-hover:text-purple-300 transition-colors">
                   <span>Learn More</span>
                   <Icon icon="fluent:arrow-right-24-filled" className="w-4 h-4" />
                 </button>
@@ -539,9 +539,9 @@ const ServiceDetail = () => {
               <button 
                 className="px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105"
                 style={{
-                  background: 'linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%)',
+                  background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
                   color: '#ffffff',
-                  boxShadow: '0 10px 30px rgba(6,182,212,0.3)'
+                  boxShadow: '0 10px 30px rgba(168,85,247,0.3)'
                 }}
                 onClick={() => navigate('/contact-us')}
               >

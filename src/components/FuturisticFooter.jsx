@@ -5,20 +5,20 @@ const FuturisticFooter = () => {
 
   const footerLinks = {
     Services: [
-      { name: 'SaaS Development', href: '#services' },
-      { name: 'Mobile Apps', href: '#services' },
-      { name: 'AI Solutions', href: '#services' },
-      { name: 'Blockchain', href: '#services' }
+      { name: 'SaaS Development', href: '/services' },
+      { name: 'Mobile Apps', href: '/services' },
+      { name: 'AI Solutions', href: '/services' },
+      { name: 'Blockchain', href: '/services' }
     ],
     Company: [
-      { name: 'About Us', href: '#about' },
-      { name: 'Portfolio', href: '#portfolio' },
-      { name: 'Process', href: '#process' },
-      { name: 'Contact', href: '#contact' }
+      { name: 'About Us', href: '/about-us' },
+      { name: 'Portfolio', href: '/portfolio' },
+      { name: 'Case Studies', href: '/case-studies' },
+      { name: 'Contact', href: '/contact-us' }
     ],
     Resources: [
-      { name: 'Blog', href: '/blog' },
-      { name: 'Case Studies', href: '#portfolio' },
+      { name: 'Blog', href: '/blogs' },
+      { name: 'Case Studies', href: '/case-studies' },
       { name: 'Documentation', href: '/docs' },
       { name: 'Support', href: '/support' }
     ]
@@ -122,8 +122,8 @@ const FuturisticFooter = () => {
               <ul className="space-y-4">
                 {links.map((link, index) => (
                   <li key={index}>
-                    <a
-                      href={link.href}
+                    <Link
+                      to={link.href}
                       className="transition-colors duration-300 hover:text-purple-400"
                       style={{
                         color: 'rgba(255,255,255,0.6)',
@@ -137,7 +137,7 @@ const FuturisticFooter = () => {
                       }}
                     >
                       {link.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

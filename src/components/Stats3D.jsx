@@ -142,7 +142,7 @@ const Stats3D = ({ stats }) => {
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-white leading-tight">
             <span className="bg-gradient-to-r from-neon-400 via-neon-500 to-cyber-400 bg-clip-text text-transparent">
-              Engineering
+              Software
             </span>
             <br />
             <span className="text-white">Excellence</span>

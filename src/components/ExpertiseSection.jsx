@@ -19,13 +19,13 @@ const ExpertiseSection = () => {
       technologies: [
         { name: 'Android', icon: 'logos:android-icon', color: '#3DDC84' },
         { name: 'Swift', icon: 'logos:swift', color: '#FA7343' },
-        { name: 'React Native', icon: 'logos:react', color: '#61DAFB' },
+        { name: 'R-Native', icon: 'logos:react', color: '#61DAFB' },
         { name: 'Flutter', icon: 'logos:flutter', color: '#02569B' },
         { name: 'Ionic', icon: 'logos:ionic-icon', color: '#3880FF' },
         { name: 'Kotlin', icon: 'logos:kotlin-icon', color: '#7F52FF' },
-        { name: 'iOS', icon: 'ion:logo-apple', color: '#000000' },
-        { name: 'ObjectiveC', icon: 'simple-icons:objectivec', color: '#438EFF' },
-        { name: 'Titanium', icon: 'simple-icons:appcelerator', color: '#AC162C' },
+        { name: 'iOS', icon: 'logos:ansible', color: '#000000' },
+        { name: 'ObjectiveC', icon: 'vscode-icons:file-type-objectivec', color: '#438EFF' },
+        { name: 'Titanium', icon: 'logos:nodejs-icon', color: '#AC162C' },
         { name: 'Phone Gap', icon: 'logos:cordova', color: '#E8E8E8' },
         { name: 'Xamarin', icon: 'devicon:xamarin', color: '#3498DB' }
       ]
@@ -76,7 +76,7 @@ const ExpertiseSection = () => {
         { name: 'Ruby', icon: 'logos:ruby', color: '#CC342D' },
         { name: 'Go', icon: 'logos:go', color: '#00ADD8' },
         { name: 'Django', icon: 'logos:django-icon', color: '#092E20' },
-        { name: 'Express', icon: 'logos:express', color: '#000000' },
+        { name: 'Express', icon: 'logos:nodejs-icon', color: '#000000' },
         { name: 'Spring', icon: 'logos:spring-icon', color: '#6DB33F' },
         { name: 'Laravel', icon: 'logos:laravel', color: '#FF2D20' }
       ]

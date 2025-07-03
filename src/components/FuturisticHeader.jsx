@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -10,14 +10,16 @@ const FuturisticHeader = () => {
   const logoRef = useRef(null);
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const navItems = [
-    { id: 'home', label: 'Home', href: '#home' },
-    { id: 'services', label: 'Services', href: '#services' },
-    { id: 'tech', label: 'Technology', href: '#tech' },
-    { id: 'process', label: 'Process', href: '#process' },
-    { id: 'portfolio', label: 'Portfolio', href: '#portfolio' },
-    { id: 'contact', label: 'Contact', href: '#contact' }
+    { id: 'home', label: 'Home', href: '/', sectionId: 'home' },
+    { id: 'services', label: 'Services', href: '/services', sectionId: 'services' },
+    { id: 'case-studies', label: 'Case Studies', href: '/case-studies', sectionId: null },
+    // { id: 'process', label: 'Process', href: '/process', sectionId: 'process' },
+    { id: 'portfolio', label: 'Portfolio', href: '/portfolio', sectionId: null },
+    { id: 'contact', label: 'Contact', href: '/contact-us', sectionId: null }
   ];
 
   useEffect(() => {
@@ -60,40 +62,76 @@ const FuturisticHeader = () => {
       }
     );
 
-    // Active section tracking
-    const sections = navItems.map(item => document.querySelector(item.href));
-    
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id;
-            setActiveSection(id);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
+    // Set active section based on current route
+    if (location.pathname === '/') {
+      // On homepage, track scroll position for sections
+      const sections = ['home', 'services', 'process'];
+      
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const id = entry.target.id;
+              setActiveSection(id);
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
 
-    sections.forEach(section => {
-      if (section) observer.observe(section);
-    });
+      sections.forEach(sectionId => {
+        const section = document.getElementById(sectionId);
+        if (section) observer.observe(section);
+      });
+
+      return () => {
+        sections.forEach(sectionId => {
+          const section = document.getElementById(sectionId);
+          if (section) observer.unobserve(section);
+        });
+      };
+    } else {
+      // On other pages, set active based on route
+      const currentRoute = navItems.find(item => item.href === location.pathname);
+      if (currentRoute) {
+        setActiveSection(currentRoute.id);
+      }
+    }
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      sections.forEach(section => {
-        if (section) observer.unobserve(section);
-      });
     };
-  }, []);
+  }, [location.pathname]);
 
-  const handleNavClick = (href) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
+  const handleNavClick = (item) => {
+    if (item.href.startsWith('/#')) {
+      // Internal section link on homepage
+      if (location.pathname !== '/') {
+        // Navigate to homepage first
+        navigate('/');
+        // Wait for navigation then scroll
+        setTimeout(() => {
+          const element = document.querySelector(item.href.substring(1));
+          if (element) {
+            element.scrollIntoView({ 
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }, 100);
+      } else {
+        // Already on homepage, just scroll
+        const element = document.querySelector(item.href.substring(1));
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
+    } else {
+      // Regular page navigation
+      navigate(item.href);
     }
   };
 
@@ -110,7 +148,7 @@ const FuturisticHeader = () => {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" onClick={() => handleNavClick('#home')}>
+          <Link to="/">
             <div 
               ref={logoRef}
               className="flex items-center gap-3 cursor-pointer group"
@@ -140,7 +178,7 @@ const FuturisticHeader = () => {
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => handleNavClick(item.href)}
+                onClick={() => handleNavClick(item)}
                 className={`nav-item relative px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 ${
                   activeSection === item.id ? 'active' : ''
                 }`}
@@ -178,34 +216,36 @@ const FuturisticHeader = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <button 
-              className="group relative px-6 py-3 rounded-full overflow-hidden transition-all duration-300 hover:scale-105"
-              style={{
-                background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
-                color: '#ffffff',
-                fontWeight: '600',
-                border: 'none'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.transform = 'scale(1.05)';
-                e.target.style.boxShadow = '0 0 30px rgba(168,85,247,0.5)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.transform = 'scale(1)';
-                e.target.style.boxShadow = 'none';
-              }}
-            >
-              <span className="relative z-10">Get Started</span>
-              
-              {/* Hover effect overlay */}
-              <div 
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            <Link to="/contact-us">
+              <button 
+                className="group relative px-6 py-3 rounded-full overflow-hidden transition-all duration-300 hover:scale-105"
                 style={{
-                  background: 'linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.2) 100%)',
-                  mixBlendMode: 'overlay'
+                  background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
+                  color: '#ffffff',
+                  fontWeight: '600',
+                  border: 'none'
                 }}
-              />
-            </button>
+                onMouseEnter={(e) => {
+                  e.target.style.transform = 'scale(1.05)';
+                  e.target.style.boxShadow = '0 0 30px rgba(168,85,247,0.5)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = 'scale(1)';
+                  e.target.style.boxShadow = 'none';
+                }}
+              >
+                <span className="relative z-10">Get Started</span>
+                
+                {/* Hover effect overlay */}
+                <div 
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{
+                    background: 'linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.2) 100%)',
+                    mixBlendMode: 'overlay'
+                  }}
+                />
+              </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}

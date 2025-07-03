@@ -99,7 +99,12 @@ const ParallaxShowcase = () => {
               color: '#ffffff'
             }}
           >
-            Success <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Stories</span>
+            Success <span style={{
+              background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}>Stories</span>
           </h2>
           
           <p 
@@ -137,7 +142,7 @@ const ParallaxShowcase = () => {
                 
                 <div className="grid md:grid-cols-2 gap-0">
                   {/* Image Section */}
-                  <div className="relative h-64 md:h-80 overflow-hidden">
+                  <div className="relative h-64 md:h-96 overflow-hidden">
                     <img
                       src={project.image}
                       alt={project.title}

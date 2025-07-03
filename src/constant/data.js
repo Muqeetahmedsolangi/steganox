@@ -130,8 +130,8 @@ export const services = [
     id: 3,
     icon: "carbon:flow-data",
     title: "CFD & FEA Simulation",
-    description: "Reduce physical trial-and-error through virtual prototyping with fluid dynamics and structural analysis.",
-    features: ["Fluid Flow Analysis", "Thermal Systems", "Structural Strength", "Fatigue Analysis"],
+    description: "Reduce physical trial-and-error through virtual prototyping with fluid dynamics and structural analysis and FEA Analysis with ANSYS and COMSOL.",
+    features: ["Fluid Flow Analysis", "Thermal Systems", "Structural Strength", "Fatigue Analysis", "FEA Analysis", "CFD Analysis"],
     gradient: "from-quantum-500 to-plasma-500"
   },
   {
@@ -1814,7 +1814,7 @@ export const officeLocations = [
 
 // Hero Section Data
 export const heroData = {
-  title: "Steganox",
+  title: "STEGANOX",
   subtitle: "Enterprise Software Solutions",
   description: "Transform Your Business with AI-Powered Technology",
   subDescription: "Trusted by Fortune 500 companies worldwide for mission-critical applications",
@@ -1918,7 +1918,7 @@ export const industriesData = [
   },
   {
     icon: "🏭",
-    title: "Manufacturing & Supply Chain",
+    title: "Manufacturing & Chain",
     description: "IoT-enabled factory automation, predictive maintenance, and supply chain optimization",
     clients: "75+ Manufacturers",
     color: "#7C3AED"
@@ -1933,7 +1933,7 @@ export const industriesData = [
   {
     icon: "⚡",
     title: "Energy & Utilities",
-    description: "Smart grid solutions, renewable energy management, and predictive analytics",
+    description: "Smart grid solutions, renewable energy management, and predictive analytics with AI and Machine Learning",
     clients: "40+ Energy Providers",
     color: "#0891B2"
   }
