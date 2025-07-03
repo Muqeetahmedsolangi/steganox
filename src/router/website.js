@@ -20,6 +20,12 @@ const websiteRoutes = [
     Element: lazy(() => import('../views/website/services')),
   },
   {
+    key: 'service-detail',
+    index: false,
+    path: 'service/:id',
+    Element: lazy(() => import('../views/website/services/ServiceDetail')),
+  },
+  {
     key: 'case-studies',
     index: true,
     path: 'case-studies',
@@ -29,6 +35,12 @@ const websiteRoutes = [
     key: 'case-study-detail',
     index: false,
     path: 'case-studies/:id',
+    Element: lazy(() => import('../views/website/case-studies/CaseStudyDetail')),
+  },
+  {
+    key: 'case-study-detail-alt',
+    index: false,
+    path: 'case-study/:id',
     Element: lazy(() => import('../views/website/case-studies/CaseStudyDetail')),
   },
   {
@@ -48,6 +60,12 @@ const websiteRoutes = [
     index: true,
     path: 'contact-us',
     Element: lazy(() => import('../views/website/contact')),
+  },
+  {
+    key: 'portfolio',
+    index: true,
+    path: 'portfolio',
+    Element: lazy(() => import('../views/website/portfolio')),
   },
 ];
 

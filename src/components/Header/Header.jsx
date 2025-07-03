@@ -19,6 +19,7 @@ function Header() {
   const navItems = [
     { name: 'Home', path: '/', icon: 'mdi:home' },
     { name: 'Services', path: '/services', icon: 'mdi:cog' },
+    { name: 'Portfolio', path: '/portfolio', icon: 'mdi:briefcase' },
     { name: 'About', path: '/about-us', icon: 'mdi:information' },
     { name: 'Blog', path: '/blogs', icon: 'mdi:post' },
     { name: 'Contact', path: '/contact-us', icon: 'mdi:phone' }

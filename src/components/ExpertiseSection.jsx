@@ -191,14 +191,20 @@ const ExpertiseSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="py-16 md:py-24 lg:py-32 bg-white overflow-hidden"
+      className="py-16 md:py-24 lg:py-32 bg-black overflow-hidden relative"
     >
-      <div className="container mx-auto px-4 md:px-6">
+      {/* Background effects */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         {/* Title section */}
         <div className="text-center mb-12 md:mb-16">
           <h2 
             ref={titleRef}
-            className="font-bold mb-4 md:mb-6 text-gray-900"
+            className="font-bold mb-4 md:mb-6 text-white"
             style={{
               fontSize: 'clamp(2rem, 5vw, 3.5rem)',
               lineHeight: '1.1'
@@ -218,10 +224,10 @@ const ExpertiseSection = () => {
               className={`px-4 md:px-8 py-3 md:py-4 font-bold text-sm md:text-base transition-all duration-300 relative ${
                 activeTab === index 
                   ? 'text-white' 
-                  : 'text-gray-600 hover:text-gray-900'
+                  : 'text-gray-300 hover:text-white'
               }`}
               style={{
-                backgroundColor: activeTab === index ? '#0891b2' : 'transparent',
+                backgroundColor: activeTab === index ? '#a855f7' : 'transparent',
                 clipPath: activeTab === index ? 'polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%)' : 'none'
               }}
             >
@@ -244,7 +250,8 @@ const ExpertiseSection = () => {
               <div 
                 className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-3 md:mb-4 transition-all duration-300 group-hover:shadow-lg"
                 style={{ 
-                  backgroundColor: '#2c3e50',
+                  backgroundColor: 'rgba(255,255,255,0.05)',
+                  border: '1px solid rgba(255,255,255,0.1)',
                   boxShadow: `0 4px 20px ${tech.color}20`
                 }}
               >
@@ -257,7 +264,7 @@ const ExpertiseSection = () => {
               
               {/* Technology name */}
               <span 
-                className="text-xs md:text-sm font-medium text-center text-gray-900 group-hover:text-gray-700 transition-colors duration-300"
+                className="text-xs md:text-sm font-medium text-center text-white group-hover:text-gray-300 transition-colors duration-300"
               >
                 {tech.name}
               </span>
@@ -266,7 +273,7 @@ const ExpertiseSection = () => {
         </div>
 
         {/* Bottom gradient line */}
-        <div className="mt-16 h-1 w-full bg-gradient-to-r from-transparent via-cyan-600 to-transparent opacity-30"></div>
+        <div className="mt-16 h-1 w-full bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-30"></div>
       </div>
     </section>
   );

@@ -2,8 +2,6 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Stats3D from '../../../components/Stats3D';
-import FAQSection from '../../../components/FAQSection';
 import FuturisticHero from '../../../components/FuturisticHero';
 import AboutSection from '../../../components/AboutSection';
 import ServicesSection from '../../../components/ServicesSection';
