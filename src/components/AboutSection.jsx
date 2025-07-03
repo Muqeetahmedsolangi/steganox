@@ -101,9 +101,43 @@ const AboutSection = () => {
       className="py-16 md:py-24 lg:py-32 overflow-hidden bg-black"
     >
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+          {/* Image side */}
+          <div className="relative order-1 lg:order-2 w-full mb-10 lg:mb-0">
+            <div 
+              ref={imageRef}
+              className="relative w-full aspect-[4/3] md:aspect-[16/9] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl"
+              style={{
+                boxShadow: '0 20px 60px rgba(168,85,247,0.2)'
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/30 via-transparent to-blue-600/30 z-10" />
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
+                alt="Team collaboration"
+                className="w-full h-full object-cover"
+              />
+              {/* Simple overlay badges */}
+              <div className="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6 z-20 flex flex-wrap gap-2 md:gap-3">
+                {['Innovation', 'Security', 'Scale'].map((tag, index) => (
+                  <div 
+                    key={index}
+                    className="px-3 md:px-4 py-1.5 md:py-2 rounded-full backdrop-blur-md text-xs md:text-sm"
+                    style={{
+                      backgroundColor: 'rgba(255,255,255,0.1)',
+                      border: '1px solid rgba(255,255,255,0.2)',
+                      color: '#ffffff'
+                    }}
+                  >
+                    {tag}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
           {/* Content side */}
-          <div ref={contentRef} className="order-2 lg:order-1">
+          <div ref={contentRef} className="order-2 lg:order-1 w-full">
             <h2 
               className="font-bold mb-6 md:mb-8"
               style={{
@@ -154,12 +188,12 @@ const AboutSection = () => {
             </div>
 
             {/* Stats grid */}
-            <div className="grid grid-cols-2 gap-4 mt-8 md:mt-12">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 mt-8 md:mt-12">
               {aboutData.stats.map((stat, index) => (
                 <div
                   key={index}
                   ref={el => statsRefs.current[index] = el}
-                  className="text-center p-4 md:p-6 rounded-xl md:rounded-2xl border transition-all duration-300 hover:scale-105"
+                  className="text-center p-4 md:p-6 rounded-xl md:rounded-2xl border transition-all duration-300 hover:scale-105 bg-black/60"
                   style={{
                     backgroundColor: 'rgba(255,255,255,0.03)',
                     borderColor: 'rgba(255,255,255,0.08)',
@@ -182,41 +216,6 @@ const AboutSection = () => {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-
-          {/* Image side */}
-          <div className="relative order-1 lg:order-2">
-            <div 
-              ref={imageRef}
-              className="relative rounded-2xl md:rounded-3xl overflow-hidden"
-              style={{
-                boxShadow: '0 20px 60px rgba(168,85,247,0.2)'
-              }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/30 via-transparent to-blue-600/30 z-10" />
-              <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
-                alt="Team collaboration"
-                className="w-full h-full object-cover"
-              />
-              
-              {/* Simple overlay badges */}
-              <div className="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6 z-20 flex flex-wrap gap-2 md:gap-3">
-                {['Innovation', 'Security', 'Scale'].map((tag, index) => (
-                  <div 
-                    key={index}
-                    className="px-3 md:px-4 py-1.5 md:py-2 rounded-full backdrop-blur-md text-xs md:text-sm"
-                    style={{
-                      backgroundColor: 'rgba(255,255,255,0.1)',
-                      border: '1px solid rgba(255,255,255,0.2)',
-                      color: '#ffffff'
-                    }}
-                  >
-                    {tag}
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>

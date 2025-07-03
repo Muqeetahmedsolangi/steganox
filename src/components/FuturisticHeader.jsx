@@ -10,6 +10,7 @@ const FuturisticHeader = () => {
   const logoRef = useRef(null);
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -104,6 +105,7 @@ const FuturisticHeader = () => {
   }, [location.pathname]);
 
   const handleNavClick = (item) => {
+    setMobileMenuOpen(false);
     if (item.href.startsWith('/#')) {
       // Internal section link on homepage
       if (location.pathname !== '/') {
@@ -255,6 +257,8 @@ const FuturisticHeader = () => {
               color: '#ffffff',
               border: '1px solid rgba(255,255,255,0.2)'
             }}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Open menu"
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -262,6 +266,46 @@ const FuturisticHeader = () => {
           </button>
         </div>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 w-screen h-screen z-50 bg-black/80 backdrop-blur-2xl flex flex-col items-center justify-center md:hidden transition-all duration-300">
+          <button
+            className="absolute top-6 right-6 p-2 rounded-lg hover:bg-white/10 text-white"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-label="Close menu"
+          >
+            <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <div className="w-[90vw] max-w-xs bg-gradient-to-br from-black/90 via-purple-900/80 to-blue-900/80 rounded-2xl border border-purple-700 shadow-2xl flex flex-col gap-8 items-center py-10 px-4 mt-8">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => handleNavClick(item)}
+                className={`text-lg font-semibold px-6 py-3 rounded-full transition-all duration-200 w-full text-center ${
+                  activeSection === item.id ? 'bg-purple-700/80 text-white shadow-md' : 'text-gray-200 hover:bg-white/10 hover:text-white'
+                }`}
+                style={{
+                  border: activeSection === item.id ? '1.5px solid #a855f7' : '1.5px solid transparent',
+                  letterSpacing: '0.02em'
+                }}
+              >
+                {item.label}
+              </button>
+            ))}
+            <Link to="/contact-us" className="w-full flex justify-center">
+              <button 
+                className="mt-6 px-8 py-3 rounded-full font-bold text-white bg-gradient-to-r from-purple-600 to-blue-600 shadow-lg w-full text-lg transition-all duration-200 hover:scale-105"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Get Started
+              </button>
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

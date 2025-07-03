@@ -10,8 +10,8 @@ const CustomCursor = () => {
     const follower = followerRef.current;
 
     // Set initial state
-    gsap.set(cursor, { scale: 1, opacity: 1 });
-    gsap.set(follower, { scale: 1, opacity: 0.8 });
+    gsap.set(cursor, { scale: 1, opacity: 1, backgroundColor: '#a855f7' });
+    gsap.set(follower, { scale: 1, opacity: 0.8, borderColor: '#3b82f6', backgroundColor: 'transparent' });
 
     const onMouseMove = (e) => {
       // Faster cursor movement with no delay - properly centered
@@ -32,38 +32,35 @@ const CustomCursor = () => {
     };
 
     const onMouseEnterLink = () => {
-      // Professional hover effect - cursor becomes smaller dot
+      // Hover effect: blue
       gsap.to(cursor, {
         scale: 0.8,
-        backgroundColor: '#ff5e14',
+        backgroundColor: '#3b82f6',
         duration: 0.15,
         ease: "power2.out"
       });
-      
-      // Follower becomes slightly larger with professional glow
       gsap.to(follower, {
         scale: 1.3,
         borderWidth: '2px',
-        borderColor: '#ff5e14',
-        backgroundColor: 'rgba(255, 94, 20, 0.05)',
+        borderColor: '#3b82f6',
+        backgroundColor: 'rgba(59, 130, 246, 0.08)',
         duration: 0.15,
         ease: "power2.out"
       });
     };
 
     const onMouseLeaveLink = () => {
-      // Return to normal state quickly
+      // Return to purple
       gsap.to(cursor, {
         scale: 1,
-        backgroundColor: '#ff5e14',
+        backgroundColor: '#a855f7',
         duration: 0.12,
         ease: "power2.out"
       });
-      
       gsap.to(follower, {
         scale: 1,
         borderWidth: '1px',
-        borderColor: '#ff5e14',
+        borderColor: '#3b82f6',
         backgroundColor: 'transparent',
         duration: 0.12,
         ease: "power2.out"
@@ -78,12 +75,11 @@ const CustomCursor = () => {
         duration: 0.15,
         ease: "power2.out"
       });
-      
       gsap.to(follower, {
         scale: 1.5,
         borderWidth: '2px',
-        borderColor: '#ff5e14',
-        backgroundColor: 'rgba(255, 94, 20, 0.08)',
+        borderColor: '#a855f7',
+        backgroundColor: 'rgba(168, 85, 247, 0.10)',
         duration: 0.15,
         ease: "power2.out"
       });
@@ -129,13 +125,13 @@ const CustomCursor = () => {
       element.addEventListener('mouseenter', () => {
         gsap.to(cursor, {
           scale: 0.9,
-          backgroundColor: '#ff5e14',
+          backgroundColor: '#a855f7',
           duration: 0.15
         });
         gsap.to(follower, {
           scale: 1.2,
-          borderColor: '#ff5e14',
-          backgroundColor: 'rgba(255, 94, 20, 0.03)',
+          borderColor: '#3b82f6',
+          backgroundColor: 'rgba(168, 85, 247, 0.05)',
           duration: 0.15
         });
       });
@@ -169,10 +165,10 @@ const CustomCursor = () => {
       {/* Main cursor dot - smaller and more precise */}
       <div
         ref={cursorRef}
-        className="custom-cursor fixed w-2 h-2 bg-primary rounded-full pointer-events-none z-[9999] mix-blend-normal"
+        className="custom-cursor fixed w-2 h-2 rounded-full pointer-events-none z-[9999] mix-blend-normal"
         style={{
-          backgroundColor: '#ff5e14',
-          boxShadow: '0 0 6px rgba(255, 94, 20, 0.4)'
+          backgroundColor: '#a855f7',
+          boxShadow: '0 0 10px 2px #a855f7, 0 0 20px 4px #3b82f6'
         }}
       />
       
@@ -181,9 +177,10 @@ const CustomCursor = () => {
         ref={followerRef}
         className="custom-cursor-follower fixed w-6 h-6 border rounded-full pointer-events-none z-[9998]"
         style={{
-          borderColor: '#ff5e14',
+          borderColor: '#3b82f6',
           backgroundColor: 'transparent',
           borderWidth: '1px',
+          boxShadow: '0 0 16px 2px #a855f7, 0 0 32px 8px #3b82f6',
           transition: 'border-width 0.15s ease-out'
         }}
       />

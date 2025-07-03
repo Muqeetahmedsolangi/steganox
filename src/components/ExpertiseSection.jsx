@@ -239,7 +239,7 @@ const ExpertiseSection = () => {
         {/* Technology grid */}
         <div 
           ref={contentRef}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-11 gap-6 md:gap-8 max-w-7xl mx-auto"
+          className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-11 gap-y-8 gap-x-4 sm:gap-x-6 md:gap-x-8 max-w-7xl mx-auto"
         >
           {platformData[activeTab].technologies.map((tech, index) => (
             <div
@@ -248,7 +248,7 @@ const ExpertiseSection = () => {
             >
               {/* Technology icon */}
               <div 
-                className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-3 md:mb-4 transition-all duration-300 group-hover:shadow-lg"
+                className="w-14 h-14 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-2 md:mb-4 transition-all duration-300 group-hover:shadow-lg"
                 style={{ 
                   backgroundColor: 'rgba(255,255,255,0.05)',
                   border: '1px solid rgba(255,255,255,0.1)',
@@ -257,11 +257,10 @@ const ExpertiseSection = () => {
               >
                 <Icon 
                   icon={tech.icon} 
-                  className="w-8 h-8 md:w-10 md:h-10 transition-all duration-300 group-hover:scale-110"
+                  className="w-7 h-7 md:w-10 md:h-10 transition-all duration-300 group-hover:scale-110"
                   style={{ color: tech.color }}
                 />
               </div>
-              
               {/* Technology name */}
               <span 
                 className="text-xs md:text-sm font-medium text-center text-white group-hover:text-gray-300 transition-colors duration-300"
