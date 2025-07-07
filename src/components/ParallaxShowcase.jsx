@@ -121,11 +121,11 @@ const ParallaxShowcase = () => {
             <div
               key={index}
               ref={el => projectRefs.current[index] = el}
-              className="group cursor-pointer"
+              className="group cursor-pointer min-h-[160px]"
               onClick={() => handleViewCaseStudy(index)}
             >
               <div 
-                className="relative rounded-3xl overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2"
+                className="relative rounded-3xl overflow-hidden transition-all duration-500 hover:scale-[1.01] hover:-translate-y-1 h-full flex"
                 style={{
                   backgroundColor: 'rgba(255,255,255,0.03)',
                   backdropFilter: 'blur(20px)',
@@ -140,9 +140,9 @@ const ParallaxShowcase = () => {
                   }}
                 />
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+                <div className="w-full flex flex-col md:flex-row h-full items-stretch">
                   {/* Image Section */}
-                  <div className="relative w-full aspect-[4/3] md:aspect-[16/9] rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none overflow-hidden shadow-xl">
+                  <div className="relative w-full md:w-1/2 h-32 md:h-full rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none overflow-hidden shadow-xl flex-shrink-0">
                     <img
                       src={project.image}
                       alt={project.title}
@@ -151,7 +151,7 @@ const ParallaxShowcase = () => {
                     <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent z-10" />
                     {/* Industry Badge */}
                     <div 
-                      className="absolute top-4 left-4 px-4 py-2 rounded-full text-xs md:text-sm font-medium z-20"
+                      className="absolute top-2 left-2 px-3 py-1.5 rounded-full text-xs font-medium z-20"
                       style={{
                         backgroundColor: 'rgba(0,0,0,0.7)',
                         backdropFilter: 'blur(10px)',
@@ -164,11 +164,11 @@ const ParallaxShowcase = () => {
                   </div>
 
                   {/* Content Section */}
-                  <div className="p-6 md:p-12 flex flex-col justify-between bg-black/80 rounded-b-3xl md:rounded-r-3xl md:rounded-bl-none">
+                  <div className="p-3 md:p-4 flex flex-col justify-between bg-black/80 rounded-b-3xl md:rounded-r-3xl md:rounded-bl-none h-full w-full">
                     <div>
                       {/* Client */}
                       <p 
-                        className="text-xs md:text-sm font-medium mb-2 md:mb-3"
+                        className="text-xs font-medium mb-1"
                         style={{ color: 'rgba(168,85,247,0.8)' }}
                       >
                         {project.client}
@@ -176,11 +176,11 @@ const ParallaxShowcase = () => {
 
                       {/* Title */}
                       <h3 
-                        className="font-bold mb-3 md:mb-4"
+                        className="font-bold mb-2"
                         style={{
-                          fontSize: 'clamp(1.3rem, 3vw, 2.2rem)',
+                          fontSize: 'clamp(1.1rem, 2vw, 1.5rem)',
                           color: '#ffffff',
-                          lineHeight: '1.2'
+                          lineHeight: '1.15'
                         }}
                       >
                         {project.title}
@@ -188,20 +188,20 @@ const ParallaxShowcase = () => {
 
                       {/* Description */}
                       <p 
-                        className="text-sm md:text-base mb-4 md:mb-6"
+                        className="text-xs md:text-sm mb-2"
                         style={{
                           color: 'rgba(255,255,255,0.7)',
-                          lineHeight: '1.6'
+                          lineHeight: '1.4'
                         }}
                       >
                         {project.description}
                       </p>
                       {/* Tech Stack */}
-                      <div className="flex flex-wrap gap-2 mb-6 md:mb-8">
+                      <div className="flex flex-wrap gap-1 mb-3">
                         {project.technologies.slice(0, 6).map((tech, idx) => (
                           <span
                             key={idx}
-                            className="px-3 py-1.5 rounded-full text-xs md:text-sm"
+                            className="px-2 py-1 rounded-full text-[10px] md:text-xs"
                             style={{
                               backgroundColor: 'rgba(255,255,255,0.1)',
                               color: 'rgba(255,255,255,0.9)',
@@ -217,18 +217,18 @@ const ParallaxShowcase = () => {
                     {/* Impact Stats */}
                     <div>
                       <h4 
-                        className="text-xs uppercase tracking-wider mb-3 md:mb-4 font-semibold"
+                        className="text-[10px] uppercase tracking-wider mb-1 font-semibold"
                         style={{ color: 'rgba(255,255,255,0.5)' }}
                       >
                         Project Impact
                       </h4>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-4 md:mb-6">
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-2">
                         {Object.entries(project.impact).map(([key, value], idx) => (
                           <div key={idx}>
                             <div 
                               className="font-bold mb-1"
                               style={{
-                                fontSize: 'clamp(1.1rem, 2vw, 1.6rem)',
+                                fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)',
                                 background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
                                 WebkitBackgroundClip: 'text',
                                 WebkitTextFillColor: 'transparent'
@@ -237,7 +237,7 @@ const ParallaxShowcase = () => {
                               {value}
                             </div>
                             <div 
-                              className="text-xs capitalize"
+                              className="text-[10px] capitalize"
                               style={{ color: 'rgba(255,255,255,0.5)' }}
                             >
                               {key.replace(/_/g, ' ')}
@@ -247,7 +247,7 @@ const ParallaxShowcase = () => {
                       </div>
                       {/* View Case Study Button */}
                       <button 
-                        className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-purple-600/30 hover:border-purple-600/50 transition-all duration-300 group/btn"
+                        className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-purple-600/30 hover:border-purple-600/50 transition-all duration-300 group/btn text-xs"
                         onClick={(e) => {
                           e.stopPropagation();
                           handleViewCaseStudy(index);
