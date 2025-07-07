@@ -139,7 +139,7 @@ function index() {
                             <div className="mb-4 sm:mb-6">
                                 <h3 className="text-neon-500 text-base sm:text-lg font-semibold mb-2 sm:mb-3">Our Story</h3>
                                 <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-white leading-tight">
-                                    Engineering Excellence Through <span className="text-neon-500">Innovation</span>
+                                    Software Excellence Through <span className="text-neon-500">Innovation</span>
                                 </h2>
                             </div>
                             
@@ -180,14 +180,14 @@ function index() {
                                 
                                 <img 
                                     src={engineeringTeam} 
-                                    alt="MechNovate Engineering Team" 
+                                    alt="MechNovate Software Team" 
                                     className="rounded-lg shadow-xl w-full h-auto object-cover z-10 relative max-h-64 sm:max-h-80 md:max-h-96"
                                 />
                                 
                                 {/* Smaller badge */}
                                 <div className="absolute -bottom-2 sm:-bottom-3 -right-2 sm:-right-3 bg-neon-500 p-2 sm:p-3 rounded-lg shadow-lg">
                                     <p className="text-white font-bold text-sm sm:text-base">12+ Years</p>
-                                    <p className="text-white text-xs">Engineering Excellence</p>
+                                    <p className="text-white text-xs">Software Excellence</p>
                                 </div>
                             </div>
                         </div>
@@ -219,7 +219,7 @@ function index() {
                             </p>
                             <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-void-700/50">
                                 <p className="text-neon-500 italic text-sm sm:text-base">
-                                    "Engineering tomorrow's possibilities today."
+                                    "Software tomorrow's possibilities today."
                                 </p>
                             </div>
                         </div>

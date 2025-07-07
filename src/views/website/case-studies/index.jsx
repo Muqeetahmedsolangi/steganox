@@ -119,14 +119,19 @@ const CaseStudies = () => {
                 color: '#ffffff'
               }}
             >
-              Engineering <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Excellence</span>
+              Case <span style={{
+                background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}>Studies</span>
             </h1>
             
             <p 
               className="text-lg md:text-xl mb-12 max-w-3xl mx-auto"
               style={{ color: 'rgba(255,255,255,0.6)', lineHeight: '1.6' }}
             >
-              Explore our mechanical engineering projects that showcase innovation, precision, and transformative solutions across diverse industries.
+              Explore our software development projects that showcase cutting-edge technology, scalable solutions, and digital transformation across diverse industries.
             </p>
 
             {/* Stats */}
@@ -309,7 +314,7 @@ const CaseStudies = () => {
                     {/* Industry indicator */}
                     <div className="absolute top-4 left-4 w-10 h-10 rounded-full flex items-center justify-center"
                          style={{ backgroundColor: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(10px)' }}>
-                      <Icon icon="carbon:industry" className="text-purple-400" />
+                      <Icon icon="mdi:code-tags" className="text-purple-400" />
                     </div>
 
                     {/* View Project overlay */}
@@ -403,7 +408,7 @@ const CaseStudies = () => {
               className="text-lg mb-8"
               style={{ color: 'rgba(255,255,255,0.7)' }}
             >
-              Let's discuss how we can engineer innovative solutions for your next project
+              Let's discuss how we can develop innovative software solutions for your next project
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

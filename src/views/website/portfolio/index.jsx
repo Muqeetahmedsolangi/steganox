@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { portfolioData, caseStudies, aboutStats } from '../../../constant/data';
+import { portfolioData, aboutStats } from '../../../constant/data';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,171 +17,32 @@ const Portfolio = () => {
 
   const [activeFilter, setActiveFilter] = useState('all');
   const [filteredProjects, setFilteredProjects] = useState([]);
+  const [displayedProjects, setDisplayedProjects] = useState([]);
+  const [projectsToShow, setProjectsToShow] = useState(6);
 
-  // Enhanced portfolio data combining multiple sources
-  const allProjects = [
-    // Mobile Apps
-    {
-      id: 'mobile-1',
-      title: 'Smart Fitness Tracker App',
-      category: 'mobile',
-      type: 'Mobile App',
-      client: 'TechWear Inc',
-      description: 'Advanced fitness tracking mobile application with real-time health monitoring, workout planning, and social features.',
-      image: 'https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=800&q=80',
-      technologies: ['React Native', 'Node.js', 'MongoDB', 'Firebase'],
-      features: ['Real-time Health Monitoring', 'Workout Planning', 'Social Features', 'Wearable Integration'],
-      metrics: {
-        users: '500K+',
-        rating: '4.8/5',
-        downloads: '1M+'
-      },
-      status: 'Live',
-      year: '2024',
-      duration: '6 months',
-      gradient: 'from-purple-500 to-pink-500'
-    },
-    {
-      id: 'mobile-2',
-      title: 'E-Commerce Mobile Platform',
-      category: 'mobile',
-      type: 'Mobile App',
-      client: 'ShopTech Solutions',
-      description: 'Comprehensive e-commerce mobile platform with AR product visualization, secure payments, and inventory management.',
-      image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80',
-      technologies: ['Flutter', 'Firebase', 'Stripe', 'AR Core'],
-      features: ['AR Product Visualization', 'Secure Payments', 'Inventory Management', 'Push Notifications'],
-      metrics: {
-        users: '250K+',
-        rating: '4.7/5',
-        sales: '$5M+'
-      },
-      status: 'Live',
-      year: '2024',
-      duration: '8 months',
-      gradient: 'from-blue-500 to-cyan-500'
-    },
-    {
-      id: 'mobile-3',
-      title: 'Healthcare Telemedicine App',
-      category: 'mobile',
-      type: 'Mobile App',
-      client: 'MedConnect Health',
-      description: 'HIPAA-compliant telemedicine application enabling secure video consultations, prescription management, and health records.',
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
-      technologies: ['React Native', 'WebRTC', 'AWS', 'HIPAA'],
-      features: ['Video Consultations', 'Prescription Management', 'Health Records', 'Secure Messaging'],
-      metrics: {
-        users: '100K+',
-        rating: '4.9/5',
-        consultations: '500K+'
-      },
-      status: 'Live',
-      year: '2023',
-      duration: '10 months',
-      gradient: 'from-green-500 to-teal-500'
-    },
-
-    // Websites
-    {
-      id: 'web-1',
-      title: 'Corporate Banking Platform',
-      category: 'website',
-      type: 'Web Platform',
-      client: 'Global Bank Corp',
-      description: 'Enterprise-grade banking platform with real-time transactions, advanced security, and multi-currency support.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
-      technologies: ['React', 'Node.js', 'PostgreSQL', 'Redis'],
-      features: ['Real-time Transactions', 'Advanced Security', 'Multi-currency Support', 'Analytics Dashboard'],
-      metrics: {
-        users: '10M+',
-        transactions: '$50B+',
-        uptime: '99.99%'
-      },
-      status: 'Live',
-      year: '2024',
-      duration: '12 months',
-      gradient: 'from-indigo-500 to-purple-500'
-    },
-    {
-      id: 'web-2',
-      title: 'E-Learning Management System',
-      category: 'website',
-      type: 'Web Platform',
-      client: 'EduTech Global',
-      description: 'Comprehensive learning management system with interactive courses, assessments, and progress tracking.',
-      image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&q=80',
-      technologies: ['Vue.js', 'Laravel', 'MySQL', 'WebRTC'],
-      features: ['Interactive Courses', 'Assessment Tools', 'Progress Tracking', 'Video Conferencing'],
-      metrics: {
-        students: '1M+',
-        courses: '10K+',
-        completion: '85%'
-      },
-      status: 'Live',
-      year: '2024',
-      duration: '9 months',
-      gradient: 'from-orange-500 to-red-500'
-    },
-    {
-      id: 'web-3',
-      title: 'Supply Chain Management Portal',
-      category: 'website',
-      type: 'Web Platform',
-      client: 'LogiTech Industries',
-      description: 'Real-time supply chain management platform with inventory tracking, demand forecasting, and supplier management.',
-      image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80',
-      technologies: ['Angular', 'Spring Boot', 'MongoDB', 'Kafka'],
-      features: ['Inventory Tracking', 'Demand Forecasting', 'Supplier Management', 'Real-time Analytics'],
-      metrics: {
-        efficiency: '+45%',
-        cost_reduction: '30%',
-        delivery_time: '-2 days'
-      },
-      status: 'Live',
-      year: '2023',
-      duration: '14 months',
-      gradient: 'from-yellow-500 to-orange-500'
-    },
-
-    // Mechanical Projects
-    ...caseStudies.map(study => ({
-      id: `mechanical-${study.id}`,
-      title: study.title,
-      category: 'mechanical',
-      type: 'Mechanical Engineering',
-      client: study.client,
-      description: study.challenge,
-      image: study.image,
-      technologies: study.technologies,
-      features: study.results,
-      metrics: {
-        duration: study.duration,
-        team: study.teamSize,
-        year: study.year
-      },
-      status: study.status,
-      year: study.year,
-      duration: study.duration,
-      gradient: 'from-cyan-500 to-blue-500'
-    }))
-  ];
-
+  // Filter categories based on available project data
   const filterCategories = [
-    { id: 'all', name: 'All Projects', icon: 'mdi:view-grid', count: allProjects.length },
-    { id: 'mobile', name: 'Mobile Apps', icon: 'mdi:cellphone', count: allProjects.filter(p => p.category === 'mobile').length },
-    { id: 'website', name: 'Websites', icon: 'mdi:web', count: allProjects.filter(p => p.category === 'website').length },
-    { id: 'mechanical', name: 'Mechanical', icon: 'mdi:cog', count: allProjects.filter(p => p.category === 'mechanical').length }
+    { id: 'all', name: 'All Projects', icon: 'mdi:view-grid', count: portfolioData.length },
+    { id: 'E-commerce', name: 'E-commerce', icon: 'mdi:shopping', count: portfolioData.filter(p => p.category === 'E-commerce').length },
+    { id: 'Mobile App', name: 'Mobile Apps', icon: 'mdi:cellphone', count: portfolioData.filter(p => p.category === 'Mobile App').length },
+    { id: 'Web Platform', name: 'Web Platform', icon: 'mdi:web', count: portfolioData.filter(p => p.category === 'Web Platform').length },
+    { id: 'DevOps Platform', name: 'DevOps', icon: 'mdi:server-network', count: portfolioData.filter(p => p.category === 'DevOps Platform').length }
   ];
 
   useEffect(() => {
     // Filter projects based on active filter
     if (activeFilter === 'all') {
-      setFilteredProjects(allProjects);
+      setFilteredProjects(portfolioData);
     } else {
-      setFilteredProjects(allProjects.filter(project => project.category === activeFilter));
+      setFilteredProjects(portfolioData.filter(project => project.category === activeFilter));
     }
+    setProjectsToShow(6); // Reset to initial count when filter changes
   }, [activeFilter]);
+
+  useEffect(() => {
+    // Update displayed projects based on projectsToShow
+    setDisplayedProjects(filteredProjects.slice(0, projectsToShow));
+  }, [filteredProjects, projectsToShow]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -248,7 +109,7 @@ const Portfolio = () => {
     return () => ctx.revert();
   }, []);
 
-  // Animate cards when filter changes
+  // Animate cards when displayed projects change
   useEffect(() => {
     cardRefs.current.forEach((card, index) => {
       if (card) {
@@ -265,16 +126,23 @@ const Portfolio = () => {
         );
       }
     });
-  }, [filteredProjects]);
+  }, [displayedProjects]);
 
   const handleProjectClick = (project) => {
-    if (project.category === 'mechanical') {
-      navigate(`/case-studies/${project.id.replace('mechanical-', '')}`);
-    } else {
-      // For mobile and web projects, could navigate to a project detail page
-      console.log('Navigate to project detail:', project.id);
-    }
+    navigate(`/portfolio/${project.id}`);
   };
+
+  const handleLoadMore = () => {
+    setProjectsToShow(prev => prev + 5);
+  };
+
+  // Calculate portfolio stats
+  const totalProjects = portfolioData.length;
+  const totalClients = new Set(portfolioData.map(p => p.client)).size;
+  const totalBudget = portfolioData.reduce((sum, p) => {
+    const budget = parseFloat(p.budget.replace(/[$M+,]/g, ''));
+    return sum + budget;
+  }, 0);
 
   return (
     <div ref={sectionRef} className="min-h-screen bg-black">
@@ -301,32 +169,34 @@ const Portfolio = () => {
             <h1 
               className="font-bold mb-6"
               style={{
-                fontSize: 'clamp(2.5rem, 6vw, 5rem)',
+                fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
                 lineHeight: '1.1',
                 color: '#ffffff'
               }}
             >
-              Our{' '}
-              <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                Portfolio
-              </span>
+              Our <span style={{
+                background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}>Portfolio</span>
             </h1>
 
             <p 
-              className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed"
-              style={{ color: 'rgba(255,255,255,0.7)' }}
+              className="text-lg md:text-xl mb-12 max-w-3xl mx-auto"
+              style={{ color: 'rgba(255,255,255,0.6)', lineHeight: '1.6' }}
             >
-              Showcasing our expertise across mobile applications, web platforms, and mechanical engineering solutions
+              Showcasing our expertise in software development, from mobile applications to enterprise platforms and cutting-edge AI solutions
             </p>
           </div>
 
-          {/* Stats Section */}
+          {/* Portfolio Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
             {[
-              { icon: 'mdi:cellphone', value: '50+', label: 'Mobile Apps', color: 'from-purple-500 to-pink-500' },
-              { icon: 'mdi:web', value: '100+', label: 'Websites', color: 'from-blue-500 to-cyan-500' },
-              { icon: 'mdi:cog', value: '200+', label: 'Mechanical Projects', color: 'from-green-500 to-teal-500' },
-              { icon: 'mdi:account-group', value: '350+', label: 'Happy Clients', color: 'from-orange-500 to-red-500' }
+              { icon: 'mdi:folder-multiple', value: totalProjects, label: 'Projects Completed', color: 'from-purple-500 to-pink-500' },
+              { icon: 'mdi:account-group', value: totalClients, label: 'Happy Clients', color: 'from-blue-500 to-cyan-500' },
+              { icon: 'mdi:currency-usd', value: `$${totalBudget.toFixed(1)}M+`, label: 'Total Project Value', color: 'from-green-500 to-teal-500' },
+              { icon: 'mdi:star', value: '4.9/5', label: 'Client Satisfaction', color: 'from-orange-500 to-red-500' }
             ].map((stat, index) => (
               <div
                 key={index}
@@ -381,7 +251,7 @@ const Portfolio = () => {
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, index) => (
+            {displayedProjects.map((project, index) => (
               <div
                 key={project.id}
                 ref={el => cardRefs.current[index] = el}
@@ -402,16 +272,27 @@ const Portfolio = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   
+                  {/* Featured Badge */}
+                  {project.featured && (
+                    <div className="absolute top-4 left-4">
+                      <span className="px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-yellow-500 to-orange-500 text-white flex items-center gap-1">
+                        <Icon icon="mdi:star" className="w-3 h-3" />
+                        Featured
+                      </span>
+                    </div>
+                  )}
+
                   {/* Project Type Badge */}
-                  <div className="absolute top-4 left-4">
+                  <div className="absolute top-4 right-4">
                     <span className={`px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${project.gradient} text-white`}>
                       {project.type}
                     </span>
                   </div>
 
                   {/* Status Badge */}
-                  <div className="absolute top-4 right-4">
-                    <span className="px-3 py-1 rounded-full text-xs font-medium bg-green-500/20 border border-green-500/30 text-green-400">
+                  <div className="absolute bottom-4 left-4">
+                    <span className="px-3 py-1 rounded-full text-xs font-medium bg-green-500/20 border border-green-500/30 text-green-400 flex items-center gap-1">
+                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                       {project.status}
                     </span>
                   </div>
@@ -419,20 +300,24 @@ const Portfolio = () => {
 
                 {/* Project Content */}
                 <div className="p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Icon icon="mdi:calendar" className="w-4 h-4 text-gray-400" />
-                    <span className="text-sm text-gray-400">{project.year}</span>
-                    <span className="text-gray-600">•</span>
-                    <span className="text-sm text-gray-400">{project.duration}</span>
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-2">
+                      <Icon icon="mdi:calendar" className="w-4 h-4 text-gray-400" />
+                      <span className="text-sm text-gray-400">{project.year}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Icon icon="mdi:clock" className="w-4 h-4 text-gray-400" />
+                      <span className="text-sm text-gray-400">{project.duration}</span>
+                    </div>
                   </div>
 
                   <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors duration-300">
                     {project.title}
                   </h3>
 
-                  <p className="text-sm text-gray-300 mb-2">{project.client}</p>
+                  <p className="text-sm text-gray-300 mb-2 font-medium">{project.client}</p>
 
-                  <p className="text-sm text-gray-400 mb-4 line-clamp-3">
+                  <p className="text-sm text-gray-400 mb-4 line-clamp-2">
                     {project.description}
                   </p>
 
@@ -441,29 +326,40 @@ const Portfolio = () => {
                     {project.technologies.slice(0, 3).map((tech, idx) => (
                       <span
                         key={idx}
-                        className="px-2 py-1 text-xs rounded-full bg-white/10 text-gray-300"
+                        className="px-2 py-1 text-xs rounded-full bg-white/10 text-gray-300 border border-white/10"
                       >
                         {tech}
                       </span>
                     ))}
                     {project.technologies.length > 3 && (
-                      <span className="px-2 py-1 text-xs rounded-full bg-white/10 text-gray-300">
-                        +{project.technologies.length - 3}
+                      <span className="px-2 py-1 text-xs rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30">
+                        +{project.technologies.length - 3} more
                       </span>
                     )}
                   </div>
 
-                  {/* Metrics */}
+                  {/* Impact Metrics */}
                   <div className="flex items-center justify-between text-sm">
                     <div className="flex items-center gap-4">
-                      {Object.entries(project.metrics).slice(0, 2).map(([key, value]) => (
+                      {Object.entries(project.impact).slice(0, 2).map(([key, value]) => (
                         <div key={key} className="text-center">
                           <div className="text-white font-semibold">{value}</div>
                           <div className="text-gray-400 text-xs capitalize">{key.replace('_', ' ')}</div>
                         </div>
                       ))}
                     </div>
-                    <Icon icon="mdi:arrow-right" className="w-5 h-5 text-gray-400 group-hover:text-purple-400 group-hover:translate-x-1 transition-all duration-300" />
+                    <div className="flex items-center gap-2">
+                      <Icon icon="mdi:currency-usd" className="w-4 h-4 text-green-400" />
+                      <span className="text-green-400 font-semibold">{project.budget}</span>
+                    </div>
+                  </div>
+
+                  {/* View Details Button */}
+                  <div className="mt-4 pt-4 border-t border-white/10">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-gray-400">View Details</span>
+                      <Icon icon="mdi:arrow-right" className="w-5 h-5 text-gray-400 group-hover:text-purple-400 group-hover:translate-x-1 transition-all duration-300" />
+                    </div>
                   </div>
                 </div>
 
@@ -474,11 +370,28 @@ const Portfolio = () => {
           </div>
 
           {/* Load More Button */}
-          {filteredProjects.length > 9 && (
+          {displayedProjects.length < filteredProjects.length && (
             <div className="text-center mt-12">
-              <button className="px-8 py-4 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold hover:from-purple-600 hover:to-blue-600 transition-all duration-300 hover:scale-105 shadow-lg shadow-purple-500/30">
-                Load More Projects
+              <button 
+                onClick={handleLoadMore}
+                className="px-8 py-4 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold hover:from-purple-600 hover:to-blue-600 transition-all duration-300 hover:scale-105 shadow-lg shadow-purple-500/30 flex items-center gap-3 mx-auto"
+              >
+                <span>Load More Projects</span>
+                <Icon icon="mdi:plus" className="w-5 h-5" />
+                <span className="px-2 py-1 bg-white/20 rounded-full text-xs">
+                  +5 more
+                </span>
               </button>
+            </div>
+          )}
+
+          {/* End Message */}
+          {displayedProjects.length === filteredProjects.length && filteredProjects.length > 6 && (
+            <div className="text-center mt-12">
+              <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-gray-400">
+                <Icon icon="mdi:check-circle" className="w-5 h-5 text-green-400" />
+                <span>You've viewed all {filteredProjects.length} projects</span>
+              </div>
             </div>
           )}
         </div>
@@ -491,7 +404,7 @@ const Portfolio = () => {
             Ready to Start Your Project?
           </h2>
           <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-            Let's discuss how we can bring your vision to life with our expertise in mobile, web, and mechanical engineering.
+            Let's discuss how we can bring your vision to life with our expertise in software development and digital transformation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button

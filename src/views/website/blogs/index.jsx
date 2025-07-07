@@ -96,7 +96,7 @@ function index() {
           {/* Content */}
           <div className="absolute inset-0 z-20 flex flex-col justify-center items-center text-center px-4 sm:px-6 md:px-8">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-neon-500 via-primary to-primary-600 bg-clip-text text-transparent leading-tight">
-              Engineering Insights
+              Software Insights
             </h1>
             <div className="flex items-center gap-2 text-xs sm:text-sm md:text-base text-gray-300">
               <span>Home</span>

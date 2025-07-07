@@ -172,20 +172,35 @@ function ContactPage() {
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
-          <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-              Contact Us
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 
+              className="font-bold mb-6"
+              style={{
+                fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+                lineHeight: '1.1',
+                color: '#ffffff'
+              }}
+            >
+              Contact <span style={{
+                background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}>Us</span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+            <p 
+              className="text-lg md:text-xl mb-12 max-w-3xl mx-auto"
+              style={{ color: 'rgba(255,255,255,0.6)', lineHeight: '1.6' }}
+            >
               Ready to bring your mechanical engineering project to life? Get in touch with our expert team.
-          </p>
+            </p>
             <div className="flex items-center justify-center gap-2 text-gray-400">
-            <span>Home</span>
+              <span>Home</span>
               <Icon icon="mdi:chevron-right" className="w-4 h-4" />
               <span className="text-purple-400">Contact</span>
+            </div>
           </div>
-            </div>
-            </div>
+        </div>
       </section>
 
       {/* Contact Methods */}
@@ -411,7 +426,7 @@ function ContactPage() {
                           <option value="manufacturing">Manufacturing</option>
                     <option value="prototyping">Prototyping</option>
                     <option value="testing">Testing & Validation</option>
-                    <option value="consulting">Engineering Consulting</option>
+                    <option value="consulting">Software Consulting</option>
                           <option value="other">Other</option>
                         </select>
                 </div>

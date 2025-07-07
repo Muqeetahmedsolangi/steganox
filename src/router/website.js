@@ -57,6 +57,11 @@ const websiteRoutes = [
     path: 'portfolio',
     Element: lazy(() => import('../views/website/portfolio')),
   },
+  {
+    key: 'portfolio-detail',
+    path: 'portfolio/:id',
+    Element: lazy(() => import('../views/website/portfolio/ProjectDetail')),
+  },
 ];
 
 export default websiteRoutes;

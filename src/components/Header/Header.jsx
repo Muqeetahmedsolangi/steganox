@@ -198,7 +198,7 @@ function Header() {
 
                 <p className="text-xs sm:text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300 font-medium leading-tight">
                   <span className="hidden md:inline">{companyInfo.tagline}</span>
-                  <span className="md:hidden">Engineering Excellence</span>
+                  <span className="md:hidden">Software Excellence</span>
                 </p>
               </div>
             </Link>

@@ -194,7 +194,7 @@ function Footer() {
                     {companyInfo.name}
                   </h1>
                   <p className="text-xs sm:text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300 font-medium leading-tight">
-                    Engineering Excellence
+                    Software Excellence
                   </p>
                 </div>
               </Link>

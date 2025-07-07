@@ -269,141 +269,340 @@ export const testimonials = [
 export const caseStudies = [
   {
     id: 1,
-    title: "FEA Project Hunting for Mechanical Design Optimization",
-    client: "Multiple Industries",
-    industry: "Multi-Industry",
-    challenge: "Identify, pursue, and execute high-impact FEA-based projects across various mechanical design domains including stress analysis, thermal analysis, buckling, vibration, and fatigue studies",
-    solution: "Implemented systematic approach combining opportunity mapping, tailored proposal strategies, pilot analysis demonstrations, and client education to deliver simulation-driven design solutions across aerospace, automotive, industrial machinery, and consumer electronics sectors",
-    results: ["18% material usage reduction", "FoS > 2.0 in 80% projects", "10+ diverse simulations", "Reusable templates developed"],
-    technologies: ["SolidWorks Simulation", "ANSYS", "Fusion 360", "Onshape", "Python Scripting"],
-    duration: "12 months",
-    teamSize: "5 engineers",
-    status: "Completed",
+    title: "Enterprise E-commerce Platform with Microservices Architecture",
+    client: "Global Retail Corporation",
+    industry: "E-commerce",
+    challenge: "Build a scalable, high-performance e-commerce platform capable of handling millions of concurrent users during peak shopping seasons with real-time inventory management and personalized recommendations",
+    solution: "Developed a cloud-native microservices architecture using containerization, implemented advanced caching strategies, AI-powered recommendation engine, and automated CI/CD pipelines for seamless deployment and scaling",
+    results: ["99.9% uptime achieved", "3x faster page load times", "500% increase in concurrent users", "40% boost in conversion rates"],
+    technologies: ["React", "Node.js", "MongoDB", "Redis", "Docker", "Kubernetes", "AWS", "GraphQL"],
+    duration: "14 months",
+    teamSize: "12 developers",
+    status: "Live",
     year: "2024",
-    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800",
     scope: {
-      targetSectors: ["Aerospace", "Automotive", "Industrial Machinery", "Consumer Electronics"],
-      projectTypes: ["Stress analysis", "Thermal analysis", "Buckling", "Vibration", "Fatigue"],
-      projectSources: ["Freelancing platforms (Upwork, Freelancer)", "Academic collaborations", "Open-source communities"]
+      targetSectors: ["E-commerce", "Retail", "B2B Marketplace", "Multi-vendor Platforms"],
+      projectTypes: ["Full-stack Development", "Cloud Architecture", "DevOps", "AI Integration", "Mobile Apps"],
+      projectSources: ["Enterprise Clients", "Startup Partnerships", "Digital Transformation Projects"]
     },
     approach: [
-      "Opportunity Mapping: Identified key industries and high-value FEA applications",
-      "Proposal Strategy: Tailored proposals demonstrating simulation capabilities and reliability",
-      "Pilot Analysis: Delivered demo simulations to build trust with prospective clients",
-      "Client Education: Explained value of FEA via visuals, analogies, and practical examples"
+      "Architecture Design: Designed scalable microservices architecture with event-driven communication",
+      "Frontend Development: Built responsive React application with modern UI/UX design patterns",
+      "Backend Development: Implemented robust APIs with Node.js and GraphQL for efficient data fetching",
+      "Cloud Infrastructure: Deployed on AWS with auto-scaling, load balancing, and disaster recovery",
+      "DevOps Implementation: Set up CI/CD pipelines with automated testing and deployment strategies"
     ],
     keyResults: [
-      "Executed 10+ diverse FEA simulations including tie-rod cylinders, brackets, casings, and electronics enclosures",
-      "Reduced material usage by up to 18% through stress optimization",
-      "Achieved Factor of Safety > 2.0 in 80% of the projects, exceeding design safety targets",
-      "Developed reusable templates for meshing, boundary setup, and post-processing"
+      "Successfully handled Black Friday traffic with 10M+ concurrent users without downtime",
+      "Reduced infrastructure costs by 35% through optimized cloud resource management",
+      "Achieved 99.9% uptime with automated monitoring and self-healing systems",
+      "Implemented real-time analytics dashboard for business intelligence and decision making"
     ],
     challenges: [
       {
-        challenge: "Client Awareness: Many clients unaware of FEA benefits",
-        resolution: "Resolved via visuals and analogies to demonstrate value"
+        challenge: "Scalability: Platform needed to handle massive traffic spikes during sales events",
+        resolution: "Implemented auto-scaling with Kubernetes and optimized database queries with Redis caching"
       },
       {
-        challenge: "Unclear Specifications: Addressed lack of data",
-        resolution: "Used assumption logs and conservative estimates"
+        challenge: "Data Consistency: Maintaining data integrity across multiple microservices",
+        resolution: "Used event sourcing and CQRS patterns with distributed transaction management"
       },
       {
-        challenge: "Computation Limits: Managing simulation times",
-        resolution: "Used symmetry, mesh refinement, and result filtering"
+        challenge: "Performance: Slow page load times affecting user experience and conversions",
+        resolution: "Implemented CDN, image optimization, lazy loading, and advanced caching strategies"
       }
     ],
-    outcome: "This initiative led to expanded technical capabilities, enhanced client communication, and improved confidence in simulation-driven design. The process of project hunting matured into a systematic method for FEA consulting and freelance engineering delivery.",
+    outcome: "The platform revolutionized the client's online presence, resulting in 500% increase in online sales, improved customer satisfaction scores, and established a foundation for future digital innovations. The solution became a reference architecture for other enterprise e-commerce implementations.",
     isClientHighlight: true
   },
   {
     id: 2,
-    title: "Smart Wearable Device",
-    client: "Tech Startup",
-    industry: "Consumer Electronics",
-    challenge: "Design a compact, ergonomic fitness tracker with advanced sensors",
-    solution: "Developed a sleek design with integrated multi-sensor array and 7-day battery life",
-    results: ["40% size reduction", "7-day battery life", "IP68 waterproof rating"],
-    technologies: ["SolidWorks", "FEA Analysis", "3D Printing", "DFM"],
-    duration: "4 months",
-    teamSize: "6 engineers",
-    status: "Completed",
+    title: "AI-Powered Mobile Banking Application",
+    client: "FinTech Startup",
+    industry: "Financial Technology",
+    challenge: "Create a secure, user-friendly mobile banking app with AI-driven financial insights, fraud detection, and personalized financial advice for millennials and Gen Z users",
+    solution: "Developed a cross-platform mobile application using React Native with biometric authentication, real-time transaction monitoring, AI-powered spending analysis, and integrated chatbot for customer support",
+    results: ["1M+ downloads in 6 months", "4.8/5 app store rating", "60% reduction in fraud cases", "80% user retention rate"],
+    technologies: ["React Native", "Python", "TensorFlow", "AWS Lambda", "PostgreSQL", "Firebase", "Stripe API"],
+    duration: "8 months",
+    teamSize: "8 developers",
+    status: "Live",
     year: "2024",
-    image: "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=800"
+    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800",
+    scope: {
+      targetSectors: ["Banking", "FinTech", "Digital Payments", "Personal Finance"],
+      projectTypes: ["Mobile Development", "AI/ML Integration", "Security Implementation", "API Development"],
+      projectSources: ["FinTech Startups", "Traditional Banks", "Payment Processors"]
+    },
+    approach: [
+      "User Research: Conducted extensive user interviews and market research to understand target demographics",
+      "Security First: Implemented multi-layer security with biometric authentication and end-to-end encryption",
+      "AI Integration: Developed machine learning models for fraud detection and personalized financial insights",
+      "Cross-Platform Development: Used React Native for efficient iOS and Android development",
+      "Compliance: Ensured PCI DSS compliance and implemented regulatory requirements"
+    ],
+    keyResults: [
+      "Achieved 1M+ downloads within 6 months of launch with 4.8/5 average rating",
+      "Reduced fraudulent transactions by 60% through AI-powered detection algorithms",
+      "Increased user engagement by 150% with personalized financial recommendations",
+      "Processed over $100M in transactions with zero security breaches"
+    ],
+    challenges: [
+      {
+        challenge: "Security: Ensuring bank-level security while maintaining user-friendly experience",
+        resolution: "Implemented biometric authentication, tokenization, and real-time fraud monitoring"
+      },
+      {
+        challenge: "Regulatory Compliance: Meeting strict financial industry regulations and standards",
+        resolution: "Worked with compliance experts to implement PCI DSS and banking regulations"
+      },
+      {
+        challenge: "Performance: Ensuring fast response times for financial transactions",
+        resolution: "Optimized API calls, implemented caching, and used edge computing for low latency"
+      }
+    ],
+    outcome: "The banking app transformed digital banking for young users, achieving rapid user adoption and setting new standards for mobile financial services. The AI-powered features provided unprecedented insights into user spending patterns and financial health."
   },
   {
     id: 3,
-    title: "Industrial Automation Gripper",
-    client: "Manufacturing Giant",
-    industry: "Industrial Automation",
-    challenge: "Create a versatile robotic gripper for handling various part geometries",
-    solution: "Engineered an adaptive gripper with force feedback and modular jaw system",
-    results: ["85% faster changeover", "0.1mm precision", "50kg payload capacity"],
-    technologies: ["CATIA", "ANSYS", "CNC Machining", "Servo Control"],
-    duration: "6 months",
-    teamSize: "8 engineers",
-    status: "Completed",
+    title: "Cloud-Native Healthcare Management System",
+    client: "Healthcare Network",
+    industry: "Healthcare Technology",
+    challenge: "Develop a comprehensive healthcare management platform that integrates patient records, appointment scheduling, telemedicine, and billing across multiple hospitals and clinics",
+    solution: "Built a HIPAA-compliant cloud-native platform using microservices architecture with real-time data synchronization, secure video conferencing, and automated billing integration",
+    results: ["50% reduction in administrative tasks", "90% faster patient check-in", "99.99% data security compliance", "200% increase in telemedicine adoption"],
+    technologies: ["Vue.js", "Django", "PostgreSQL", "Redis", "WebRTC", "AWS", "Docker", "Terraform"],
+    duration: "12 months",
+    teamSize: "15 developers",
+    status: "Live",
     year: "2024",
-    image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800"
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800",
+    scope: {
+      targetSectors: ["Healthcare", "Telemedicine", "Medical Records", "Hospital Management"],
+      projectTypes: ["Full-stack Development", "Cloud Infrastructure", "Security Implementation", "Integration"],
+      projectSources: ["Healthcare Providers", "Medical Institutions", "Telemedicine Platforms"]
+    },
+    approach: [
+      "Requirements Analysis: Collaborated with healthcare professionals to understand complex workflows",
+      "Security Implementation: Built HIPAA-compliant architecture with end-to-end encryption",
+      "Integration Development: Created seamless integrations with existing hospital systems and EMRs",
+      "User Experience Design: Designed intuitive interfaces for both patients and healthcare providers",
+      "Scalability Planning: Implemented cloud-native architecture for multi-tenant deployment"
+    ],
+    keyResults: [
+      "Reduced patient wait times by 70% through optimized scheduling and check-in processes",
+      "Achieved 99.99% uptime with automated failover and disaster recovery systems",
+      "Processed 500K+ patient records with zero data breaches or compliance violations",
+      "Enabled 10K+ telemedicine consultations per month during peak pandemic periods"
+    ],
+    challenges: [
+      {
+        challenge: "Data Privacy: Ensuring HIPAA compliance while enabling data sharing between providers",
+        resolution: "Implemented role-based access control and audit trails with encryption at rest and in transit"
+      },
+      {
+        challenge: "System Integration: Connecting with legacy hospital systems and EMR platforms",
+        resolution: "Developed custom APIs and middleware for seamless data synchronization"
+      },
+      {
+        challenge: "Scalability: Supporting multiple hospitals with varying infrastructure needs",
+        resolution: "Used containerization and microservices for flexible, scalable deployment"
+      }
+    ],
+    outcome: "The healthcare platform revolutionized patient care delivery, improving operational efficiency and patient satisfaction while maintaining the highest security standards. The system became a model for digital transformation in healthcare."
   },
   {
     id: 4,
-    title: "Medical Diagnostic Device",
-    client: "Healthcare Innovator",
-    industry: "Medical Devices",
-    challenge: "Miniaturize a blood analysis device for point-of-care testing",
-    solution: "Designed a portable device with microfluidics and automated sample processing",
-    results: ["75% size reduction", "2-minute test time", "FDA approved"],
-    technologies: ["Fusion 360", "CFD Simulation", "Injection Molding", "ISO 13485"],
-    duration: "8 months",
-    teamSize: "10 engineers",
-    status: "Completed",
+    title: "Real-Time Analytics Dashboard for IoT Fleet Management",
+    client: "Logistics Corporation",
+    industry: "Transportation & Logistics",
+    challenge: "Create a real-time dashboard for monitoring and managing a fleet of 10,000+ vehicles with GPS tracking, fuel monitoring, maintenance scheduling, and driver performance analytics",
+    solution: "Developed a comprehensive IoT platform with real-time data processing, predictive analytics, and automated alert systems using big data technologies and machine learning algorithms",
+    results: ["25% reduction in fuel costs", "40% improvement in delivery times", "60% decrease in maintenance costs", "Real-time tracking of 10K+ vehicles"],
+    technologies: ["Angular", "Spring Boot", "Apache Kafka", "MongoDB", "InfluxDB", "Grafana", "AWS IoT", "Python"],
+    duration: "10 months",
+    teamSize: "10 developers",
+    status: "Live",
     year: "2023",
-    image: "https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=800"
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800",
+    scope: {
+      targetSectors: ["Transportation", "Logistics", "Fleet Management", "Supply Chain"],
+      projectTypes: ["IoT Development", "Big Data Analytics", "Real-time Processing", "Dashboard Development"],
+      projectSources: ["Logistics Companies", "Transportation Providers", "Fleet Operators"]
+    },
+    approach: [
+      "IoT Architecture: Designed scalable IoT infrastructure for real-time data collection and processing",
+      "Data Pipeline: Built robust data pipelines using Apache Kafka for high-throughput message processing",
+      "Analytics Engine: Implemented machine learning models for predictive maintenance and route optimization",
+      "Dashboard Development: Created intuitive dashboards with real-time visualizations and alerts",
+      "Mobile Integration: Developed companion mobile apps for drivers and fleet managers"
+    ],
+    keyResults: [
+      "Processed 100M+ data points daily from vehicles and sensors across the fleet",
+      "Reduced fuel consumption by 25% through optimized routing and driver behavior analysis",
+      "Prevented 500+ vehicle breakdowns through predictive maintenance algorithms",
+      "Improved customer satisfaction by 45% with accurate delivery time predictions"
+    ],
+    challenges: [
+      {
+        challenge: "Data Volume: Processing massive amounts of real-time data from thousands of vehicles",
+        resolution: "Implemented Apache Kafka and stream processing for high-throughput data handling"
+      },
+      {
+        challenge: "Connectivity: Ensuring reliable data transmission in remote areas with poor network coverage",
+        resolution: "Developed offline data storage and batch synchronization capabilities"
+      },
+      {
+        challenge: "Scalability: Supporting growing fleet size without performance degradation",
+        resolution: "Used microservices architecture with auto-scaling capabilities in cloud infrastructure"
+      }
+    ],
+    outcome: "The IoT fleet management platform transformed logistics operations, resulting in significant cost savings, improved efficiency, and enhanced customer service. The solution set new industry standards for data-driven fleet management."
   },
   {
     id: 5,
-    title: "Aerospace Component Optimization",
-    client: "Aerospace Manufacturer",
-    industry: "Aerospace",
-    challenge: "Reduce weight of critical aircraft components while maintaining structural integrity",
-    solution: "Applied topology optimization and advanced materials to achieve 30% weight reduction",
-    results: ["30% weight reduction", "25% cost savings", "Enhanced performance"],
-    technologies: ["CATIA", "ANSYS", "Topology Optimization", "Titanium Alloys"],
-    duration: "10 months",
-    teamSize: "12 engineers",
-    status: "Completed",
+    title: "Blockchain-Based Supply Chain Transparency Platform",
+    client: "Manufacturing Consortium",
+    industry: "Supply Chain Management",
+    challenge: "Develop a blockchain-based platform to provide end-to-end supply chain transparency, traceability, and authenticity verification for luxury goods and pharmaceuticals",
+    solution: "Built a decentralized platform using blockchain technology with smart contracts, IoT integration, and mobile applications for stakeholders to track products from origin to consumer",
+    results: ["100% product traceability", "80% reduction in counterfeit goods", "50% faster compliance reporting", "99.9% data integrity"],
+    technologies: ["Ethereum", "Solidity", "React", "Node.js", "IPFS", "Web3.js", "MongoDB", "Docker"],
+    duration: "16 months",
+    teamSize: "9 developers",
+    status: "Live",
     year: "2023",
-    image: "https://images.unsplash.com/photo-1581093196277-9f608732aee8?w=800"
+    image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800",
+    scope: {
+      targetSectors: ["Manufacturing", "Pharmaceuticals", "Luxury Goods", "Food & Beverage"],
+      projectTypes: ["Blockchain Development", "Smart Contracts", "IoT Integration", "Mobile Apps"],
+      projectSources: ["Manufacturing Companies", "Regulatory Bodies", "Brand Protection Agencies"]
+    },
+    approach: [
+      "Blockchain Architecture: Designed permissioned blockchain network for secure data sharing",
+      "Smart Contract Development: Created automated contracts for supply chain milestone verification",
+      "IoT Integration: Implemented sensor data collection for real-time product condition monitoring",
+      "User Interface Development: Built intuitive interfaces for different stakeholder roles",
+      "Compliance Integration: Ensured regulatory compliance with automated reporting features"
+    ],
+    keyResults: [
+      "Tracked 1M+ products across 500+ suppliers with complete transparency",
+      "Reduced counterfeit incidents by 80% through immutable product authentication",
+      "Automated 90% of compliance reporting processes with blockchain-verified data",
+      "Enabled consumers to verify product authenticity through mobile app scanning"
+    ],
+    challenges: [
+      {
+        challenge: "Scalability: Blockchain networks traditionally have limited transaction throughput",
+        resolution: "Implemented layer-2 solutions and optimized smart contracts for efficient processing"
+      },
+      {
+        challenge: "Integration: Connecting blockchain with existing ERP and supply chain systems",
+        resolution: "Developed middleware and APIs for seamless integration with legacy systems"
+      },
+      {
+        challenge: "Adoption: Encouraging suppliers and partners to adopt new blockchain-based processes",
+        resolution: "Created incentive structures and provided comprehensive training and support"
+      }
+    ],
+    outcome: "The blockchain platform revolutionized supply chain transparency, building consumer trust and enabling brands to combat counterfeiting effectively. The solution became a benchmark for blockchain implementation in supply chain management."
   },
   {
     id: 6,
-    title: "Automotive Electric Vehicle Platform",
-    client: "EV Startup",
-    industry: "Automotive",
-    challenge: "Design lightweight, efficient electric vehicle chassis for urban mobility",
-    solution: "Developed modular aluminum space frame with integrated battery protection",
-    results: ["20% lighter than competitors", "300km range", "5-star safety rating"],
-    technologies: ["SolidWorks", "ANSYS", "Aluminum Extrusion", "FEA"],
-    duration: "12 months",
-    teamSize: "15 engineers",
-    status: "Completed",
+    title: "AI-Powered DevOps Automation Platform",
+    client: "Software Development Agency",
+    industry: "DevOps & Automation",
+    challenge: "Create an intelligent DevOps platform that automates deployment pipelines, monitors application performance, and predicts potential issues before they impact production systems",
+    solution: "Developed an AI-powered DevOps platform with automated CI/CD pipelines, intelligent monitoring, predictive analytics, and self-healing capabilities using machine learning algorithms",
+    results: ["90% reduction in deployment time", "99.9% system uptime", "70% fewer production incidents", "80% faster issue resolution"],
+    technologies: ["Python", "Kubernetes", "Jenkins", "Prometheus", "Grafana", "TensorFlow", "AWS", "Terraform"],
+    duration: "11 months",
+    teamSize: "7 developers",
+    status: "Live",
     year: "2024",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800"
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
+    scope: {
+      targetSectors: ["Software Development", "Cloud Services", "Enterprise IT", "Startups"],
+      projectTypes: ["DevOps Automation", "CI/CD Pipelines", "Monitoring Solutions", "AI/ML Integration"],
+      projectSources: ["Software Companies", "IT Departments", "Cloud Service Providers"]
+    },
+    approach: [
+      "Pipeline Automation: Designed intelligent CI/CD pipelines with automated testing and deployment",
+      "Monitoring Integration: Implemented comprehensive monitoring with custom metrics and alerting",
+      "AI Development: Built machine learning models for predictive analysis and anomaly detection",
+      "Infrastructure as Code: Automated infrastructure provisioning using Terraform and Kubernetes",
+      "Self-Healing Systems: Developed automated recovery mechanisms for common failure scenarios"
+    ],
+    keyResults: [
+      "Reduced deployment time from hours to minutes with zero-downtime deployments",
+      "Achieved 99.9% uptime through predictive maintenance and automated recovery",
+      "Prevented 200+ potential production issues through AI-powered anomaly detection",
+      "Saved 40+ hours per week of manual DevOps tasks through intelligent automation"
+    ],
+    challenges: [
+      {
+        challenge: "Complexity: Managing multiple deployment environments and configurations",
+        resolution: "Implemented Infrastructure as Code and environment-specific automation workflows"
+      },
+      {
+        challenge: "Reliability: Ensuring automated systems don't introduce new failure points",
+        resolution: "Built comprehensive testing and rollback mechanisms with canary deployments"
+      },
+      {
+        challenge: "Learning Curve: Training AI models to accurately predict system failures",
+        resolution: "Used extensive historical data and continuous learning algorithms for model improvement"
+      }
+    ],
+    outcome: "The AI-powered DevOps platform transformed software delivery processes, enabling faster, more reliable deployments while reducing operational overhead. The solution became a competitive advantage for development teams."
   },
   {
     id: 7,
-    title: "Precision Manufacturing Equipment",
-    client: "Machine Tool Company",
-    industry: "Industrial Equipment",
-    challenge: "Develop high-precision CNC machine for semiconductor manufacturing",
-    solution: "Engineered ultra-stable machine tool with nanometer-level accuracy",
-    results: ["1nm positioning accuracy", "50% faster processing", "Zero downtime"],
-    technologies: ["Creo", "ANSYS", "Precision Bearings", "Servo Systems"],
-    duration: "14 months",
-    teamSize: "18 engineers",
-    status: "Completed",
+    title: "Serverless Social Media Analytics Platform",
+    client: "Digital Marketing Agency",
+    industry: "Social Media & Analytics",
+    challenge: "Build a scalable social media analytics platform that processes millions of social media posts in real-time, provides sentiment analysis, and generates actionable insights for brands",
+    solution: "Developed a serverless architecture using cloud functions, implemented natural language processing for sentiment analysis, and created interactive dashboards for real-time social media monitoring",
+    results: ["10M+ posts processed daily", "Real-time sentiment analysis", "90% cost reduction vs traditional hosting", "5x faster data processing"],
+    technologies: ["React", "AWS Lambda", "DynamoDB", "Elasticsearch", "Python", "NLP Libraries", "D3.js", "API Gateway"],
+    duration: "9 months",
+    teamSize: "6 developers",
+    status: "Live",
     year: "2023",
-    image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800"
+    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800",
+    scope: {
+      targetSectors: ["Digital Marketing", "Social Media", "Brand Management", "PR Agencies"],
+      projectTypes: ["Serverless Development", "Data Analytics", "NLP Integration", "Dashboard Development"],
+      projectSources: ["Marketing Agencies", "Brand Managers", "Social Media Platforms"]
+    },
+    approach: [
+      "Serverless Architecture: Designed cost-effective serverless infrastructure for variable workloads",
+      "Data Processing: Implemented real-time data ingestion and processing pipelines",
+      "NLP Integration: Built sentiment analysis and topic modeling using machine learning",
+      "Visualization: Created interactive dashboards with real-time updates and custom metrics",
+      "API Development: Built RESTful APIs for third-party integrations and data access"
+    ],
+    keyResults: [
+      "Processed 10M+ social media posts daily with sub-second response times",
+      "Achieved 95% accuracy in sentiment analysis across multiple languages",
+      "Reduced infrastructure costs by 90% compared to traditional server-based solutions",
+      "Enabled real-time brand monitoring and crisis management for 100+ clients"
+    ],
+    challenges: [
+      {
+        challenge: "Scale: Processing massive volumes of social media data in real-time",
+        resolution: "Implemented serverless functions with auto-scaling and distributed processing"
+      },
+      {
+        challenge: "Accuracy: Ensuring high accuracy in sentiment analysis across different contexts",
+        resolution: "Trained custom NLP models with domain-specific data and continuous learning"
+      },
+      {
+        challenge: "Cost Management: Controlling costs while maintaining high performance",
+        resolution: "Optimized serverless function execution and implemented intelligent caching strategies"
+      }
+    ],
+    outcome: "The serverless analytics platform revolutionized social media monitoring, providing brands with unprecedented insights into customer sentiment and market trends while dramatically reducing operational costs."
   }
 ];
 
@@ -2031,46 +2230,310 @@ export const processData = [
   }
 ];
 
-// Portfolio/Case Studies Data
+// Portfolio/Projects Data - Software Development Focused
 export const portfolioData = [
   {
-    title: "Global Banking Platform",
-    client: "Leading European Bank",
-    industry: "Financial Services",
+    id: 1,
+    title: "Enterprise E-commerce Platform",
+    client: "Global Retail Corporation",
+    category: "E-commerce",
+    type: "Web Platform",
+    status: "Live",
+    year: "2024",
+    duration: "14 months",
+    teamSize: "12 developers",
+    budget: "$2.5M+",
     impact: {
       users: "10M+",
-      transactions: "$50B+/year",
-      uptime: "99.99%"
+      revenue: "+500%",
+      uptime: "99.9%",
+      performance: "3x faster"
     },
-    technologies: ["React", "Node.js", "AWS", "Kubernetes"],
+    technologies: ["React", "Node.js", "MongoDB", "Redis", "Docker", "Kubernetes", "AWS", "GraphQL"],
+    features: ["Microservices Architecture", "Real-time Analytics", "AI Recommendations", "Auto-scaling Infrastructure"],
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+    description: "Scalable e-commerce platform handling millions of concurrent users with AI-powered recommendations and real-time inventory management",
+    challenge: "Build a high-performance platform capable of handling Black Friday traffic spikes",
+    solution: "Implemented microservices architecture with auto-scaling capabilities and advanced caching",
+    gradient: "from-purple-500 to-blue-500",
+    featured: true
+  },
+  {
+    id: 2,
+    title: "Mobile Banking Application",
+    client: "FinTech Startup",
+    category: "Mobile App",
+    type: "Financial Technology",
+    status: "Live",
+    year: "2024",
+    duration: "8 months",
+    teamSize: "8 developers",
+    budget: "$1.2M+",
+    impact: {
+      downloads: "1M+",
+      rating: "4.8/5",
+      fraud_reduction: "60%",
+      retention: "80%"
+    },
+    technologies: ["React Native", "Python", "TensorFlow", "AWS Lambda", "PostgreSQL", "Firebase"],
+    features: ["Biometric Authentication", "AI Fraud Detection", "Real-time Notifications", "Cross-platform Support"],
     image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80",
-    description: "Modernized legacy banking system to cloud-native microservices architecture"
+    description: "Secure mobile banking app with AI-powered fraud detection and personalized financial insights",
+    challenge: "Create a secure yet user-friendly banking experience for millennials and Gen Z",
+    solution: "Developed cross-platform app with biometric security and AI-powered financial insights",
+    gradient: "from-green-500 to-teal-500",
+    featured: true
   },
   {
-    title: "AI-Powered Healthcare Platform",
-    client: "National Health Network",
-    industry: "Healthcare",
+    id: 3,
+    title: "Healthcare Management System",
+    client: "Healthcare Network",
+    category: "Web Platform",
+    type: "Healthcare Technology",
+    status: "Live",
+    year: "2024",
+    duration: "12 months",
+    teamSize: "15 developers",
+    budget: "$3.1M+",
     impact: {
-      patients: "5M+",
-      accuracy: "97%",
-      cost_saved: "$20M/year"
+      patients: "500K+",
+      efficiency: "+50%",
+      compliance: "99.99%",
+      telemedicine: "+200%"
     },
-    technologies: ["Python", "TensorFlow", "Azure", "FHIR"],
+    technologies: ["Vue.js", "Django", "PostgreSQL", "Redis", "WebRTC", "AWS", "Docker", "Terraform"],
+    features: ["HIPAA Compliance", "Telemedicine", "Patient Records", "Automated Billing"],
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
-    description: "Developed predictive analytics platform for early disease detection"
+    description: "HIPAA-compliant healthcare platform integrating patient records, telemedicine, and billing systems",
+    challenge: "Integrate multiple hospital systems while maintaining strict HIPAA compliance",
+    solution: "Built cloud-native platform with end-to-end encryption and seamless system integration",
+    gradient: "from-blue-500 to-cyan-500",
+    featured: true
   },
   {
-    title: "Supply Chain Optimization",
-    client: "Fortune 500 Retailer",
-    industry: "Retail",
+    id: 4,
+    title: "IoT Fleet Management Dashboard",
+    client: "Logistics Corporation",
+    category: "Web Platform",
+    type: "IoT Analytics",
+    status: "Live",
+    year: "2023",
+    duration: "10 months",
+    teamSize: "10 developers",
+    budget: "$1.8M+",
     impact: {
-      efficiency: "+45%",
-      cost_reduction: "30%",
-      delivery_time: "-2 days"
+      vehicles: "10K+",
+      fuel_savings: "25%",
+      delivery_time: "+40%",
+      maintenance_cost: "-60%"
     },
-    technologies: ["Java", "Kafka", "MongoDB", "React"],
+    technologies: ["Angular", "Spring Boot", "Apache Kafka", "MongoDB", "InfluxDB", "Grafana", "AWS IoT"],
+    features: ["Real-time Tracking", "Predictive Analytics", "Automated Alerts", "Route Optimization"],
     image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80",
-    description: "Real-time inventory management and demand forecasting system"
+    description: "Real-time IoT dashboard for monitoring and managing large vehicle fleets with predictive analytics",
+    challenge: "Process massive amounts of real-time data from thousands of vehicles",
+    solution: "Implemented scalable IoT architecture with real-time data processing and machine learning",
+    gradient: "from-orange-500 to-red-500"
+  },
+  {
+    id: 5,
+    title: "Blockchain Supply Chain Platform",
+    client: "Manufacturing Consortium",
+    category: "Web Platform",
+    type: "Blockchain Technology",
+    status: "Live",
+    year: "2023",
+    duration: "16 months",
+    teamSize: "9 developers",
+    budget: "$2.2M+",
+    impact: {
+      products: "1M+",
+      counterfeit_reduction: "80%",
+      transparency: "100%",
+      compliance: "+50%"
+    },
+    technologies: ["Ethereum", "Solidity", "React", "Node.js", "IPFS", "Web3.js", "MongoDB", "Docker"],
+    features: ["Smart Contracts", "Product Traceability", "Authentication", "Compliance Reporting"],
+    image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&q=80",
+    description: "Blockchain-based platform providing end-to-end supply chain transparency and authenticity verification",
+    challenge: "Create immutable product tracking system for luxury goods and pharmaceuticals",
+    solution: "Developed blockchain platform with smart contracts and IoT integration",
+    gradient: "from-purple-500 to-pink-500"
+  },
+  {
+    id: 6,
+    title: "AI-Powered DevOps Platform",
+    client: "Software Development Agency",
+    category: "DevOps Platform",
+    type: "Automation & Monitoring",
+    status: "Live",
+    year: "2024",
+    duration: "11 months",
+    teamSize: "7 developers",
+    budget: "$1.5M+",
+    impact: {
+      deployment_time: "-90%",
+      uptime: "99.9%",
+      incidents: "-70%",
+      efficiency: "+80%"
+    },
+    technologies: ["Python", "Kubernetes", "Jenkins", "Prometheus", "Grafana", "TensorFlow", "AWS", "Terraform"],
+    features: ["Automated Pipelines", "Predictive Analytics", "Self-healing Systems", "Performance Monitoring"],
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    description: "Intelligent DevOps platform with automated CI/CD pipelines and predictive issue detection",
+    challenge: "Automate complex deployment processes while ensuring reliability and performance",
+    solution: "Built AI-powered platform with automated pipelines and predictive maintenance capabilities",
+    gradient: "from-indigo-500 to-purple-500"
+  },
+  {
+    id: 7,
+    title: "Social Media Analytics Platform",
+    client: "Digital Marketing Agency",
+    category: "Web Platform",
+    type: "Data Analytics",
+    status: "Live",
+    year: "2023",
+    duration: "9 months",
+    teamSize: "6 developers",
+    budget: "$980K+",
+    impact: {
+      posts_processed: "10M+/day",
+      accuracy: "95%",
+      cost_reduction: "90%",
+      clients: "100+"
+    },
+    technologies: ["React", "AWS Lambda", "DynamoDB", "Elasticsearch", "Python", "NLP Libraries", "D3.js"],
+    features: ["Sentiment Analysis", "Real-time Processing", "Custom Dashboards", "API Integration"],
+    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&q=80",
+    description: "Serverless social media analytics platform with real-time sentiment analysis and insights",
+    challenge: "Process millions of social media posts in real-time with high accuracy",
+    solution: "Implemented serverless architecture with NLP for sentiment analysis and real-time processing",
+    gradient: "from-pink-500 to-rose-500"
+  },
+  {
+    id: 8,
+    title: "Real Estate Investment Platform",
+    client: "PropTech Startup",
+    category: "Web Platform",
+    type: "Financial Technology",
+    status: "Live",
+    year: "2024",
+    duration: "13 months",
+    teamSize: "11 developers",
+    budget: "$2.1M+",
+    impact: {
+      investments: "$500M+",
+      users: "50K+",
+      roi: "+25%",
+      automation: "85%"
+    },
+    technologies: ["Next.js", "Express.js", "PostgreSQL", "Redis", "Stripe", "AWS", "Docker", "TypeScript"],
+    features: ["Investment Tracking", "Automated Reports", "Payment Processing", "Portfolio Analytics"],
+    image: "https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=800&q=80",
+    description: "Comprehensive real estate investment platform with automated portfolio management",
+    challenge: "Create transparent and accessible real estate investment platform for retail investors",
+    solution: "Developed secure platform with automated investment tracking and regulatory compliance",
+    gradient: "from-emerald-500 to-green-500"
+  },
+  {
+    id: 9,
+    title: "Educational Learning Management System",
+    client: "EdTech Global",
+    category: "Web Platform",
+    type: "Education Technology",
+    status: "Live",
+    year: "2024",
+    duration: "10 months",
+    teamSize: "14 developers",
+    budget: "$1.9M+",
+    impact: {
+      students: "1M+",
+      courses: "10K+",
+      completion_rate: "85%",
+      engagement: "+150%"
+    },
+    technologies: ["React", "Laravel", "MySQL", "WebRTC", "AWS", "Docker", "Redis", "ElasticSearch"],
+    features: ["Interactive Courses", "Video Conferencing", "Progress Tracking", "Assessment Tools"],
+    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&q=80",
+    description: "Comprehensive learning management system with interactive courses and video conferencing",
+    challenge: "Create engaging online learning experience with scalable video infrastructure",
+    solution: "Built interactive LMS with WebRTC integration and personalized learning paths",
+    gradient: "from-yellow-500 to-orange-500"
+  },
+  {
+    id: 10,
+    title: "Restaurant Management SaaS",
+    client: "FoodTech Solutions",
+    category: "Web Platform",
+    type: "SaaS Solution",
+    status: "Live",
+    year: "2023",
+    duration: "7 months",
+    teamSize: "8 developers",
+    budget: "$1.1M+",
+    impact: {
+      restaurants: "2K+",
+      orders: "5M+",
+      efficiency: "+60%",
+      revenue: "+35%"
+    },
+    technologies: ["Vue.js", "Django", "PostgreSQL", "Redis", "Stripe", "Twilio", "AWS", "Docker"],
+    features: ["Order Management", "Inventory Tracking", "Staff Scheduling", "Analytics Dashboard"],
+    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
+    description: "All-in-one restaurant management SaaS with order processing and inventory management",
+    challenge: "Integrate multiple restaurant operations into a single, easy-to-use platform",
+    solution: "Developed comprehensive SaaS solution with real-time order processing and analytics",
+    gradient: "from-red-500 to-pink-500"
+  },
+  {
+    id: 11,
+    title: "Cryptocurrency Trading Platform",
+    client: "CryptoTech Exchange",
+    category: "Web Platform",
+    type: "Financial Technology",
+    status: "Live",
+    year: "2023",
+    duration: "15 months",
+    teamSize: "16 developers",
+    budget: "$3.5M+",
+    impact: {
+      volume: "$1B+",
+      users: "200K+",
+      uptime: "99.98%",
+      security: "Zero breaches"
+    },
+    technologies: ["React", "Node.js", "MongoDB", "Redis", "WebSocket", "AWS", "Kubernetes", "Docker"],
+    features: ["Real-time Trading", "Advanced Charts", "Security Features", "API Integration"],
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80",
+    description: "High-performance cryptocurrency trading platform with real-time market data and advanced security",
+    challenge: "Build ultra-low latency trading system with bank-level security",
+    solution: "Implemented high-frequency trading infrastructure with advanced security protocols",
+    gradient: "from-cyan-500 to-blue-500"
+  },
+  {
+    id: 12,
+    title: "Smart City IoT Dashboard",
+    client: "Municipal Government",
+    category: "Web Platform",
+    type: "Smart City Solution",
+    status: "Live",
+    year: "2024",
+    duration: "18 months",
+    teamSize: "13 developers",
+    budget: "$2.8M+",
+    impact: {
+      sensors: "50K+",
+      energy_savings: "30%",
+      traffic_efficiency: "+45%",
+      citizen_satisfaction: "+70%"
+    },
+    technologies: ["Angular", "Spring Boot", "PostgreSQL", "InfluxDB", "Grafana", "AWS IoT", "Docker"],
+    features: ["Real-time Monitoring", "Predictive Analytics", "Automated Alerts", "Citizen Portal"],
+    image: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=800&q=80",
+    description: "Comprehensive smart city platform monitoring traffic, energy, and public services",
+    challenge: "Integrate diverse city systems into unified monitoring and control platform",
+    solution: "Developed IoT platform with real-time analytics and predictive maintenance capabilities",
+    gradient: "from-teal-500 to-cyan-500"
   }
 ];
 
