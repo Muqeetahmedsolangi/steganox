@@ -1,312 +1,327 @@
-import { useEffect, useRef, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Icon } from '@iconify/react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const FuturisticHeader = () => {
-  const headerRef = useRef(null);
-  const logoRef = useRef(null);
-  const [activeSection, setActiveSection] = useState('home');
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
+  const headerRef = useRef(null);
+  const menuRef = useRef(null);
+  const navRef = useRef(null);
+  const overlayRef = useRef(null);
 
+  // Navigation items
   const navItems = [
-    { id: 'home', label: 'Home', href: '/', sectionId: 'home' },
-    { id: 'services', label: 'Services', href: '/services', sectionId: 'services' },
-    { id: 'case-studies', label: 'Case Studies', href: '/case-studies', sectionId: null },
-    // { id: 'process', label: 'Process', href: '/process', sectionId: 'process' },
-    { id: 'portfolio', label: 'Portfolio', href: '/portfolio', sectionId: null },
-    { id: 'contact', label: 'Contact', href: '/contact-us', sectionId: null }
+    { name: 'Home', path: '/', icon: 'mdi:home' },
+    { name: 'Services', path: '/services', icon: 'mdi:cog' },
+    { name: 'Portfolio', path: '/portfolio', icon: 'mdi:folder-multiple' },
+    { name: 'Case Studies', path: '/case-studies', icon: 'mdi:file-document' },
+    { name: 'Contact', path: '/contact-us', icon: 'mdi:email' }
   ];
 
+  // Handle scroll effect
   useEffect(() => {
-    // Header background change on scroll
     const handleScroll = () => {
-      const scrolled = window.scrollY > 50;
-      setIsScrolled(scrolled);
+      const scrollTop = window.scrollY;
+      setScrolled(scrollTop > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-    // Logo animation
-    gsap.fromTo(logoRef.current,
-      {
-        opacity: 0,
-        x: -50
-      },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 1,
-        ease: "power3.out",
-        delay: 0.5
-      }
-    );
-
-    // Nav items stagger animation
-    gsap.fromTo('.nav-item',
-      {
-        opacity: 0,
-        y: -20
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power3.out",
-        delay: 0.8
-      }
-    );
-
-    // Set active section based on current route
-    if (location.pathname === '/') {
-      // On homepage, track scroll position for sections
-      const sections = ['home', 'services', 'process'];
-      
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const id = entry.target.id;
-              setActiveSection(id);
-            }
-          });
-        },
-        { threshold: 0.3 }
-      );
-
-      sections.forEach(sectionId => {
-        const section = document.getElementById(sectionId);
-        if (section) observer.observe(section);
+  // GSAP animations
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Header background animation on scroll
+      gsap.to(headerRef.current, {
+        backgroundColor: scrolled ? 'rgba(0,0,0,0.95)' : 'rgba(0,0,0,0.3)',
+        backdropFilter: scrolled ? 'blur(20px)' : 'blur(10px)',
+        borderBottomColor: scrolled ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.05)',
+        duration: 0.3,
+        ease: 'power2.out'
       });
 
-      return () => {
-        sections.forEach(sectionId => {
-          const section = document.getElementById(sectionId);
-          if (section) observer.unobserve(section);
+      // Menu open animation
+      if (isOpen) {
+        // Show overlay first
+        gsap.set(overlayRef.current, { display: 'block' });
+        gsap.fromTo(overlayRef.current,
+          { opacity: 0 },
+          { opacity: 1, duration: 0.3, ease: 'power2.out' }
+        );
+
+        // Show menu
+        gsap.set(menuRef.current, { display: 'flex' });
+        gsap.fromTo(menuRef.current,
+          { 
+            opacity: 0,
+            y: -20,
+            scale: 0.95
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.4,
+            ease: 'power3.out',
+            delay: 0.1
+          }
+        );
+
+        // Animate nav items
+        gsap.fromTo(navRef.current.children,
+          {
+            opacity: 0,
+            y: 20,
+            rotationX: -90
+          },
+          {
+            opacity: 1,
+            y: 0,
+            rotationX: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: 'power3.out',
+            delay: 0.3
+          }
+        );
+      } else {
+        // Hide menu first
+        gsap.to(menuRef.current, {
+          opacity: 0,
+          y: -20,
+          scale: 0.95,
+          duration: 0.3,
+          ease: 'power3.in',
+          onComplete: () => {
+            gsap.set(menuRef.current, { display: 'none' });
+          }
         });
-      };
-    } else {
-      // On other pages, set active based on route
-      const currentRoute = navItems.find(item => item.href === location.pathname);
-      if (currentRoute) {
-        setActiveSection(currentRoute.id);
+
+        // Hide overlay
+        gsap.to(overlayRef.current, {
+          opacity: 0,
+          duration: 0.3,
+          ease: 'power2.in',
+          delay: 0.1,
+          onComplete: () => {
+            gsap.set(overlayRef.current, { display: 'none' });
+          }
+        });
       }
+    }, headerRef);
+
+    return () => ctx.revert();
+  }, [isOpen, scrolled]);
+
+  // Close menu when route changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location]);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
     }
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      document.body.style.overflow = 'unset';
     };
-  }, [location.pathname]);
+  }, [isOpen]);
 
-  const handleNavClick = (item) => {
-    setMobileMenuOpen(false);
-    if (item.href.startsWith('/#')) {
-      // Internal section link on homepage
-      if (location.pathname !== '/') {
-        // Navigate to homepage first
-        navigate('/');
-        // Wait for navigation then scroll
-        setTimeout(() => {
-          const element = document.querySelector(item.href.substring(1));
-          if (element) {
-            element.scrollIntoView({ 
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
-        }, 100);
-      } else {
-        // Already on homepage, just scroll
-        const element = document.querySelector(item.href.substring(1));
-        if (element) {
-          element.scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      }
-    } else {
-      // Regular page navigation
-      navigate(item.href);
-    }
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
-    <header 
-      ref={headerRef}
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-      style={{
-        backgroundColor: isScrolled ? 'rgba(0,0,0,0.9)' : 'rgba(0,0,0,0.5)',
-        backdropFilter: 'blur(20px)',
-        borderBottom: isScrolled ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent'
-      }}
-    >
-      <nav className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/">
-            <div 
-              ref={logoRef}
-              className="flex items-center gap-3 cursor-pointer group"
-            >
-              <div 
-                className="w-10 h-10 rounded-lg flex items-center justify-center border transition-all duration-300 group-hover:scale-110"
-                style={{
-                  background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
-                  borderColor: 'rgba(255,255,255,0.2)'
-                }}
-              >
-                <span style={{ color: '#ffffff', fontWeight: 'bold', fontSize: '1.2rem' }}>
-                  S
-                </span>
-              </div>
-              <span 
-                className="font-bold text-xl transition-colors duration-300 group-hover:text-purple-400"
-                style={{ color: '#ffffff' }}
-              >
-                Steganox
-              </span>
-            </div>
-          </Link>
+    <>
+      {/* Blur Background Overlay */}
+      <div
+        ref={overlayRef}
+        className="fixed inset-0 z-40 hidden"
+        style={{
+          backgroundColor: 'rgba(0,0,0,0.7)',
+          backdropFilter: 'blur(20px)'
+        }}
+        onClick={() => setIsOpen(false)}
+      />
 
-          {/* Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => handleNavClick(item)}
-                className={`nav-item relative px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 ${
-                  activeSection === item.id ? 'active' : ''
-                }`}
-                style={{
-                  color: activeSection === item.id ? '#ffffff' : 'rgba(255,255,255,0.7)',
-                  backgroundColor: activeSection === item.id ? 'rgba(255,255,255,0.1)' : 'transparent',
-                  border: activeSection === item.id ? '1px solid rgba(255,255,255,0.2)' : '1px solid transparent',
-                  fontWeight: '500'
-                }}
-                onMouseEnter={(e) => {
-                  if (activeSection !== item.id) {
-                    e.target.style.color = '#ffffff';
-                    e.target.style.backgroundColor = 'rgba(255,255,255,0.05)';
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (activeSection !== item.id) {
-                    e.target.style.color = 'rgba(255,255,255,0.7)';
-                    e.target.style.backgroundColor = 'transparent';
-                  }
-                }}
-              >
-                {item.label}
-                
-                {/* Active indicator */}
-                {activeSection === item.id && (
-                  <div 
-                    className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full"
-                    style={{ backgroundColor: '#a855f7' }}
-                  />
-                )}
-              </button>
-            ))}
-          </div>
-
-          {/* CTA Button */}
-          <div className="hidden lg:block">
-            <Link to="/contact-us">
-              <button 
-                className="group relative px-6 py-3 rounded-full overflow-hidden transition-all duration-300 hover:scale-105"
-                style={{
-                  background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
-                  color: '#ffffff',
-                  fontWeight: '600',
-                  border: 'none'
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.transform = 'scale(1.05)';
-                  e.target.style.boxShadow = '0 0 30px rgba(168,85,247,0.5)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.transform = 'scale(1)';
-                  e.target.style.boxShadow = 'none';
-                }}
-              >
-                <span className="relative z-10">Get Started</span>
-                
-                {/* Hover effect overlay */}
+      <header
+        ref={headerRef}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+        style={{
+          backgroundColor: 'rgba(0,0,0,0.3)',
+          backdropFilter: 'blur(10px)',
+          borderBottom: '1px solid rgba(255,255,255,0.05)'
+        }}
+      >
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex items-center justify-between h-16 md:h-20">
+            {/* Logo */}
+            <Link to="/" className="flex items-center space-x-3 group">
+              <div className="relative">
                 <div 
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{
-                    background: 'linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.2) 100%)',
-                    mixBlendMode: 'overlay'
-                  }}
+                  className="w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                  style={{ background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)' }}
+                >
+                  <Icon icon="mdi:code-braces" className="w-6 h-6 md:w-7 md:h-7 text-white" />
+                </div>
+                <div 
+                  className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-lg"
+                  style={{ background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)' }}
                 />
-              </button>
+              </div>
+              <div>
+                <h1 className="text-xl md:text-2xl font-bold text-white group-hover:text-purple-300 transition-colors duration-300">
+                  Steganox
+                </h1>
+                <p className="text-xs text-gray-400 hidden sm:block">Digital Innovation</p>
+              </div>
             </Link>
-          </div>
 
-          {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden p-2 rounded-lg transition-all duration-300 hover:bg-white/10"
-            style={{
-              color: '#ffffff',
-              border: '1px solid rgba(255,255,255,0.2)'
-            }}
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Open menu"
-          >
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-      </nav>
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center space-x-8">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 group relative ${
+                    location.pathname === item.path
+                      ? 'text-purple-400 bg-purple-500/10 border border-purple-500/20'
+                      : 'text-gray-300 hover:text-white hover:bg-white/5'
+                  }`}
+                >
+                  <Icon icon={item.icon} className="w-4 h-4" />
+                  <span className="font-medium">{item.name}</span>
+                  
+                  {/* Hover effect */}
+                  <div 
+                    className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(168,85,247,0.1) 0%, rgba(59,130,246,0.1) 100%)',
+                      filter: 'blur(8px)'
+                    }}
+                  />
+                </Link>
+              ))}
+            </nav>
 
-      {/* Mobile Menu Overlay */}
-      {mobileMenuOpen && (
-        <div className="fixed inset-0 w-screen h-screen z-50 bg-black/80 backdrop-blur-2xl flex flex-col items-center justify-center md:hidden transition-all duration-300">
-          <button
-            className="absolute top-6 right-6 p-2 rounded-lg hover:bg-white/10 text-white"
-            onClick={() => setMobileMenuOpen(false)}
-            aria-label="Close menu"
-          >
-            <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-          <div className="w-[90vw] max-w-xs bg-gradient-to-br from-black/90 via-purple-900/80 to-blue-900/80 rounded-2xl border border-purple-700 shadow-2xl flex flex-col gap-8 items-center py-10 px-4 mt-8">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => handleNavClick(item)}
-                className={`text-lg font-semibold px-6 py-3 rounded-full transition-all duration-200 w-full text-center ${
-                  activeSection === item.id ? 'bg-purple-700/80 text-white shadow-md' : 'text-gray-200 hover:bg-white/10 hover:text-white'
-                }`}
-                style={{
-                  border: activeSection === item.id ? '1.5px solid #a855f7' : '1.5px solid transparent',
-                  letterSpacing: '0.02em'
-                }}
-              >
-                {item.label}
-              </button>
-            ))}
-            <Link to="/contact-us" className="w-full flex justify-center">
-              <button 
-                className="mt-6 px-8 py-3 rounded-full font-bold text-white bg-gradient-to-r from-purple-600 to-blue-600 shadow-lg w-full text-lg transition-all duration-200 hover:scale-105"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Get Started
-              </button>
-            </Link>
+            {/* CTA Button - Desktop */}
+            <div className="hidden lg:block">
+              <Link to="/contact-us">
+                <button 
+                  className="px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 group"
+                  style={{
+                    background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
+                    boxShadow: '0 4px 20px rgba(168,85,247,0.3)'
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.boxShadow = '0 8px 30px rgba(168,85,247,0.5)'}
+                  onMouseLeave={e => e.currentTarget.style.boxShadow = '0 4px 20px rgba(168,85,247,0.3)'}
+                >
+                  <span className="text-white group-hover:text-white">Get Started</span>
+                </button>
+              </Link>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={toggleMenu}
+              className="lg:hidden relative w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 hover:bg-white/10 z-60"
+              style={{ border: '1px solid rgba(255,255,255,0.1)' }}
+            >
+              <div className="flex flex-col space-y-1">
+                <span 
+                  className={`w-6 h-0.5 bg-white transition-all duration-300 ${
+                    isOpen ? 'rotate-45 translate-y-1.5' : ''
+                  }`}
+                />
+                <span 
+                  className={`w-6 h-0.5 bg-white transition-all duration-300 ${
+                    isOpen ? 'opacity-0' : ''
+                  }`}
+                />
+                <span 
+                  className={`w-6 h-0.5 bg-white transition-all duration-300 ${
+                    isOpen ? '-rotate-45 -translate-y-1.5' : ''
+                  }`}
+                />
+              </div>
+            </button>
           </div>
         </div>
-      )}
-    </header>
+
+        {/* Mobile Menu */}
+        <div
+          ref={menuRef}
+          className="lg:hidden absolute top-full left-0 right-0 hidden z-50"
+          style={{
+            backgroundColor: 'rgba(0,0,0,0.98)',
+            backdropFilter: 'blur(20px)',
+            borderBottom: '1px solid rgba(255,255,255,0.1)',
+            boxShadow: '0 20px 60px rgba(0,0,0,0.8)'
+          }}
+        >
+          <div className="container mx-auto px-4 py-6">
+            <nav ref={navRef} className="flex flex-col space-y-4">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className={`flex items-center space-x-4 px-4 py-3 rounded-xl transition-all duration-300 group ${
+                    location.pathname === item.path
+                      ? 'text-purple-400 bg-purple-500/10 border border-purple-500/20'
+                      : 'text-gray-300 hover:text-white hover:bg-white/5'
+                  }`}
+                >
+                  <div 
+                    className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 ${
+                      location.pathname === item.path
+                        ? 'bg-purple-500/20'
+                        : 'bg-white/5 group-hover:bg-white/10'
+                    }`}
+                  >
+                    <Icon icon={item.icon} className="w-5 h-5" />
+                  </div>
+                  <span className="font-medium text-lg">{item.name}</span>
+                  
+                  {/* Arrow indicator */}
+                  <Icon 
+                    icon="mdi:chevron-right" 
+                    className="w-5 h-5 ml-auto opacity-50 group-hover:opacity-100 transition-opacity duration-300" 
+                  />
+                </Link>
+              ))}
+              
+              {/* Mobile CTA */}
+              <div className="pt-4 border-t border-white/10">
+                <Link to="/contact-us" className="block">
+                  <button 
+                    className="w-full px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 group"
+                    style={{
+                      background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
+                      boxShadow: '0 4px 20px rgba(168,85,247,0.3)'
+                    }}
+                    onMouseEnter={e => e.currentTarget.style.boxShadow = '0 8px 30px rgba(168,85,247,0.5)'}
+                    onMouseLeave={e => e.currentTarget.style.boxShadow = '0 4px 20px rgba(168,85,247,0.3)'}
+                  >
+                    <span className="text-white group-hover:text-white flex items-center justify-center space-x-2">
+                      <Icon icon="mdi:rocket-launch" className="w-5 h-5" />
+                      <span>Start Your Project</span>
+                    </span>
+                  </button>
+                </Link>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </header>
+    </>
   );
 };
 

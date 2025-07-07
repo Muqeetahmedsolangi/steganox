@@ -7,11 +7,7 @@ const websiteRoutes = [
     path: '',
     Element: lazy(() => import('../views/website/Home')),
   },
-  {
-    key: 'about',
-    path: 'about-us',
-    Element: lazy(() => import('../views/website/about')),
-  },
+
   {
     key: 'services',
     path: 'services',

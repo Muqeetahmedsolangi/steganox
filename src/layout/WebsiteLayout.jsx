@@ -21,7 +21,7 @@ function WebsiteLayout() {
     <div className="font-inter bg-black text-white min-h-screen relative overflow-x-hidden">
       <FuturisticHeader />
       <CustomCursor />
-      <div className="relative z-10">
+      <div className="relative z-10 pt-16 md:pt-20">
         <Suspense fallback={<Loading />}>
           <Outlet />
         </Suspense>

@@ -25,25 +25,25 @@ const Home = () => {
     // Refresh ScrollTrigger
     ScrollTrigger.refresh();
 
-    // Lenis-like smooth scroll
-    let scrollY = window.scrollY;
-    let targetY = window.scrollY;
+    // Temporarily disabled custom scroll handling to fix navigation
+    // let scrollY = window.scrollY;
+    // let targetY = window.scrollY;
     
-    const updateScroll = () => {
-      scrollY += (targetY - scrollY) * 0.1;
-      window.scrollTo(0, scrollY);
+    // const updateScroll = () => {
+    //   scrollY += (targetY - scrollY) * 0.1;
+    //   window.scrollTo(0, scrollY);
       
-      if (Math.abs(targetY - scrollY) > 0.5) {
-        requestAnimationFrame(updateScroll);
-      }
-    };
+    //   if (Math.abs(targetY - scrollY) > 0.5) {
+    //     requestAnimationFrame(updateScroll);
+    //   }
+    // };
 
-    const onWheel = (e) => {
-      e.preventDefault();
-      targetY += e.deltaY;
-      targetY = Math.max(0, Math.min(targetY, document.body.scrollHeight - window.innerHeight));
-      requestAnimationFrame(updateScroll);
-    };
+    // const onWheel = (e) => {
+    //   e.preventDefault();
+    //   targetY += e.deltaY;
+    //   targetY = Math.max(0, Math.min(targetY, document.body.scrollHeight - window.innerHeight));
+    //   requestAnimationFrame(updateScroll);
+    // };
 
     // window.addEventListener('wheel', onWheel, { passive: false });
 

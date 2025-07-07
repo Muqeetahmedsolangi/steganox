@@ -22,7 +22,7 @@ const FuturisticHero = () => {
       // Create main timeline for hero animations
       const heroTimeline = gsap.timeline({
         scrollTrigger: {
-          trigger: containerRef.current,
+          trigger: containerRef.current,  
           start: "top top",
           end: "bottom top",
           scrub: 0.5,

@@ -257,9 +257,9 @@ function ContactPage() {
       </div>
 
           {/* Selected Office Details */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 min-h-[400px]">
             {/* Office Info */}
-            <div className="bg-gray-800/50 p-8 rounded-xl border border-gray-700/50">
+            <div className="bg-gray-800/50 p-8 rounded-xl border border-gray-700/50 h-full flex flex-col">
               <h3 className="text-2xl font-bold mb-6 text-purple-400">
                 {officeLocations[selectedOffice].name}
               </h3>
@@ -319,18 +319,18 @@ function ContactPage() {
       </div>
 
             {/* Map */}
-            <div className="bg-gray-800/50 p-2 rounded-xl border border-gray-700/50">
+            <div className="bg-gray-800/50 p-2 rounded-xl border border-gray-700/50 h-full flex">
               <iframe
                 src={officeLocations[selectedOffice].mapUrl}
                 width="100%"
-                height="400"
-                style={{ border: 0 }}
+                height="100%"
+                style={{ border: 0, minHeight: '100%', flex: 1 }}
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="rounded-lg"
+                className="rounded-lg h-full w-full"
               ></iframe>
-          </div>
+            </div>
                   </div>
                   </div>
       </section>

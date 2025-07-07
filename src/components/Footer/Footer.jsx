@@ -116,7 +116,6 @@ function Footer() {
   ];
 
   const quickLinks = [
-    { name: 'About Us', path: '/about-us', icon: 'mdi:information' },
     { name: 'Services', path: '/services', icon: 'mdi:cog' },
     { name: 'Portfolio', path: '/portfolio', icon: 'mdi:briefcase' },
     { name: 'Case Studies', path: '/case-studies', icon: 'mdi:view-grid' },

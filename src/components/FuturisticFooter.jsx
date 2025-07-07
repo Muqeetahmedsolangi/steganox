@@ -11,7 +11,6 @@ const FuturisticFooter = () => {
       { name: 'Blockchain', href: '/services' }
     ],
     Company: [
-      { name: 'About Us', href: '/about-us' },
       { name: 'Portfolio', href: '/portfolio' },
       { name: 'Case Studies', href: '/case-studies' },
       { name: 'Contact', href: '/contact-us' }

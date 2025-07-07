@@ -22,7 +22,6 @@ function Header() {
     { name: 'Services', path: '/#services', icon: 'mdi:cog', scrollTo: 'services-section' },
     { name: 'Portfolio', path: '/portfolio', icon: 'mdi:briefcase' },
     { name: 'Case Studies', path: '/case-studies', icon: 'mdi:view-grid' },
-    { name: 'About', path: '/about-us', icon: 'mdi:information' },
     { name: 'Blog', path: '/blogs', icon: 'mdi:post' },
     { name: 'Contact', path: '/contact-us', icon: 'mdi:phone' }
   ];
