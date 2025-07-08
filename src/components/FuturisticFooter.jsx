@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Icon } from '@iconify/react';
 
 const FuturisticFooter = () => {
   const currentYear = new Date().getFullYear();
@@ -24,10 +25,10 @@ const FuturisticFooter = () => {
   };
 
   const socialLinks = [
-    { name: 'GitHub', icon: '⚡', href: 'https://github.com' },
-    { name: 'LinkedIn', icon: '💼', href: 'https://linkedin.com' },
-    { name: 'Twitter', icon: '🐦', href: 'https://twitter.com' },
-    { name: 'Discord', icon: '💬', href: 'https://discord.com' }
+    { name: 'GitHub', icon: 'mdi:github', href: 'https://github.com' },
+    { name: 'LinkedIn', icon: 'mdi:linkedin', href: 'https://linkedin.com' },
+    { name: 'Twitter', icon: 'mdi:twitter', href: 'https://twitter.com' },
+    { name: 'Discord', icon: 'mdi:discord', href: 'https://discord.com' }
   ];
 
   return (
@@ -78,7 +79,7 @@ const FuturisticFooter = () => {
             >
               Building tomorrow's software with cutting-edge technology and innovative solutions.
             </p>
-
+              
             <div className="flex gap-4">
               {socialLinks.map((social, index) => (
                 <a
@@ -100,7 +101,11 @@ const FuturisticFooter = () => {
                     e.target.style.borderColor = 'rgba(255,255,255,0.1)';
                   }}
                 >
-                  <span style={{ fontSize: '1.2rem' }}>{social.icon}</span>
+                  <Icon 
+                    icon={social.icon} 
+                    className="text-xl"
+                    style={{ color: 'rgba(255,255,255,0.8)' }}
+                  />
                 </a>
               ))}
             </div>

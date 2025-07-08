@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import FuturisticHero from '../../../components/FuturisticHero';
@@ -17,7 +17,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
   const location = useLocation();
-
+  const navigate = useNavigate();
   useEffect(() => {
     // Smooth scrolling
     document.documentElement.style.scrollBehavior = 'smooth';
@@ -301,6 +301,7 @@ const Home = () => {
               Ready to join our success stories?
             </p>
             <button 
+              onClick={() => navigate('/contact-us')}
               className="group relative px-8 py-4 rounded-full overflow-hidden transition-all duration-300 hover:scale-105"
               style={{
                 background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',

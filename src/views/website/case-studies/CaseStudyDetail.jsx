@@ -406,7 +406,7 @@ const CaseStudyDetail = () => {
             
             <div className="flex items-center gap-4">
               <button
-                onClick={() => navigate('/contact')}
+                onClick={() => navigate('/contact-us')}
                 className="px-4 py-2 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:from-purple-600 hover:to-blue-600 transition-all duration-300"
               >
                 Start Similar Project
@@ -616,7 +616,7 @@ const CaseStudyDetail = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              onClick={() => navigate('/contact')}
+              onClick={() => navigate('/contact-us')}
               className="px-8 py-4 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold hover:from-purple-600 hover:to-blue-600 transition-all duration-300 hover:scale-105 shadow-lg shadow-purple-500/30"
             >
               <div className="flex items-center justify-center gap-2">

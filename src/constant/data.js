@@ -2095,46 +2095,52 @@ export const servicesData = [
 // Industries Data
 export const industriesData = [
   {
-    icon: "🏦",
+    icon: "ph:buildings-bold",
     title: "Banking & Financial Services",
     description: "Digital banking platforms, risk management systems, and regulatory compliance solutions",
     clients: "50+ Major Banks",
-    color: "#4F46E5"
+    color: "#4F46E5",
+    gradient: "from-indigo-500 to-purple-600"
   },
   {
-    icon: "🏥",
+    icon: "ph:heart-straight-bold",
     title: "Healthcare & Life Sciences",
     description: "HIPAA-compliant telemedicine platforms, EHR systems, and clinical trial management",
     clients: "100+ Healthcare Providers",
-    color: "#059669"
+    color: "#059669",
+    gradient: "from-emerald-500 to-teal-600"
   },
   {
-    icon: "🛍️",
+    icon: "ph:shopping-cart-bold",
     title: "Retail & E-commerce",
     description: "Omnichannel retail solutions, inventory management, and personalization engines",
     clients: "200+ Retail Brands",
-    color: "#DC2626"
+    color: "#DC2626",
+    gradient: "from-red-500 to-pink-600"
   },
   {
-    icon: "🏭",
+    icon: "ph:gear-six-bold",
     title: "Manufacturing & Chain",
     description: "IoT-enabled factory automation, predictive maintenance, and supply chain optimization",
     clients: "75+ Manufacturers",
-    color: "#7C3AED"
+    color: "#7C3AED",
+    gradient: "from-violet-500 to-purple-600"
   },
   {
-    icon: "🚗",
+    icon: "ph:steering-wheel-bold",
     title: "Automotive & Mobility",
     description: "Connected vehicle platforms, fleet management, and autonomous driving solutions",
     clients: "30+ Automotive Companies",
-    color: "#EA580C"
+    color: "#EA580C",
+    gradient: "from-orange-500 to-red-600"
   },
   {
-    icon: "⚡",
+    icon: "ph:lightning-bold",
     title: "Energy & Utilities",
     description: "Smart grid solutions, renewable energy management, and predictive analytics with AI and Machine Learning",
     clients: "40+ Energy Providers",
-    color: "#0891B2"
+    color: "#0891B2",
+    gradient: "from-cyan-500 to-blue-600"
   }
 ];
 
@@ -2554,7 +2560,7 @@ export const whyChooseData = [
   {
     icon: "⚡",
     title: "Agile Delivery",
-    description: "95% on-time delivery rate with flexible engagement models that adapt to your business needs.",
+    description: "95% on-time delivery rate with flexible engagement models that adapt to your business needs to meet your deadlines.",
     highlight: "2x Faster Delivery"
   },
   {
