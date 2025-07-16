@@ -1,81 +1,62 @@
 .alert {
-  @apply py-[18px] px-6 font-normal text-sm rounded-md;
+  @apply p-4 rounded-lg border;
 }
+
 .alert-primary {
-  @apply bg-primary-500 text-white;
-  &.light-mode {
-    @apply bg-opacity-[14%] text-primary-500;
-  }
+  @apply bg-primary-50 border-primary-200 text-primary-800;
 }
+
 .alert-secondary {
-  @apply bg-secondary-500 text-white;
-
-  &.light-mode {
-    @apply bg-opacity-[14%] text-slate-900;
-  }
+  @apply bg-secondary-50 border-secondary-200 text-secondary-800;
 }
+
 .alert-success {
-  @apply bg-success-500 text-white;
+  @apply bg-green-50 border-green-200 text-green-800;
+}
 
-  &.light-mode {
-    @apply bg-opacity-[14%] text-success-500;
-  }
-}
-.alert-danger {
-  @apply bg-danger-500 text-white;
-  &.light-mode {
-    @apply bg-opacity-[14%] text-danger-500;
-  }
-}
 .alert-warning {
-  @apply bg-warning-500 text-white;
-  &.light-mode {
-    @apply bg-opacity-[14%] text-warning-500;
-  }
+  @apply bg-yellow-50 border-yellow-200 text-yellow-800;
 }
+
+.alert-danger {
+  @apply bg-red-50 border-red-200 text-red-800;
+}
+
 .alert-info {
-  @apply bg-info-500 text-white;
-  &.light-mode {
-    @apply bg-opacity-[14%] text-info-500;
-  }
-}
-.alert-light {
-  @apply bg-slate-100 text-slate-900;
-
-  &.light-mode {
-    @apply text-slate-500;
-  }
+  @apply bg-blue-50 border-blue-200 text-blue-800;
 }
 
-.alert-dark {
-  @apply bg-slate-900 text-white;
-  &.light-mode {
-    @apply bg-opacity-[54%] text-slate-100;
-  }
+// Dark variants
+.alert-success.dark {
+  @apply bg-green-500 text-white;
 }
 
-// outline color
-.alert-outline-primary {
-  @apply border border-primary-500 text-primary-500;
+.alert-warning.dark {
+  @apply bg-yellow-500 text-white;
 }
-.alert-outline-secondary {
-  @apply border border-secondary-500 text-secondary-500;
+
+.alert-danger.dark {
+  @apply bg-red-500 text-white;
 }
-.alert-outline-success {
-  @apply border border-success-500 text-success-500;
+
+.alert-info.dark {
+  @apply bg-blue-500 text-white;
 }
-.alert-outline-danger {
-  @apply border border-danger-500 text-danger-500;
+
+// Alert with icon
+.alert-with-icon {
+  @apply flex items-center space-x-3;
 }
-.alert-outline-warning {
-  @apply border border-warning-500 text-warning-500;
+
+.alert-icon {
+  @apply w-5 h-5 flex-shrink-0;
 }
-.alert-outline-info {
-  @apply border border-info-500 text-info-500;
+
+// Dismissible alert
+.alert-dismissible {
+  @apply relative pr-12;
 }
-.alert-outline-light {
-  @apply border border-slate-200 text-slate-600;
-}
-.alert-outline-dark {
-  @apply border border-slate-900 text-slate-900;
+
+.alert-close {
+  @apply absolute top-4 right-4 w-4 h-4 text-current opacity-50 hover:opacity-100 cursor-pointer;
 }

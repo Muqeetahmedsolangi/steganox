@@ -7,7 +7,11 @@ const websiteRoutes = [
     path: '',
     Element: lazy(() => import('../views/website/Home')),
   },
-
+  {
+    key: 'about',
+    path: 'about',
+    Element: lazy(() => import('../views/website/about')),
+  },
   {
     key: 'services',
     path: 'services',
@@ -44,11 +48,6 @@ const websiteRoutes = [
     Element: lazy(() => import('../views/website/blogs/BlogDetail')),
   },
   {
-    key: 'contact-us',
-    path: 'contact-us',
-    Element: lazy(() => import('../views/website/contact')),
-  },
-  {
     key: 'portfolio',
     path: 'portfolio',
     Element: lazy(() => import('../views/website/portfolio')),
@@ -57,6 +56,16 @@ const websiteRoutes = [
     key: 'portfolio-detail',
     path: 'portfolio/:id',
     Element: lazy(() => import('../views/website/portfolio/ProjectDetail')),
+  },
+  {
+    key: 'contact-us',
+    path: 'contact-us',
+    Element: lazy(() => import('../views/website/contact')),
+  },
+  {
+    key: 'contact',
+    path: 'contact',
+    Element: lazy(() => import('../views/website/contact')),
   },
 ];
 

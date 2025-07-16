@@ -14,7 +14,7 @@
   }
   .has-error {
     .select__control {
-      @apply border-danger-500;
+      @apply border-red-500;
     }
   }
   .select__control,
@@ -55,7 +55,7 @@
     .select__control,
     .react-select__control {
       .select__indicator svg {
-        @apply text-danger-500;
+        @apply text-red-500;
       }
     }
   }

@@ -1,185 +1,167 @@
-import { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { Icon } from '@iconify/react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { techStackData } from '../constant/data';
 
-gsap.registerPlugin(ScrollTrigger);
+const TechStack = () => {
+  const categoryIcons = {
+    'Frontend': 'carbon:application-web',
+    'Backend': 'carbon:server',
+    'Cloud & DevOps': 'carbon:cloud',
+    'Data & AI': 'carbon:machine-learning'
+  };
 
-const TechStack = ({ technologies }) => {
-  const [activeCategory, setActiveCategory] = useState('cad');
-  const skillBarsRef = useRef([]);
-  const sectionRef = useRef(null);
-
-  const categories = [
-    { id: 'cad', name: 'CAD Software', shortName: 'CAD', icon: 'carbon:3d-software' },
-    { id: 'simulation', name: 'Simulation', shortName: 'Simulation', icon: 'carbon:analytics' },
-    { id: 'manufacturing', name: 'Manufacturing', shortName: 'Mfg', icon: 'mdi:factory' },
-    { id: 'standards', name: 'Standards', shortName: 'Standards', icon: 'mdi:certificate' },
-    { id: 'tools', name: 'Engineering Tools', shortName: 'Tools', icon: 'mdi:tools' },
-  ];
-
-  useEffect(() => {
-    // Animate skill bars on scroll
-    skillBarsRef.current.forEach((bar, index) => {
-      if (bar) {
-        gsap.fromTo(
-          bar,
-          { width: '0%' },
-          {
-            width: `${technologies[activeCategory][index]?.level || 0}%`,
-            duration: 1.5,
-            delay: index * 0.1,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: 'top 80%',
-              once: true,
-            },
-          }
-        );
-      }
-    });
-  }, [activeCategory, technologies]);
+  const getTechIcon = (techName) => {
+    const iconMap = {
+      'React/Next.js': 'logos:react',
+      'Angular': 'logos:angular-icon',
+      'Vue.js': 'logos:vue',
+      'TypeScript': 'logos:typescript-icon',
+      'Node.js': 'logos:nodejs-icon',
+      'Python': 'logos:python',
+      'Java': 'logos:java',
+      '.NET Core': 'logos:dotnet',
+      'PHP': 'logos:php',
+      'Go': 'logos:go',
+      'PostgreSQL': 'logos:postgresql',
+      'MongoDB': 'logos:mongodb-icon',
+      'MySQL': 'logos:mysql-icon',
+      'Redis': 'logos:redis',
+      'Elasticsearch': 'logos:elasticsearch',
+      'DynamoDB': 'simple-icons:amazondynamodb',
+      'AWS': 'logos:aws',
+      'Azure': 'logos:microsoft-azure',
+      'Google Cloud': 'logos:google-cloud',
+      'Docker': 'logos:docker-icon',
+      'Kubernetes': 'logos:kubernetes',
+      'Terraform': 'logos:terraform-icon',
+      'TensorFlow': 'logos:tensorflow',
+      'PyTorch': 'simple-icons:pytorch',
+      'Spark': 'simple-icons:apachespark',
+      'Kafka': 'simple-icons:apachekafka',
+      'Git': 'logos:git-icon',
+      'Jenkins': 'logos:jenkins',
+      'GitLab CI': 'logos:gitlab',
+      'Jira': 'logos:jira',
+      'Selenium': 'logos:selenium',
+      'Postman': 'simple-icons:postman'
+    };
+    return iconMap[techName] || 'carbon:code';
+  };
 
   return (
-    <section ref={sectionRef} className="py-16 sm:py-20 lg:py-24 px-4 relative overflow-hidden">
-      {/* Professional Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-cyber-500/6 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '16s' }} />
-        <div className="absolute bottom-1/4 right-1/4 w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-neon-500/6 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '20s', animationDelay: '4s' }} />
-        <div className="absolute inset-0 bg-tech-grid opacity-5" />
-      </div>
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Professional Section Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-3 mb-4 sm:mb-6">
-            <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-transparent to-cyber-500" />
-            <Icon icon="carbon:3d-software" className="w-6 h-6 sm:w-8 sm:h-8 text-cyber-500" />
-            <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-l from-transparent to-cyber-500" />
+    <section className="py-20 bg-white dark:bg-slate-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary mb-4">
+            <Icon icon="carbon:code" className="w-4 h-4" />
+            <span>Technology Stack</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-neon-500 leading-tight">
-            Technology Stack
+          
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+            Cutting-Edge Technologies
           </h2>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            Cutting-edge technologies we use to build exceptional solutions
+          
+          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            We leverage the latest technologies and frameworks to build robust, 
+            scalable solutions that stand the test of time.
           </p>
         </div>
 
-        {/* Professional Responsive Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-12">
-          {categories.map((category, index) => (
-            <button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`group flex items-center gap-2 px-3 sm:px-4 md:px-6 py-2 sm:py-3 rounded-xl md:rounded-2xl font-bold transition-all duration-500 hover:scale-105 transform relative overflow-hidden ${
-                activeCategory === category.id
-                  ? 'bg-gradient-to-r from-neon-500 to-cyber-500 text-white shadow-xl shadow-neon-500/40'
-                  : 'bg-gradient-to-br from-void-800/60 to-void-700/60 text-gray-400 hover:bg-void-700/70 hover:text-white border border-void-600/50 hover:border-neon-500/30 backdrop-blur-sm'
-              }`}
+        {/* Tech Categories */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {Object.entries(techStackData).map(([categoryKey, categoryData]) => (
+            <div 
+              key={categoryKey}
+              className="bg-slate-50 dark:bg-slate-800/50 p-8 rounded-2xl border border-slate-200 dark:border-slate-700"
             >
-              {/* Background effect */}
-              {activeCategory === category.id && (
-                <div className="absolute inset-0 bg-gradient-to-r from-neon-500 to-cyber-500 rounded-xl md:rounded-2xl blur-xl opacity-50" />
-              )}
-              
-              <Icon icon={category.icon} className="w-4 h-4 sm:w-5 sm:h-5 relative z-10" />
-              
-              {/* Responsive text display */}
-              <span className="text-xs sm:text-sm md:text-base relative z-10">
-                <span className="block sm:hidden">{category.shortName}</span>
-                <span className="hidden sm:block">{category.name}</span>
-              </span>
-              
-              {/* Active indicator */}
-              {activeCategory === category.id && (
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-6 h-1 bg-white rounded-full" />
-              )}
-            </button>
-          ))}
-        </div>
-
-        {/* Professional Responsive Technology Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
-          {technologies[activeCategory]?.map((tech, index) => (
-            <div
-              key={tech.name}
-              className="group relative bg-gradient-to-br from-void-900/60 to-void-800/60 backdrop-blur-xl rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 border border-void-700/50 hover:border-neon-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-neon-500/20 hover:scale-[1.02]"
-            >
-              {/* Professional background effects */}
-              <div className="absolute inset-0 bg-gradient-to-br from-neon-500/5 to-cyber-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl lg:rounded-3xl" />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-neon-400/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              {/* Glass morphism */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/6 via-white/2 to-transparent rounded-2xl lg:rounded-3xl" />
-
-              <div className="relative z-10">
-                {/* Professional Header */}
-                <div className="flex items-center justify-between mb-4 sm:mb-6">
-                  <div className="flex items-center gap-3 sm:gap-4">
-                    <div className="relative">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 flex items-center justify-center rounded-xl lg:rounded-2xl bg-gradient-to-br from-void-800/80 to-void-700/80 border border-void-600/50 group-hover:border-neon-500/30 transition-all duration-300 shadow-lg">
-                        <Icon icon={tech.icon} className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-neon-400 group-hover:text-neon-300 transition-colors duration-300" />
-                      </div>
-                      <div className="absolute inset-0 bg-neon-500/10 rounded-xl lg:rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    </div>
-                    <div>
-                      <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white group-hover:text-neon-300 transition-colors duration-300 leading-tight">{tech.name}</h3>
-                      <p className="text-xs sm:text-sm text-gray-500 mt-1">Professional Tool</p>
-                    </div>
-                  </div>
-                  
-                  {/* Professional percentage display */}
-                  <div className="text-right">
-                    <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-neon-500 group-hover:text-neon-400 transition-colors duration-300 group-hover:scale-110 transform inline-block">{tech.level}%</span>
-                    <p className="text-xs text-gray-500 mt-1">Proficiency</p>
-                  </div>
+              {/* Category Header */}
+              <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-xl">
+                  <Icon 
+                    icon={categoryIcons[categoryData.category]} 
+                    className="w-6 h-6 text-primary" 
+                  />
                 </div>
-
-                {/* Professional Skill Bar */}
-                <div className="relative">
-                  <div className="relative h-2 sm:h-3 bg-void-800/80 rounded-full overflow-hidden border border-void-700/50 shadow-inner">
-                    <div
-                      ref={(el) => (skillBarsRef.current[index] = el)}
-                      className="absolute top-0 left-0 h-full bg-gradient-to-r from-neon-500 via-cyber-500 to-neon-600 rounded-full shadow-lg relative overflow-hidden"
-                      style={{ width: '0%' }}
-                    >
-                      {/* Animated glow effect */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                    </div>
-                  </div>
-                  
-                  {/* Skill level indicators */}
-                  <div className="flex justify-between mt-2 text-xs text-gray-500">
-                    <span>Beginner</span>
-                    <span className="hidden sm:inline">Intermediate</span>
-                    <span>Expert</span>
-                  </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white">
+                    {categoryData.category}
+                  </h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">
+                    {categoryData.technologies.length} Technologies
+                  </p>
                 </div>
               </div>
 
-              {/* Professional corner accents */}
-              <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-neon-500/8 to-transparent rounded-tr-2xl lg:rounded-tr-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-cyber-500/8 to-transparent rounded-bl-2xl lg:rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              {/* Technologies Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {categoryData.technologies.map((tech, techIndex) => (
+                  <div 
+                    key={techIndex}
+                    className="group bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-primary/30 transition-all duration-200"
+                  >
+                    <div className="flex items-center gap-3 mb-3">
+                      <Icon 
+                        icon={getTechIcon(tech.name)} 
+                        className="w-8 h-8" 
+                      />
+                      <div className="flex-1">
+                        <h4 className="font-medium text-slate-900 dark:text-white text-sm">
+                          {tech.name}
+                        </h4>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">
+                          {tech.projects} Projects
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* Skill Level Bar */}
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="flex-1 bg-slate-200 dark:bg-slate-700 rounded-full h-2 overflow-hidden">
+                        <div 
+                          className="h-full bg-gradient-to-r from-primary to-secondary rounded-full transition-all duration-500"
+                          style={{ width: `${tech.level}%` }}
+                        ></div>
+                      </div>
+                      <span className="text-xs font-medium text-slate-600 dark:text-slate-400">
+                        {tech.level}%
+                      </span>
+                    </div>
+                    
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-slate-500 dark:text-slate-400">
+                        {tech.expertise}
+                      </span>
+                      <Icon 
+                        icon="carbon:chevron-right" 
+                        className="w-4 h-4 text-slate-400 group-hover:text-primary group-hover:translate-x-1 transition-all" 
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>
 
-        {/* Professional Statistics Footer */}
-        <div className="mt-12 sm:mt-16 lg:mt-20 text-center">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-void-900/60 to-void-800/60 backdrop-blur-xl rounded-2xl p-4 sm:p-6 border border-void-700/50">
-              <div className="text-2xl sm:text-3xl font-bold text-neon-500 mb-2">{technologies[activeCategory]?.length || 0}</div>
-              <div className="text-sm sm:text-base text-gray-400">Technologies Mastered</div>
-            </div>
-            <div className="bg-gradient-to-br from-void-900/60 to-void-800/60 backdrop-blur-xl rounded-2xl p-4 sm:p-6 border border-void-700/50">
-              <div className="text-2xl sm:text-3xl font-bold text-cyber-500 mb-2">95%</div>
-              <div className="text-sm sm:text-base text-gray-400">Average Proficiency</div>
-            </div>
-            <div className="bg-gradient-to-br from-void-900/60 to-void-800/60 backdrop-blur-xl rounded-2xl p-4 sm:p-6 border border-void-700/50">
-              <div className="text-2xl sm:text-3xl font-bold text-neon-400 mb-2">10+</div>
-              <div className="text-sm sm:text-base text-gray-400">Years Experience</div>
-            </div>
+        {/* Bottom Stats */}
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="text-center">
+            <div className="text-2xl md:text-3xl font-bold text-primary mb-2">50+</div>
+            <div className="text-sm text-slate-600 dark:text-slate-400">Technologies Mastered</div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl md:text-3xl font-bold text-primary mb-2">1000+</div>
+            <div className="text-sm text-slate-600 dark:text-slate-400">Projects Delivered</div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl md:text-3xl font-bold text-primary mb-2">99%</div>
+            <div className="text-sm text-slate-600 dark:text-slate-400">Uptime Guaranteed</div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl md:text-3xl font-bold text-primary mb-2">24/7</div>
+            <div className="text-sm text-slate-600 dark:text-slate-400">Support Available</div>
           </div>
         </div>
       </div>

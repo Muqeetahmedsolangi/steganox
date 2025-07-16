@@ -1,17 +1,16 @@
 .input-group-control {
-  @apply bg-white dark:bg-slate-900 dark:placeholder:text-slate-400 transition duration-300 ease-in-out border border-slate-200 dark:border-slate-700 focus:ring-0  focus:outline-none  
-  rounded placeholder:text-slate-400 text-slate-900 text-sm px-3  placeholder:font-light focus:border-slate-600  dark:focus:border-slate-900 dark:text-white;
+  @apply bg-white dark:bg-slate-900 dark:placeholder:text-slate-400 transition duration-300 ease-in-out border border-slate-200 dark:border-slate-700 focus:ring-0 focus:outline-none rounded placeholder:text-slate-400 text-slate-900 text-sm px-3 placeholder:font-light focus:border-slate-600 dark:focus:border-slate-900 dark:text-white;
 }
 
 .fromGroup2 {
   &.has-error {
     .input-group-control {
-      @apply border-danger-500 focus:ring-danger-500  focus:ring-opacity-90 focus:ring-1;
+      @apply border-red-500 focus:ring-red-500  focus:ring-opacity-90 focus:ring-1;
     }
   }
   &.is-valid {
     .input-group-control {
-      @apply border-success-500 focus:ring-success-500 focus:ring-opacity-90 focus:ring-1;
+      @apply border-green-500 focus:ring-green-500 focus:ring-opacity-90 focus:ring-1;
     }
   }
 }
@@ -25,8 +24,7 @@
 }
 
 .input-group-text {
-  @apply bg-white dark:bg-slate-900 transition duration-300 ease-in-out  flex items-center justify-center px-3 border
-   border-slate-200 dark:border-slate-700 ltr:rounded-tl rtl:rounded-tr rtl:rounded-br ltr:rounded-bl text-slate-400 text-base font-light;
+  @apply bg-white dark:bg-slate-900 transition duration-300 ease-in-out flex items-center justify-center px-3 border border-slate-200 dark:border-slate-700 ltr:rounded-tl rtl:rounded-tr rtl:rounded-br ltr:rounded-bl text-slate-400 text-base font-light;
 }
 .inputGroup.has-prepend {
   .input-group-control {
@@ -56,26 +54,26 @@
   }
 }
 
-.inputGroup:focus-within .input-group-text {
-  @apply border-black-500 dark:border-slate-900;
-}
+.inputGroup:focus-within     .input-group-text {
+      @apply border-gray-900 dark:border-slate-900;
+    }
 /* .merged .inputGroup:focus-within .input-group-text {
 } */
 .inputGroup {
   &.is-invalid {
     .input-group-text {
-      @apply border-danger-500;
+      @apply border-red-500;
     }
     &:focus-within .input-group-text {
-      @apply ring-danger-500;
+      @apply ring-red-500;
     }
   }
   &.is-valid {
     .input-group-text {
-      @apply border-success-500;
+      @apply border-green-500;
     }
     &:focus-within .input-group-text {
-      @apply ring-success-500;
+      @apply ring-green-500;
     }
   }
 }

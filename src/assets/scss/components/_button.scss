@@ -14,16 +14,16 @@
   }
 }
 .btn-dark {
-  @apply bg-slate-900 dark:bg-slate-900 dark:hover:bg-opacity-70   text-white  hover:ring-2 hover:ring-opacity-80 ring-black-900   hover:ring-offset-1 dark:hover:ring-0 dark:hover:ring-offset-0;
+      @apply bg-slate-900 dark:bg-slate-900 dark:hover:bg-opacity-70   text-white  hover:ring-2 hover:ring-opacity-80 ring-gray-900   hover:ring-offset-1 dark:hover:ring-0 dark:hover:ring-offset-0;
 }
 .btn-primary {
   @apply bg-orange-500 dark:hover:bg-opacity-70  text-white hover:ring-2 hover:ring-opacity-80 ring-orange-500 hover:ring-offset-1 dark:hover:ring-0 dark:hover:ring-offset-0;
 }
 .btn-secondary {
-  @apply bg-secondary-500 dark:hover:bg-opacity-70  text-white hover:ring-2 hover:ring-opacity-80 ring-secondary-500 hover:ring-offset-1 dark:hover:ring-0 dark:hover:ring-offset-0;
+  @apply bg-secondary dark:hover:bg-opacity-70  text-white hover:ring-2 hover:ring-opacity-80 ring-secondary hover:ring-offset-1 dark:hover:ring-0 dark:hover:ring-offset-0;
 }
 .btn-success {
-  @apply bg-success-500 dark:hover:bg-opacity-70  text-white hover:ring-2 hover:ring-opacity-80 ring-success-500 hover:ring-offset-1 dark:hover:ring-0 dark:hover:ring-offset-0;
+  @apply bg-green-500 dark:hover:bg-opacity-70  text-white hover:ring-2 hover:ring-opacity-80 ring-green-500 hover:ring-offset-1 dark:hover:ring-0 dark:hover:ring-offset-0;
 }
 .btn-info {
   @apply bg-[#0CE7FA] dark:hover:bg-opacity-70  text-white hover:ring-2 hover:ring-opacity-80 ring-[#0CE7FA] hover:ring-offset-1 dark:hover:ring-0 dark:hover:ring-offset-0;
@@ -32,7 +32,7 @@
   @apply bg-[#FA916B] dark:hover:bg-opacity-70  text-white hover:ring-2 hover:ring-opacity-80 ring-[#FA916B] hover:ring-offset-1 dark:hover:ring-0 dark:hover:ring-offset-0;
 }
 .btn-danger {
-  @apply bg-danger-500 dark:hover:bg-opacity-70  text-white hover:ring-2 hover:ring-opacity-80 ring-danger-500 hover:ring-offset-1 dark:hover:ring-0 dark:hover:ring-offset-0;
+  @apply bg-red-500 dark:hover:bg-opacity-70  text-white hover:ring-2 hover:ring-opacity-80 ring-red-500 hover:ring-offset-1 dark:hover:ring-0 dark:hover:ring-offset-0;
 }
 .btn-light {
   @apply bg-slate-100 dark:hover:bg-opacity-70  text-slate-900 hover:ring-2 hover:ring-opacity-80 ring-[#E0EAFF] hover:ring-offset-1 dark:hover:ring-0 dark:hover:ring-offset-0;
@@ -40,7 +40,7 @@
 
 // btn outline
 .btn-outline-dark {
-  @apply bg-transparent text-slate-900 dark:text-slate-300 border border-black-500 dark:border-slate-600 hover:border-black-500   hover:bg-slate-900 hover:bg-opacity-5;
+  @apply bg-transparent text-slate-900 dark:text-slate-300 border border-gray-500 dark:border-slate-600 hover:border-gray-500   hover:bg-slate-900 hover:bg-opacity-5;
   &.active {
     @apply bg-slate-900 text-white dark:bg-slate-900 dark:text-slate-300;
   }
@@ -58,22 +58,22 @@
   @apply bg-orange-500 text-white;
 }
 .btn-outline-secondary {
-  @apply bg-transparent text-secondary-500 border border-secondary-500 hover:border-secondary-500  hover:bg-secondary-500 hover:bg-opacity-5;
-  &.active {
-    @apply bg-secondary-500 text-white;
+  @apply bg-transparent text-secondary border border-secondary hover:border-secondary  hover:bg-secondary hover:bg-opacity-5;
+      &.active {
+      @apply bg-secondary text-white;
+    }
   }
-}
-[aria-expanded="true"] > .btn-outline-secondary {
-  @apply bg-secondary-500 text-white;
+  [aria-expanded="true"] > .btn-outline-secondary {
+    @apply bg-secondary text-white;
 }
 .btn-outline-success {
-  @apply bg-transparent text-success-500 border border-success-500 hover:border-success-500  hover:bg-success-500 hover:bg-opacity-5;
+  @apply bg-transparent text-green-500 border border-green-500 hover:border-green-500  hover:bg-green-500 hover:bg-opacity-5;
   &.active {
-    @apply bg-success-500 text-white;
+    @apply bg-green-500 text-white;
   }
 }
 [aria-expanded="true"] > .btn-outline-success {
-  @apply bg-success-500 text-white;
+  @apply bg-green-500 text-white;
 }
 .btn-outline-info {
   @apply bg-transparent text-[#0CE7FA] border border-[#0CE7FA] hover:border-[#0CE7FA]  hover:bg-[#0CE7FA] hover:bg-opacity-5;
@@ -82,7 +82,7 @@
   }
 }
 [aria-expanded="true"] > .btn-outline-info {
-  @apply bg-info-500 text-white;
+  @apply bg-blue-500 text-white;
 }
 .btn-outline-warning {
   @apply bg-transparent text-[#FA916B] border border-[#FA916B] hover:border-[#FA916B]  hover:bg-[#FA916B] hover:bg-opacity-5;
@@ -91,17 +91,17 @@
   }
 }
 [aria-expanded="true"] > .btn-outline-warning {
-  @apply bg-warning-500 text-white;
+  @apply bg-yellow-500 text-white;
 }
 
 .btn-outline-danger {
-  @apply bg-transparent text-danger-500 border border-danger-500 hover:border-danger-500  hover:bg-danger-500 hover:bg-opacity-5;
-  &.active {
-    @apply bg-danger-500 text-white;
+  @apply bg-transparent text-red-500 border border-red-500 hover:border-red-500  hover:bg-red-500 hover:bg-opacity-5;
+      &.active {
+      @apply bg-red-500 text-white;
+    }
   }
-}
-[aria-expanded="true"] > .btn-outline-danger {
-  @apply bg-danger-500 text-white;
+  [aria-expanded="true"] > .btn-outline-danger {
+    @apply bg-red-500 text-white;
 }
 .btn-outline-light {
   @apply bg-transparent  border border-[#E0EAFF] dark:text-white hover:border-[#E0EAFF] text-slate-900 hover:bg-[#E0EAFF] hover:bg-opacity-5;
@@ -126,12 +126,12 @@
 }
 .btn-secondary {
   &.light {
-    @apply text-secondary-500 dark:hover:bg-opacity-10;
+          @apply text-secondary dark:hover:bg-opacity-10;
   }
 }
 .btn-success {
   &.light {
-    @apply text-success-500 dark:hover:bg-opacity-10;
+    @apply text-green-500 dark:hover:bg-opacity-10;
   }
 }
 .btn-info {
@@ -146,7 +146,7 @@
 }
 .btn-danger {
   &.light {
-    @apply text-danger-500 dark:hover:bg-opacity-10;
+          @apply text-red-500 dark:hover:bg-opacity-10;
   }
 }
 .btn-light {
@@ -170,22 +170,22 @@
     @apply ltr:last:border-l-0 rtl:last:border-r-0  focus:bg-transparent focus:text-inherit;
   }
   .btn-outline-primary {
-    @apply focus:text-primary-500 last:border-primary-500;
+          @apply focus:text-primary last:border-primary;
   }
   .btn-outline-secondary {
-    @apply focus:text-secondary-500 last:border-secondary-500;
+          @apply focus:text-secondary last:border-secondary;
   }
   .btn-outline-success {
-    @apply focus:text-success-500 last:border-success-500;
+    @apply focus:text-green-500 last:border-green-500;
   }
-  .btn-outline-danger {
-    @apply focus:text-danger-500 last:border-danger-500;
+      .btn-outline-danger {
+      @apply focus:text-red-500 last:border-red-500;
   }
   .btn-outline-warning {
-    @apply focus:text-warning-500 last:border-warning-500;
+          @apply focus:text-yellow-500 last:border-yellow-500;
   }
   .btn-outline-info {
-    @apply focus:text-info-500 last:border-info-500;
+          @apply focus:text-blue-500 last:border-blue-500;
   }
   .btn-outline-light {
     @apply focus:text-slate-600 last:border-[#E0EAFF];

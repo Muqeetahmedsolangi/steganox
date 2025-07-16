@@ -1,317 +1,196 @@
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Icon } from '@iconify/react';
 import { industriesData } from '../constant/data';
 import { useNavigate } from 'react-router-dom';
 
-gsap.registerPlugin(ScrollTrigger);
-
 const IndustriesSection = () => {
-  const sectionRef = useRef(null);
-  const titleRef = useRef(null);
-  const hexRefs = useRef([]);
   const navigate = useNavigate();
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Title animation with stagger
-      gsap.fromTo(titleRef.current,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 80%",
-            once: true
-          }
-        }
-      );
-
-      // Industry cards animations with improved timing
-      hexRefs.current.forEach((card, index) => {
-        if (card) {
-          gsap.fromTo(card,
-            {
-              scale: 0.9,
-              opacity: 0,
-              y: 40,
-              rotationY: 15
-            },
-            {
-              scale: 1,
-              opacity: 1,
-              y: 0,
-              rotationY: 0,
-              duration: 0.8,
-              delay: index * 0.15,
-              ease: "back.out(1.4)",
-              scrollTrigger: {
-                trigger: card,
-                start: "top 85%",
-                once: true
-              }
-            }
-          );
-
-          // Enhanced hover effects
-          card.addEventListener('mouseenter', () => {
-            gsap.to(card, {
-              scale: 1.03,
-              y: -8,
-              duration: 0.4,
-              ease: "power2.out"
-            });
-            
-            gsap.to(card.querySelector('.industry-icon'), {
-              scale: 1.15,
-              rotation: 5,
-              duration: 0.5,
-              ease: "power2.out"
-            });
-
-            gsap.to(card.querySelector('.icon-bg'), {
-              scale: 1.1,
-              opacity: 0.8,
-              duration: 0.4,
-              ease: "power2.out"
-            });
-          });
-
-          card.addEventListener('mouseleave', () => {
-            gsap.to(card, {
-              scale: 1,
-              y: 0,
-              duration: 0.4,
-              ease: "power2.out"
-            });
-            
-            gsap.to(card.querySelector('.industry-icon'), {
-              scale: 1,
-              rotation: 0,
-              duration: 0.5,
-              ease: "power2.out"
-            });
-
-            gsap.to(card.querySelector('.icon-bg'), {
-              scale: 1,
-              opacity: 0.4,
-              duration: 0.4,
-              ease: "power2.out"
-            });
-          });
-        }
-      });
-
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
 
   return (
-    <section 
-      ref={sectionRef}
-      className="relative py-20 md:py-28 lg:py-32 bg-black overflow-hidden"
-      aria-labelledby="industries-heading"
-    >
-      {/* Animated background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" strokeWidth="1"/>
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
+    <section className="relative py-24 bg-gradient-to-b from-gray-900 via-black to-gray-900 overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-accent-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute inset-0 bg-grid-pattern opacity-3"></div>
       </div>
 
-      {/* Floating particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(6)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 bg-purple-500 rounded-full opacity-20"
-            style={{
-              left: `${20 + i * 15}%`,
-              top: `${30 + i * 10}%`,
-              animation: `float ${3 + i}s ease-in-out infinite`
-            }}
-          />
-        ))}
-      </div>
-
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        {/* Title Section */}
-        <div className="text-center mb-16 md:mb-20">
-          <h2 
-            id="industries-heading"
-            ref={titleRef}
-            className="font-bold mb-6 md:mb-8"
-            style={{
-              fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-              color: '#ffffff',
-              lineHeight: '1.1',
-              letterSpacing: '-0.02em'
-            }}
-          >
-            Industries We{' '}
-            <span style={{
-              background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}>
-              Transform
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Section Header */}
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full mb-8">
+            <Icon icon="carbon:industry" className="w-5 h-5 text-accent-400 mr-3" />
+            <span className="text-sm font-medium text-white/90 tracking-wide uppercase">Industry Solutions</span>
+          </div>
+          
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
+            <span className="bg-gradient-to-r from-white via-primary-200 to-accent-300 bg-clip-text text-transparent">
+              Industries
             </span>
+            <br />
+            <span className="text-white/90">We Transform</span>
           </h2>
-          <p 
-            className="max-w-4xl mx-auto text-lg md:text-xl px-4 leading-relaxed"
-            style={{ color: 'rgba(255,255,255,0.8)' }}
-          >
-            Delivering cutting-edge software solutions across diverse sectors with deep domain expertise and innovative technology
+          
+          <p className="text-xl md:text-2xl text-white/70 max-w-4xl mx-auto leading-relaxed">
+            Delivering specialized software solutions across diverse sectors with deep domain expertise and cutting-edge technology
           </p>
-        </div>
-
-        {/* Industries Grid */}
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-            {industriesData.map((industry, index) => (
-              <article
-                key={index}
-                ref={el => hexRefs.current[index] = el}
-                className="group relative cursor-pointer"
-                tabIndex={0}
-                role="button"
-                aria-label={`Learn more about ${industry.title}`}
-              >
-                <div 
-                  className="relative p-8 md:p-10 rounded-2xl md:rounded-3xl border transition-all duration-500 h-full"
-                  style={{
-                    backgroundColor: 'rgba(255,255,255,0.03)',
-                    borderColor: 'rgba(255,255,255,0.08)',
-                    backdropFilter: 'blur(20px)',
-                    boxShadow: '0 8px 32px rgba(0,0,0,0.3)'
-                  }}
-                >
-                  {/* Icon with gradient background */}
-                  <div className="relative mb-6 md:mb-8">
-                    <div 
-                      className="icon-bg absolute inset-0 rounded-2xl opacity-40 transition-all duration-500"
-                      style={{
-                        background: `linear-gradient(135deg, ${industry.gradient})`,
-                        filter: 'blur(20px)'
-                      }}
-                    />
-                    <div 
-                      className="industry-icon relative z-10 text-5xl md:text-6xl transition-all duration-500 flex items-center justify-center w-20 h-20 md:w-24 md:h-24 rounded-2xl"
-                      style={{ 
-                        color: industry.color,
-                        background: `linear-gradient(135deg, ${industry.gradient})`,
-                        boxShadow: `0 8px 32px ${industry.color}30`
-                      }}
-                    >
-                      <Icon icon={industry.icon} />
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <h3 
-                    className="text-xl md:text-2xl font-bold mb-3 md:mb-4 leading-tight"
-                    style={{ color: '#ffffff' }}
-                  >
-                    {industry.title}
-                  </h3>
-                  
-                  <p 
-                    className="text-base md:text-lg mb-6 leading-relaxed"
-                    style={{ color: 'rgba(255,255,255,0.75)' }}
-                  >
-                    {industry.description}
-                  </p>
-
-                  {/* Clients badge */}
-                  <div 
-                    className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium border transition-all duration-300"
-                    style={{
-                      backgroundColor: `${industry.color}15`,
-                      color: industry.color,
-                      borderColor: `${industry.color}30`
-                    }}
-                  >
-                    <span className="w-2 h-2 rounded-full mr-2" style={{ backgroundColor: industry.color }} />
-                    {industry.clients}
-                  </div>
-
-                  {/* Hover gradient overlay */}
-                  <div 
-                    className="absolute inset-0 rounded-2xl md:rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500"
-                    style={{
-                      background: `linear-gradient(135deg, ${industry.color}15 0%, transparent 100%)`,
-                      pointerEvents: 'none'
-                    }}
-                  />
-
-                  {/* Enhanced glow effect */}
-                  <div 
-                    className="absolute -inset-1 rounded-2xl md:rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl"
-                    style={{
-                      background: `linear-gradient(135deg, ${industry.color}40 0%, transparent 100%)`,
-                      zIndex: -1
-                    }}
-                  />
-
-                  {/* Subtle border glow on hover */}
-                  <div 
-                    className="absolute inset-0 rounded-2xl md:rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500"
-                    style={{
-                      border: `1px solid ${industry.color}40`,
-                      pointerEvents: 'none'
-                    }}
-                  />
-                </div>
-              </article>
-            ))}
+          
+          <div className="flex items-center justify-center gap-8 mt-8">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-primary-400">25+</div>
+              <div className="text-sm text-white/60">Industries Served</div>
+            </div>
+            <div className="w-px h-12 bg-white/20"></div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-accent-400">500+</div>
+              <div className="text-sm text-white/60">Sector Projects</div>
+            </div>
+            <div className="w-px h-12 bg-white/20"></div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white">10+</div>
+              <div className="text-sm text-white/60">Years Experience</div>
+            </div>
           </div>
         </div>
 
-        {/* Enhanced Bottom CTA */}
-        <div className="text-center mt-16 md:mt-20">
-          <p 
-            className="text-lg md:text-xl mb-8 md:mb-10 px-4 max-w-3xl mx-auto leading-relaxed"
-            style={{ color: 'rgba(255,255,255,0.8)' }}
-          >
-            Don't see your industry? We adapt our expertise to meet unique sector requirements and deliver custom solutions.
-          </p>
-          <button
-            onClick={() => navigate('/contact-us')} 
-            className="group relative px-8 md:px-10 py-4 md:py-5 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-500/30"
-            style={{
-              background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
-              color: '#ffffff',
-              boxShadow: '0 10px 40px rgba(168,85,247,0.4)'
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.boxShadow = '0 15px 50px rgba(168,85,247,0.6)';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.boxShadow = '0 10px 40px rgba(168,85,247,0.4)';
-            }}
-          >
-            <span className="relative z-10">Discuss Your Industry Needs</span>
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </button>
+        {/* Industries Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+          {industriesData.map((industry, index) => (
+            <article
+              key={index}
+              className="group relative rounded-2xl overflow-hidden transition-all duration-500 hover:scale-105 hover:-translate-y-2"
+              style={{
+                background: 'linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)',
+                backdropFilter: 'blur(20px)',
+                border: '1px solid rgba(255,255,255,0.1)'
+              }}
+            >
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-accent-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              {/* Content */}
+              <div className="relative p-8">
+                {/* Icon */}
+                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary-500/20 to-accent-500/20 backdrop-blur-sm border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Icon icon={industry.icon} className="text-3xl text-primary-300" />
+                </div>
+
+                {/* Title */}
+                <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-primary-200 transition-colors">
+                  {industry.title}
+                </h3>
+                
+                {/* Description */}
+                <p className="text-white/70 mb-6 leading-relaxed">
+                  {industry.description}
+                </p>
+
+                {/* Clients Info */}
+                <div className="flex items-center justify-between">
+                  <div className="inline-flex items-center px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg">
+                    <div className="w-2 h-2 rounded-full bg-accent-400 mr-2"></div>
+                    <span className="text-sm font-medium text-white/80">{industry.clients}</span>
+                  </div>
+                  
+                  <Icon 
+                    icon="carbon:arrow-right" 
+                    className="w-5 h-5 text-white/40 group-hover:text-accent-400 group-hover:translate-x-1 transition-all" 
+                  />
+                </div>
+
+                {/* Specialty Tags */}
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {index === 0 && (
+                    <>
+                      <span className="px-3 py-1 bg-primary-500/10 text-primary-300 text-xs rounded-full border border-primary-500/20">Digital Banking</span>
+                      <span className="px-3 py-1 bg-accent-500/10 text-accent-300 text-xs rounded-full border border-accent-500/20">Risk Management</span>
+                    </>
+                  )}
+                  {index === 1 && (
+                    <>
+                      <span className="px-3 py-1 bg-primary-500/10 text-primary-300 text-xs rounded-full border border-primary-500/20">Telemedicine</span>
+                      <span className="px-3 py-1 bg-accent-500/10 text-accent-300 text-xs rounded-full border border-accent-500/20">HIPAA Compliant</span>
+                    </>
+                  )}
+                  {index === 2 && (
+                    <>
+                      <span className="px-3 py-1 bg-primary-500/10 text-primary-300 text-xs rounded-full border border-primary-500/20">E-commerce</span>
+                      <span className="px-3 py-1 bg-accent-500/10 text-accent-300 text-xs rounded-full border border-accent-500/20">Omnichannel</span>
+                    </>
+                  )}
+                  {index === 3 && (
+                    <>
+                      <span className="px-3 py-1 bg-primary-500/10 text-primary-300 text-xs rounded-full border border-primary-500/20">IoT Solutions</span>
+                      <span className="px-3 py-1 bg-accent-500/10 text-accent-300 text-xs rounded-full border border-accent-500/20">Automation</span>
+                    </>
+                  )}
+                  {index === 4 && (
+                    <>
+                      <span className="px-3 py-1 bg-primary-500/10 text-primary-300 text-xs rounded-full border border-primary-500/20">Connected Cars</span>
+                      <span className="px-3 py-1 bg-accent-500/10 text-accent-300 text-xs rounded-full border border-accent-500/20">Fleet Management</span>
+                    </>
+                  )}
+                  {index === 5 && (
+                    <>
+                      <span className="px-3 py-1 bg-primary-500/10 text-primary-300 text-xs rounded-full border border-primary-500/20">Smart Grid</span>
+                      <span className="px-3 py-1 bg-accent-500/10 text-accent-300 text-xs rounded-full border border-accent-500/20">AI Analytics</span>
+                    </>
+                  )}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* Enhanced CTA Section */}
+        <div className="text-center">
+          <div className="max-w-4xl mx-auto mb-12">
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Don't See Your Industry?
+            </h3>
+            <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-8">
+              We adapt our expertise to meet unique sector requirements and deliver custom solutions tailored to your specific industry challenges and opportunities.
+            </p>
+            
+            {/* Industry Expertise Tags */}
+            <div className="flex flex-wrap justify-center gap-3 mb-12">
+              {[
+                "Government", "Non-Profit", "Insurance", "Real Estate", 
+                "Travel & Tourism", "Media & Entertainment", "Agriculture", "Construction"
+              ].map((tag, index) => (
+                <span 
+                  key={index}
+                  className="px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg text-white/80 text-sm hover:bg-white/10 transition-colors"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={() => navigate('/contact-us')} 
+              className="group relative px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-lg hover:from-primary-600 hover:to-primary-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl"
+            >
+              <span className="relative z-10 flex items-center justify-center">
+                <Icon icon="carbon:chat" className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                Discuss Your Industry Needs
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-500 rounded-lg blur opacity-50 group-hover:opacity-75 transition-opacity"></div>
+            </button>
+            
+            <button 
+              onClick={() => navigate('/case-studies')}
+              className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300"
+            >
+              <span className="flex items-center justify-center">
+                <Icon icon="carbon:document" className="w-5 h-5 mr-2" />
+                View Case Studies
+              </span>
+            </button>
+          </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-        }
-      `}</style>
     </section>
   );
 };

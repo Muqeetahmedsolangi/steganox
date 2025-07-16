@@ -72,7 +72,7 @@
   }
   .single-sidebar-menu {
     .text-box {
-      @apply absolute  left-full ml-5 w-[180px] top-0 px-4 py-3 bg-white shadow-dropdown rounded-[4px] dark:bg-slate-800 z-[999] invisible opacity-0 transition-all duration-150;
+              @apply absolute  left-full ml-5 w-[180px] top-0 px-4 py-3 bg-white shadow-lg rounded-[4px] dark:bg-slate-800 z-[999] invisible opacity-0 transition-all duration-150;
     }
     &:hover {
       .text-box {
@@ -86,7 +86,7 @@
     }
 
     ul.sub-menu {
-      @apply ml-4 absolute left-full top-0 w-[230px] bg-white shadow-dropdown rounded-[4px] dark:bg-slate-800 z-[999] px-4 pt-3 transition-all duration-150 invisible opacity-0;
+              @apply ml-4 absolute left-full top-0 w-[230px] bg-white shadow-lg rounded-[4px] dark:bg-slate-800 z-[999] px-4 pt-3 transition-all duration-150 invisible opacity-0;
       display: block !important;
     }
     &:hover {

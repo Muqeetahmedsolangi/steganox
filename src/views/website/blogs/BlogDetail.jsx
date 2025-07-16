@@ -1,12 +1,7 @@
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Icon } from "@iconify/react";
-import { useState, useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { blogPostsData, blogAuthors, blogCategories, featuredBlogTopics } from '../../../constant/data';
-
-// Register GSAP plugins
-gsap.registerPlugin(ScrollTrigger);
+import { useState, useEffect } from "react";
+import { blogPostsData, blogAuthors, blogCategories } from '../../../constant/data';
 
 function BlogDetail() {
   const { id } = useParams();
@@ -15,62 +10,101 @@ function BlogDetail() {
   const [author, setAuthor] = useState(null);
   const [relatedBlogs, setRelatedBlogs] = useState([]);
   const [readingProgress, setReadingProgress] = useState(0);
-  const contentRef = useRef(null);
-  const heroRef = useRef(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Find the blog post
-    const foundBlog = blogPostsData.find(post => post.id === parseInt(id));
-    if (foundBlog) {
-      setBlog(foundBlog);
-      
-      // Find author
-      const foundAuthor = blogAuthors.find(author => author.id === foundBlog.authorId);
-      setAuthor(foundAuthor);
-      
-      // Find related blogs (same category, excluding current)
-      const related = blogPostsData
-        .filter(post => post.category === foundBlog.category && post.id !== foundBlog.id)
-        .slice(0, 3);
-      setRelatedBlogs(related);
+    const loadBlogData = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        
+        // Simulate a small delay for better UX
+        await new Promise(resolve => setTimeout(resolve, 300));
+        
+        // Find the blog post
+        const foundBlog = blogPostsData.find(post => post.id === parseInt(id));
+        if (!foundBlog) {
+          throw new Error('Blog post not found');
+        }
+        
+        setBlog(foundBlog);
+        
+        // Find author
+        const foundAuthor = blogAuthors.find(author => author.id === foundBlog.authorId);
+        setAuthor(foundAuthor);
+        
+        // Find related blogs (same category, excluding current)
+        const related = blogPostsData
+          .filter(post => post.category === foundBlog.category && post.id !== foundBlog.id)
+          .slice(0, 3);
+        setRelatedBlogs(related);
+        
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (id) {
+      loadBlogData();
     }
   }, [id]);
 
   useEffect(() => {
-    // Animate hero section
-    if (heroRef.current && blog) {
-      gsap.fromTo(
-        heroRef.current.children,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          stagger: 0.2,
-          ease: "power3.out"
-        }
-      );
-    }
-
     // Reading progress tracking
     const handleScroll = () => {
-      if (contentRef.current) {
-        const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-        const progress = (scrollTop / (scrollHeight - clientHeight)) * 100;
-        setReadingProgress(Math.min(100, Math.max(0, progress)));
-      }
+      const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+      const progress = (scrollTop / (scrollHeight - clientHeight)) * 100;
+      setReadingProgress(Math.min(100, Math.max(0, progress)));
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [blog]);
 
-  if (!blog) {
+  // Loading state
+  if (loading) {
     return (
-      <div className="min-h-screen bg-void-950 flex items-center justify-center">
+      <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center">
-          <Icon icon="mdi:loading" className="text-4xl text-neon-500 animate-spin mx-auto mb-4" />
-          <p className="text-white">Loading blog post...</p>
+          <div className="relative">
+            <div className="w-16 h-16 border-4 border-primary-500/30 rounded-full animate-spin border-t-primary-500 mx-auto mb-4"></div>
+            <div className="absolute inset-0 w-16 h-16 border-2 border-accent-500/20 rounded-full animate-pulse mx-auto"></div>
+          </div>
+          <p className="text-white text-lg">Loading article...</p>
+          <p className="text-gray-400 text-sm mt-2">Please wait while we fetch the content</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Error state
+  if (error || !blog) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="text-center max-w-md">
+          <Icon icon="carbon:warning" className="w-20 h-20 text-red-400 mx-auto mb-6" />
+          <h1 className="text-2xl font-bold text-white mb-4">Article Not Found</h1>
+          <p className="text-gray-400 mb-8">
+            {error || "The article you're looking for doesn't exist or has been removed."}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={() => navigate('/blogs')}
+              className="px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-lg hover:from-primary-600 hover:to-primary-700 transition-all duration-300"
+            >
+              <Icon icon="carbon:arrow-left" className="w-5 h-5 mr-2 inline" />
+              Back to Blog
+            </button>
+            <button
+              onClick={() => navigate('/')}
+              className="px-6 py-3 bg-white/10 border border-white/20 text-white rounded-lg hover:bg-white/20 transition-all duration-300"
+            >
+              Go Home
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -78,8 +112,8 @@ function BlogDetail() {
 
   const getDifficultyColor = (difficulty) => {
     switch (difficulty) {
-      case "Beginner": return "bg-neon-500/20 text-neon-500";
-      case "Intermediate": return "bg-cyber-500/20 text-cyber-500";
+      case "Beginner": return "bg-green-500/20 text-green-500";
+      case "Intermediate": return "bg-primary-500/20 text-primary-500";
       case "Advanced": return "bg-orange-500/20 text-orange-500";
       case "Expert": return "bg-red-500/20 text-red-500";
       default: return "bg-gray-500/20 text-gray-500";
@@ -89,35 +123,35 @@ function BlogDetail() {
   const categoryInfo = blogCategories.find(cat => cat.id === blog.category);
 
   return (
-    <div className="bg-void-950 text-white min-h-screen">
+    <div className="bg-black text-white min-h-screen">
       {/* Reading Progress Bar */}
-      <div className="fixed top-0 left-0 w-full h-1 bg-void-800 z-50">
+      <div className="fixed top-0 left-0 w-full h-1 bg-gray-800 z-50">
         <div 
-          className="h-full bg-gradient-to-r from-neon-500 to-cyber-500 transition-all duration-300"
+          className="h-full bg-gradient-to-r from-primary-500 to-secondary-500 transition-all duration-300"
           style={{ width: `${readingProgress}%` }}
         />
       </div>
 
       {/* Navigation */}
-      <div className="sticky top-0 bg-void-950/95 backdrop-blur-xl border-b border-void-700/50 z-40">
-        <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
+      <div className="sticky top-0 bg-black/95 backdrop-blur-xl border-b border-white/10 z-40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between">
             <button
               onClick={() => navigate('/blogs')}
-              className="flex items-center gap-2 text-gray-400 hover:text-neon-500 transition-colors"
+              className="flex items-center gap-2 text-gray-400 hover:text-primary-500 transition-colors"
             >
-              <Icon icon="mdi:arrow-left" className="text-lg" />
+              <Icon icon="carbon:arrow-left" className="text-lg" />
               <span className="hidden sm:inline">Back to Blog</span>
               <span className="sm:hidden">Back</span>
             </button>
             
             <div className="flex items-center gap-3 sm:gap-4">
               <div className="hidden md:flex items-center gap-2 text-sm text-gray-400">
-                <Icon icon="mdi:clock-outline" className="text-neon-500" />
+                <Icon icon="carbon:time" className="text-primary-500" />
                 <span>{blog.readTime}</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-gray-400">
-                <Icon icon="mdi:eye" className="text-cyber-500" />
+                <Icon icon="carbon:view" className="text-secondary-500" />
                 <span>{blog.views}</span>
               </div>
             </div>
@@ -133,24 +167,24 @@ function BlogDetail() {
             alt={blog.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-void-950 via-void-950/80 to-void-950/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/60" />
         </div>
         
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 py-16 sm:py-20 lg:py-24">
-          <div ref={heroRef} className="max-w-4xl mx-auto text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20 lg:py-24">
+          <div className="max-w-4xl mx-auto text-center">
             {/* Breadcrumb */}
             <div className="flex items-center justify-center gap-2 text-sm text-gray-400 mb-6">
-              <Link to="/" className="hover:text-neon-500 transition-colors">Home</Link>
-              <Icon icon="mdi:chevron-right" className="text-xs" />
-              <Link to="/blogs" className="hover:text-neon-500 transition-colors">Blog</Link>
-              <Icon icon="mdi:chevron-right" className="text-xs" />
-              <span className="text-neon-500">{categoryInfo?.name}</span>
+              <Link to="/" className="hover:text-primary-500 transition-colors">Home</Link>
+              <Icon icon="carbon:chevron-right" className="text-xs" />
+              <Link to="/blogs" className="hover:text-primary-500 transition-colors">Blog</Link>
+              <Icon icon="carbon:chevron-right" className="text-xs" />
+              <span className="text-primary-500">{categoryInfo?.name}</span>
             </div>
 
             {/* Category Badge */}
             <div className="flex justify-center mb-6">
-              <span className="inline-flex items-center gap-2 bg-neon-500/20 backdrop-blur-sm text-neon-500 px-4 py-2 rounded-full text-sm font-medium border border-neon-500/30">
-                <Icon icon={categoryInfo?.icon || "mdi:folder"} />
+              <span className="inline-flex items-center gap-2 bg-primary-500/20 backdrop-blur-sm text-primary-500 px-4 py-2 rounded-full text-sm font-medium border border-primary-500/30">
+                <Icon icon={categoryInfo?.icon || "carbon:folder"} />
                 {categoryInfo?.name}
               </span>
             </div>
@@ -172,7 +206,7 @@ function BlogDetail() {
                 <img 
                   src={author?.avatar} 
                   alt={author?.name}
-                  className="w-12 h-12 rounded-full object-cover border-2 border-neon-500/30"
+                  className="w-12 h-12 rounded-full object-cover border-2 border-primary-500/30"
                 />
                 <div className="text-left">
                   <p className="text-white font-semibold">{author?.name}</p>
@@ -181,7 +215,7 @@ function BlogDetail() {
               </div>
 
               {/* Divider */}
-              <div className="hidden sm:block w-px h-12 bg-void-700/50" />
+              <div className="hidden sm:block w-px h-12 bg-white/20" />
 
               {/* Date & Stats */}
               <div className="text-center sm:text-left">
@@ -202,7 +236,7 @@ function BlogDetail() {
               {blog.tags.map((tag, index) => (
                 <span 
                   key={index}
-                  className="bg-void-800/50 text-gray-300 px-3 py-1 rounded-full text-sm border border-void-600/50 hover:border-neon-500/30 transition-colors"
+                  className="bg-black/50 text-gray-300 px-3 py-1 rounded-full text-sm border border-white/20 hover:border-primary-500/30 transition-colors"
                 >
                   #{tag}
                 </span>
@@ -213,12 +247,12 @@ function BlogDetail() {
       </section>
 
       {/* Content Section */}
-      <section ref={contentRef} className="py-12 sm:py-16 lg:py-20">
-        <div className="container mx-auto px-4 sm:px-6">
+      <section className="py-12 sm:py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
             {/* Article Content */}
             <div className="prose prose-lg prose-invert max-w-none">
-              <div className="bg-gradient-to-br from-void-900/60 to-void-800/60 backdrop-blur-xl rounded-2xl p-6 sm:p-8 lg:p-12 border border-void-700/50">
+              <div className="bg-black/40 backdrop-blur-xl rounded-2xl p-6 sm:p-8 lg:p-12 border border-white/10">
                 {/* Featured Image */}
                 <div className="mb-8 rounded-xl overflow-hidden">
                   <img 
@@ -230,7 +264,7 @@ function BlogDetail() {
 
                 {/* Article Body */}
                 <div className="space-y-6 text-gray-300 leading-relaxed">
-                  <p className="text-lg first-letter:text-6xl first-letter:font-bold first-letter:text-neon-500 first-letter:float-left first-letter:mr-3 first-letter:mt-1">
+                  <p className="text-lg first-letter:text-6xl first-letter:font-bold first-letter:text-primary-500 first-letter:float-left first-letter:mr-3 first-letter:mt-1">
                     {blog.excerpt}
                   </p>
                   
@@ -243,8 +277,11 @@ function BlogDetail() {
                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                   </p>
 
-                  <div className="bg-void-800/50 rounded-xl p-6 border border-void-600/50 my-8">
-                    <h3 className="text-xl font-semibold text-neon-500 mb-3">💡 Pro Tip</h3>
+                  <div className="bg-black/50 rounded-xl p-6 border border-white/20 my-8">
+                    <h3 className="text-xl font-semibold text-primary-500 mb-3 flex items-center gap-2">
+                      <Icon icon="carbon:idea" className="text-primary-500" />
+                      Pro Tip
+                    </h3>
                     <p className="text-gray-300">
                       This is a highlighted section with important information that readers should pay attention to.
                     </p>
@@ -256,23 +293,23 @@ function BlogDetail() {
                   </p>
 
                   <ul className="list-disc list-inside space-y-2 text-gray-300">
-                    <li>Advanced mechanical design principles</li>
-                    <li>CAD modeling and simulation</li>
-                    <li>Material selection and optimization</li>
-                    <li>Manufacturing process planning</li>
+                    <li>Advanced software development principles</li>
+                    <li>Modern frameworks and libraries</li>
+                    <li>Cloud-native architecture patterns</li>
+                    <li>DevOps and CI/CD best practices</li>
                   </ul>
                 </div>
               </div>
             </div>
 
             {/* Article Footer */}
-            <div className="mt-12 p-6 bg-gradient-to-br from-void-900/60 to-void-800/60 backdrop-blur-xl rounded-2xl border border-void-700/50">
+            <div className="mt-12 p-6 bg-black/40 backdrop-blur-xl rounded-2xl border border-white/10">
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-4">
                   <img 
                     src={author?.avatar} 
                     alt={author?.name}
-                    className="w-16 h-16 rounded-full object-cover border-2 border-neon-500/30"
+                    className="w-16 h-16 rounded-full object-cover border-2 border-primary-500/30"
                   />
                   <div>
                     <h4 className="text-white font-semibold text-lg">{author?.name}</h4>
@@ -283,15 +320,15 @@ function BlogDetail() {
                 
                 <div className="flex items-center gap-4 text-gray-400">
                   <div className="flex items-center gap-1">
-                    <Icon icon="mdi:heart" className="text-red-500" />
+                    <Icon icon="carbon:favorite" className="text-red-500" />
                     <span>{blog.likes || '124'}</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <Icon icon="mdi:comment" className="text-blue-500" />
+                    <Icon icon="carbon:chat" className="text-blue-500" />
                     <span>{blog.comments}</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <Icon icon="mdi:share" className="text-green-500" />
+                    <Icon icon="carbon:share" className="text-green-500" />
                     <span>Share</span>
                   </div>
                 </div>
@@ -303,8 +340,8 @@ function BlogDetail() {
 
       {/* Related Articles */}
       {relatedBlogs.length > 0 && (
-        <section className="py-12 sm:py-16 bg-gradient-to-b from-void-950 to-void-900">
-          <div className="container mx-auto px-4 sm:px-6">
+        <section className="py-12 sm:py-16 bg-gradient-to-b from-black to-primary-900/10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <div className="max-w-6xl mx-auto">
               <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center">
                 Related Articles
@@ -317,7 +354,7 @@ function BlogDetail() {
                     <Link
                       key={relatedBlog.id}
                       to={`/blogs/${relatedBlog.id}`}
-                      className="group bg-gradient-to-br from-void-800/50 to-void-900/50 backdrop-blur-xl border border-void-700/50 rounded-2xl overflow-hidden hover:border-neon-500/30 transition-all duration-700 shadow-lg hover:shadow-neon-500/10 hover:-translate-y-2"
+                      className="group bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden hover:border-primary-500/30 transition-all duration-700 shadow-lg hover:shadow-primary-500/10 hover:-translate-y-2"
                     >
                       <div className="aspect-video overflow-hidden">
                         <img 
@@ -328,7 +365,7 @@ function BlogDetail() {
                       </div>
                       
                       <div className="p-6">
-                        <h3 className="text-lg font-bold text-white mb-3 group-hover:text-neon-500 transition-colors line-clamp-2">
+                        <h3 className="text-lg font-bold text-white mb-3 group-hover:text-primary-500 transition-colors line-clamp-2">
                           {relatedBlog.title}
                         </h3>
                         <p className="text-gray-400 text-sm mb-4 line-clamp-2">

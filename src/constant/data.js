@@ -97,109 +97,109 @@ export const tokenExpiry = [
   { value: 1830, label: '5 year' },
 ];
 
-// Mechanical Engineering Company Data
+// Q HUB INFORMATION - Software Company Data
 export const companyInfo = {
-  name: "MechNovate",
-  tagline: "Engineering Ideas into Reality",
-  description: "From Concept to Creation, Mechanically Engineered. We help innovators, startups, and enterprises transform mechanical concepts into manufacturable, market-ready products.",
-  founded: "2019",
-  employees: "50+",
-  projectsCompleted: "350+",
-  clientsWorldwide: "80+",
-  satisfaction: "99%"
+  name: "Q HUB INFORMATION",
+  tagline: "Transforming Ideas into Digital Excellence",
+  description: "We are a leading software development company specializing in custom enterprise solutions, mobile applications, and cloud-based platforms that drive business growth.",
+  founded: "2018",
+  employees: "150+",
+  projectsCompleted: "500+",
+  clientsWorldwide: "120+",
+  satisfaction: "98%"
 };
 
 export const services = [
   {
     id: 1,
-    icon: "carbon:idea",
-    title: "Concept Design & Engineering",
-    description: "Functional design concepts and mechanical feasibility product strategy and cost-performance balance.",
-    features: ["Ideation & Concept Generation", "Feasibility Analysis", "Cost Optimization", "Market Strategy"],
-    gradient: "from-neon-500 to-neon-600"
+    icon: "carbon:application-web",
+    title: "Web Development",
+    description: "Custom web applications built with modern frameworks and scalable architectures for optimal performance and user experience.",
+    features: ["Responsive Design", "Progressive Web Apps", "E-commerce Platforms", "CMS Solutions"],
+    gradient: "from-primary-500 to-primary-600"
   },
   {
     id: 2,
-    icon: "carbon:3d-mpr-toggle",
-    title: "CAD Modeling & 3D Design",
-    description: "Advanced 3D modeling in SolidWorks, CATIA, and Fusion 360 loram lorem lorem lorem  with intelligent parametric logic and automation.",
-    features: ["SolidWorks", "CATIA", "Fusion 360", "Parametric Design"],
-    gradient: "from-cyber-500 to-quantum-500"
+    icon: "carbon:mobile-check",
+    title: "Mobile App Development",
+    description: "Native and cross-platform mobile applications that deliver seamless experiences across iOS and Android devices.",
+    features: ["iOS Development", "Android Development", "React Native", "Flutter Apps"],
+    gradient: "from-secondary-500 to-secondary-600"
   },
   {
     id: 3,
-    icon: "carbon:flow-data",
-    title: "CFD & FEA Simulation",
-    description: "Reduce physical trial-and-error through virtual prototyping with fluid dynamics and structural analysis and FEA Analysis with ANSYS and COMSOL.",
-    features: ["Fluid Flow Analysis", "Thermal Systems", "Structural Strength", "Fatigue Analysis", "FEA Analysis", "CFD Analysis"],
-    gradient: "from-quantum-500 to-plasma-500"
+    icon: "carbon:cloud-computing",
+    title: "Cloud Solutions",
+    description: "Scalable cloud infrastructure and migration services leveraging AWS, Azure, and Google Cloud platforms.",
+    features: ["Cloud Migration", "Infrastructure as Code", "Serverless Architecture", "DevOps Implementation"],
+    gradient: "from-accent-500 to-accent-600"
   },
   {
     id: 4,
-    icon: "carbon:3d-print-mesh",
-    title: "Prototyping & Testing",
-    description: "3D printing, CNC, and laser-cut models for real-world testing with multiple iteration loops for optimized designs.",
-    features: ["3D Printing", "CNC Machining", "Laser Cutting", "Rapid Iteration"],
-    gradient: "from-plasma-500 to-neon-500"
+    icon: "carbon:machine-learning",
+    title: "AI & Machine Learning",
+    description: "Intelligent solutions powered by artificial intelligence and machine learning to automate processes and derive insights.",
+    features: ["Predictive Analytics", "Natural Language Processing", "Computer Vision", "Chatbot Development"],
+    gradient: "from-primary-500 to-secondary-500"
   },
   {
     id: 5,
-    icon: "carbon:industry",
-    title: "Design for Manufacturing",
-    description: "Tolerance analysis, assembly modeling, and material selection with supplier-ready 2D drawings and manufacturing BOMs.",
-    features: ["DFM & DFA", "Tolerance Analysis", "Material Selection", "Technical Drawings"],
-    gradient: "from-hologram-500 to-cyber-500"
+    icon: "carbon:api",
+    title: "API Development",
+    description: "Robust and secure API development for seamless integration between applications and third-party services.",
+    features: ["RESTful APIs", "GraphQL", "Microservices", "API Gateway"],
+    gradient: "from-secondary-500 to-accent-500"
   },
   {
     id: 6,
-    icon: "carbon:scan-alt",
-    title: "Reverse Engineering",
-    description: "Convert 3D scan data into editable CAD models for legacy parts, competitor benchmarking, or repair modeling.",
-    features: ["3D Scanning", "Scan-to-CAD", "Legacy Parts", "Dimensional Accuracy"],
-    gradient: "from-matrix-500 to-quantum-500"
+    icon: "carbon:security",
+    title: "Cybersecurity Solutions",
+    description: "Comprehensive security services to protect your applications and data from evolving cyber threats.",
+    features: ["Security Audits", "Penetration Testing", "Compliance Management", "Secure Development"],
+    gradient: "from-accent-500 to-primary-500"
   }
 ];
 
 export const technologies = {
-  cad: [
-    { name: "SolidWorks", icon: "carbon:3d-software", level: 95 },
-    { name: "CATIA", icon: "simple-icons:dassaultsystemes", level: 92 },
-    { name: "Fusion 360", icon: "simple-icons:autodesk", level: 88 },
-    { name: "AutoCAD", icon: "simple-icons:autocad", level: 85 },
-    { name: "Creo", icon: "carbon:3d-software", level: 87 },
-    { name: "NX", icon: "carbon:3d-mpr-toggle", level: 83 }
+  frontend: [
+    { name: "React", icon: "logos:react", level: 95 },
+    { name: "Angular", icon: "logos:angular-icon", level: 92 },
+    { name: "Vue.js", icon: "logos:vue", level: 88 },
+    { name: "Next.js", icon: "logos:nextjs-icon", level: 90 },
+    { name: "TypeScript", icon: "logos:typescript-icon", level: 93 },
+    { name: "Tailwind CSS", icon: "logos:tailwindcss-icon", level: 91 }
   ],
-  simulation: [
-    { name: "ANSYS", icon: "simple-icons:ansys", level: 93 },
-    { name: "COMSOL", icon: "carbon:flow-data", level: 90 },
-    { name: "Abaqus", icon: "carbon:stress-test", level: 88 },
-    { name: "SolidWorks Simulation", icon: "carbon:analytics", level: 92 },
-    { name: "CFD Tools", icon: "carbon:flow", level: 87 },
-    { name: "MATLAB", icon: "simple-icons:mathworks", level: 85 }
+  backend: [
+    { name: "Node.js", icon: "logos:nodejs-icon", level: 94 },
+    { name: "Python", icon: "logos:python", level: 92 },
+    { name: "Java", icon: "logos:java", level: 89 },
+    { name: ".NET Core", icon: "logos:dotnet", level: 87 },
+    { name: "PHP", icon: "logos:php", level: 85 },
+    { name: "Go", icon: "logos:go", level: 83 }
   ],
-  manufacturing: [
-    { name: "CNC Programming", icon: "mdi:robot-industrial", level: 94 },
-    { name: "3D Printing", icon: "carbon:3d-print-mesh", level: 91 },
-    { name: "Laser Cutting", icon: "mdi:laser-pointer", level: 89 },
-    { name: "Injection Molding", icon: "mdi:hydraulic-oil-level", level: 86 },
-    { name: "Sheet Metal", icon: "mdi:hammer-wrench", level: 88 },
-    { name: "Welding Design", icon: "mdi:torch", level: 82 }
+  database: [
+    { name: "PostgreSQL", icon: "logos:postgresql", level: 93 },
+    { name: "MongoDB", icon: "logos:mongodb-icon", level: 91 },
+    { name: "MySQL", icon: "logos:mysql-icon", level: 90 },
+    { name: "Redis", icon: "logos:redis", level: 88 },
+    { name: "Elasticsearch", icon: "logos:elasticsearch", level: 86 },
+    { name: "DynamoDB", icon: "simple-icons:amazondynamodb", level: 84 }
   ],
-  standards: [
-    { name: "ISO Standards", icon: "mdi:certificate", level: 95 },
-    { name: "ASME", icon: "mdi:book-check", level: 92 },
-    { name: "DIN Standards", icon: "mdi:file-document-check", level: 90 },
-    { name: "CE Marking", icon: "mdi:shield-check", level: 88 },
-    { name: "UL Certification", icon: "mdi:safety-certificate", level: 85 },
-    { name: "RoHS Compliance", icon: "mdi:leaf-circle", level: 87 }
+  cloud: [
+    { name: "AWS", icon: "logos:aws", level: 95 },
+    { name: "Azure", icon: "logos:microsoft-azure", level: 92 },
+    { name: "Google Cloud", icon: "logos:google-cloud", level: 89 },
+    { name: "Docker", icon: "logos:docker-icon", level: 93 },
+    { name: "Kubernetes", icon: "logos:kubernetes", level: 90 },
+    { name: "Terraform", icon: "logos:terraform-icon", level: 87 }
   ],
   tools: [
-    { name: "GD&T", icon: "mdi:ruler-square-compass", level: 93 },
-    { name: "Tolerance Analysis", icon: "mdi:tape-measure", level: 91 },
-    { name: "BOM Management", icon: "mdi:format-list-bulleted", level: 89 },
-    { name: "PDM Systems", icon: "mdi:database-cog", level: 86 },
-    { name: "Project Management", icon: "mdi:clipboard-check", level: 90 },
-    { name: "Technical Documentation", icon: "mdi:file-document-edit", level: 88 }
+    { name: "Git", icon: "logos:git-icon", level: 95 },
+    { name: "Jenkins", icon: "logos:jenkins", level: 89 },
+    { name: "GitLab CI", icon: "logos:gitlab", level: 88 },
+    { name: "Jira", icon: "logos:jira", level: 92 },
+    { name: "Selenium", icon: "logos:selenium", level: 86 },
+    { name: "Postman", icon: "simple-icons:postman", level: 94 }
   ]
 };
 
@@ -207,62 +207,62 @@ export const testimonials = [
   {
     id: 1,
     name: "Sarah Chen",
-    position: "Head of Product Development",
-    company: "TechWear Inc",
+    position: "CTO",
+    company: "FinTech Solutions Ltd",
     image: "https://randomuser.me/api/portraits/women/1.jpg",
-    content: "MechNovate's design team transformed our concept into a market-ready wearable device and 3D printed device. Their expertise in miniaturization and ergonomics helped us achieve a 40% size functionality.",
+    content: "Q HUB INFORMATION delivered an exceptional mobile banking platform that exceeded our expectations. Their expertise in secure payment integration helped us achieve PCI compliance seamlessly.",
     rating: 5,
-    project: "Smart Fitness Tracker gripper"
+    project: "Mobile Banking Platform"
   },
   {
     id: 2,
     name: "Michael Rodriguez",
-    position: "Manufacturing Director",
-    company: "AutoParts Global",
+    position: "Head of IT",
+    company: "Global Retail Corp",
     image: "https://randomuser.me/api/portraits/men/2.jpg",
-    content: "The robotic gripper system they designed increased our production efficiency by 85% and 90% . Their understanding of manufacturing constraints and DFM principles is exceptional.",
+    content: "The e-commerce platform they built handles millions of transactions daily without any downtime. Their scalable architecture and cloud expertise transformed our business.",
     rating: 5,
-    project: "Adaptive Gripper System and 3D printed gripper"
+    project: "E-commerce Platform"
   },
   {
     id: 3,
     name: "Elena Watson",
     position: "VP of Engineering",
-    company: "MedTech Innovations",
+    company: "HealthTech Innovations",
     image: "https://randomuser.me/api/portraits/women/3.jpg",
-    content: "Their team delivered a complex medical device design that passed FDA FDA FDB FDAC FDAD approval on the first submission. The attention to regulatory requirements outstanding to perform the Work.",
+    content: "Their team delivered a HIPAA-compliant telemedicine platform ahead of schedule. The attention to security and regulatory requirements was outstanding.",
     rating: 5,
-    project: "Diagnostic Device for the Work"
+    project: "Telemedicine Platform"
   },
   {
     id: 4,
     name: "David Kim",
     position: "Product Manager",
-    company: "Consumer Electronics Co",
+    company: "LogisticsPro",
     image: "https://randomuser.me/api/portraits/men/4.jpg",
-    content: "MechNovate's simulation expertise saved us months of prototyping enhanced and more efficient. Their CFD analysis identified cooling issues early, resulting in a 30% thermal performance.",
+    content: "Q HUB's AI-powered logistics solution reduced our delivery times by 40%. Their machine learning expertise provided insights we never thought possible.",
     rating: 5,
-    project: "Electronic Enclosure Design"
+    project: "AI Logistics Platform"
   },
   {
     id: 5,
     name: "Lisa Thompson",
-    position: "Director of R&D",
-    company: "Aerospace Components Ltd",
+    position: "Director of Operations",
+    company: "EduTech Global",
     image: "https://randomuser.me/api/portraits/women/5.jpg",
-    content: "Their FEA analysis and weight optimization reduced our component weight by hieght and width to moduel on board 25% while maintaining structural integrity. Exceptional engineering expertise.",
+    content: "The learning management system they built scaled from 1,000 to 100,000 users seamlessly. Exceptional technical expertise and project management.",
     rating: 5,
-    project: "Aerospace Bracket Design"
+    project: "Learning Management System"
   },
   {
     id: 6,
     name: "James Anderson",
     position: "CEO",
-    company: "IoT Solutions Inc",
+    company: "StartupHub Inc",
     image: "https://randomuser.me/api/portraits/men/6.jpg",
-    content: "MechNovate designed our entire product line from concept to manufacturing to moduel on board. Their end-to-end expertise and design automation tools accelerated our by 40%.",
+    content: "Q HUB INFORMATION transformed our MVP into a full-featured SaaS platform. Their agile development approach and technical guidance were invaluable.",
     rating: 5,
-    project: "Smart Home Device Suite"
+    project: "SaaS Platform Development"
   }
 ];
 
@@ -609,10 +609,10 @@ export const caseStudies = [
 // Enhanced Blog data for the blog page
 export const blogCategories = [
   { id: "all", name: "All Posts", icon: "mdi:view-grid", count: 24 },
-  { id: "design", name: "Mechanical Design", icon: "mdi:drawing", count: 8 },
-  { id: "automation", name: "Automation", icon: "mdi:robot-industrial", count: 6 },
-  { id: "manufacturing", name: "Manufacturing", icon: "mdi:factory", count: 5 },
-  { id: "innovation", name: "Innovation", icon: "mdi:lightbulb", count: 3 },
+  { id: "design", name: "Software Development", icon: "mdi:drawing", count: 8 },
+  { id: "automation", name: "Cloud Services", icon: "mdi:robot-industrial", count: 6 },
+  { id: "manufacturing", name: "Enterprise IT", icon: "mdi:factory", count: 5 },
+  { id: "innovation", name: "Startups", icon: "mdi:lightbulb", count: 3 },
   { id: "sustainability", name: "Sustainability", icon: "mdi:leaf", count: 2 }
 ];
 
@@ -622,8 +622,8 @@ export const blogAuthors = [
     name: "Dr. Emily Chen",
     role: "Chief Engineer",
     avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80",
-    bio: "PhD in Mechanical Engineering with 15+ years in precision manufacturing and automotive design.",
-    expertise: ["Precision Engineering", "Automotive Design", "Materials Science"],
+    bio: "PhD in Software Engineering with 15+ years in precision manufacturing and automotive design.",
+    expertise: ["Software Development", "Cloud Services", "Enterprise IT", "Startups"],
     social: {
       linkedin: "#",
       twitter: "#",
@@ -636,11 +636,11 @@ export const blogAuthors = [
     role: "Automation Specialist",
     avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
     bio: "Leading expert in industrial automation and robotics with extensive experience in smart manufacturing.",
-    expertise: ["Industrial Automation", "Robotics", "IoT Systems"],
+    expertise: ["Software Development", "Cloud Services", "Enterprise IT", "Startups"],
     social: {
       linkedin: "#",
       twitter: "#",
-      email: "robert.jackson@mechnovate.com"
+      email: "robert.jackson@q-hub.com"
     }
   },
   {
@@ -649,11 +649,11 @@ export const blogAuthors = [
     role: "Lead Designer",
     avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=461&q=80",
     bio: "Creative mechanical designer specializing in sustainable solutions and innovative product development.",
-    expertise: ["Sustainable Design", "CAD Modeling", "Product Development"],
+    expertise: ["Software Development", "Cloud Services", "Enterprise IT", "Startups"],
     social: {
       linkedin: "#",
       twitter: "#",
-      email: "sarah.martinez@mechnovate.com"
+      email: "sarah.martinez@q-hub.com"
     }
   },
   {
@@ -662,11 +662,11 @@ export const blogAuthors = [
     role: "Innovation Director",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
     bio: "Technology visionary driving digital transformation in mechanical engineering through AI and advanced simulation.",
-    expertise: ["Digital Innovation", "AI Integration", "Advanced Simulation"],
+    expertise: ["Software Development", "Cloud Services", "Enterprise IT", "Startups"],
     social: {
       linkedin: "#",
       twitter: "#",
-      email: "michael.wei@mechnovate.com"
+      email: "michael.wei@q-hub.com"
     }
   },
   {
@@ -675,11 +675,11 @@ export const blogAuthors = [
     role: "Research Scientist",
     avatar: "https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1490&q=80",
     bio: "Materials science researcher focusing on next-generation composites and smart materials for aerospace applications.",
-    expertise: ["Materials Science", "Aerospace Engineering", "Composite Materials"],
+    expertise: ["Software Development", "Cloud Services", "Enterprise IT", "Startups"],
     social: {
       linkedin: "#",
       twitter: "#",
-      email: "alex.kumar@mechnovate.com"
+      email: "alex.kumar@q-hub.com"
     }
   },
   {
@@ -688,11 +688,11 @@ export const blogAuthors = [
     role: "Sustainability Engineer",
     avatar: "https://images.unsplash.com/photo-1594736797933-d0d5e8f13420?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1392&q=80",
     bio: "Environmental engineer dedicated to developing sustainable manufacturing processes and circular economy solutions.",
-    expertise: ["Sustainable Manufacturing", "Environmental Engineering", "Circular Economy"],
+    expertise: ["Software Development", "Cloud Services", "Enterprise IT", "Startups"],
     social: {
       linkedin: "#",
       twitter: "#",
-      email: "lisa.thomson@mechnovate.com"
+      email: "lisa.thomson@q-hub.com"
     }
   }
 ];
@@ -711,7 +711,7 @@ export const blogPostsData = [
     views: 1847,
     readTime: "8 min",
     category: "design",
-    tags: ["Precision Engineering", "Automotive", "Electric Vehicles", "Manufacturing Innovation"],
+    tags: ["Software Development", "Cloud Services", "Enterprise IT", "Startups"],
     isFeatured: true,
     difficulty: "Intermediate",
     rating: 4.8
@@ -729,7 +729,7 @@ export const blogPostsData = [
     views: 2156,
     readTime: "12 min",
     category: "automation",
-    tags: ["Collaborative Robotics", "Smart Manufacturing", "Industry 4.0", "Human-Robot Interaction"],
+    tags: ["Software Development", "Cloud Services", "Enterprise IT", "Startups"],
     isFeatured: false,
     difficulty: "Advanced",
     rating: 4.9
@@ -747,7 +747,7 @@ export const blogPostsData = [
     views: 1423,
     readTime: "10 min",
     category: "sustainability",
-    tags: ["Bio-Composites", "Sustainable Materials", "Green Engineering", "Environmental Impact"],
+    tags: ["Software Development", "Cloud Services", "Enterprise IT", "Startups"],
     isFeatured: false,
     difficulty: "Intermediate",
     rating: 4.7
@@ -765,7 +765,7 @@ export const blogPostsData = [
     views: 3241,
     readTime: "15 min",
     category: "innovation",
-    tags: ["Digital Twins", "Artificial Intelligence", "Predictive Analytics", "Product Development"],
+    tags: ["Software Development", "Cloud Services", "Enterprise IT", "Startups"],
     isFeatured: true,
     difficulty: "Advanced",
     rating: 4.9
@@ -783,7 +783,7 @@ export const blogPostsData = [
     views: 1956,
     readTime: "11 min",
     category: "manufacturing",
-    tags: ["CNC Machining", "Adaptive Control", "Real-time Optimization", "Precision Manufacturing"],
+    tags: ["Software Development", "Cloud Services", "Enterprise IT", "Startups"],
     isFeatured: false,
     difficulty: "Advanced",
     rating: 4.8
@@ -801,7 +801,7 @@ export const blogPostsData = [
     views: 2789,
     readTime: "13 min",
     category: "automation",
-    tags: ["IoT", "Predictive Maintenance", "Machine Learning", "Zero Downtime"],
+    tags: ["Software Development", "Cloud Services", "Enterprise IT", "Startups"],
     isFeatured: false,
     difficulty: "Intermediate",
     rating: 4.8
@@ -819,7 +819,7 @@ export const blogPostsData = [
     views: 1567,
     readTime: "9 min",
     category: "design",
-    tags: ["CFD", "Multi-Physics Simulation", "Computational Engineering", "Fluid Dynamics"],
+    tags: ["Software Development", "Cloud Services", "Enterprise IT", "Startups"],
     isFeatured: false,
     difficulty: "Advanced",
     rating: 4.6
@@ -837,7 +837,7 @@ export const blogPostsData = [
     views: 3856,
     readTime: "14 min",
     category: "innovation",
-    tags: ["AI", "Generative Design", "Machine Learning", "Creative Engineering"],
+    tags: ["Software Development", "Cloud Services", "Enterprise IT", "Startups"],
     isFeatured: true,
     difficulty: "Advanced",
     rating: 4.9
@@ -855,7 +855,7 @@ export const blogPostsData = [
     views: 2445,
     readTime: "12 min",
     category: "manufacturing",
-    tags: ["3D Printing", "Additive Manufacturing", "Metal Components", "Production Technology"],
+    tags: ["Software Development", "Cloud Services", "Enterprise IT", "Startups"],
     isFeatured: false,
     difficulty: "Intermediate",
     rating: 4.7
@@ -873,7 +873,7 @@ export const blogPostsData = [
     views: 1834,
     readTime: "10 min",
     category: "design",
-    tags: ["Smart Materials", "Shape Memory Alloys", "Adaptive Systems", "Materials Science"],
+    tags: ["Software Development", "Cloud Services", "Enterprise IT", "Startups"],
     isFeatured: false,
     difficulty: "Advanced",
     rating: 4.8
@@ -909,7 +909,7 @@ export const blogPostsData = [
     views: 1456,
     readTime: "11 min",
     category: "manufacturing",
-    tags: ["Micro-Manufacturing", "Nanoscale Precision", "Medical Devices", "Advanced Manufacturing"],
+    tags: ["Software Development", "Cloud Services", "Enterprise IT", "Startups"],
     isFeatured: false,
     difficulty: "Expert",
     rating: 4.7
@@ -927,7 +927,7 @@ export const blogPostsData = [
     views: 2156,
     readTime: "13 min",
     category: "automation",
-    tags: ["Autonomous Manufacturing", "Lights-Out Production", "Self-Monitoring Systems", "Advanced Automation"],
+    tags: ["Software Development", "Cloud Services", "Enterprise IT", "Startups"],
     isFeatured: false,
     difficulty: "Advanced",
     rating: 4.8
@@ -945,7 +945,7 @@ export const blogPostsData = [
     views: 2334,
     readTime: "12 min",
     category: "design",
-    tags: ["Biomimetic Engineering", "Nature-Inspired Design", "Sustainable Solutions", "Bio-Engineering"],
+    tags: ["Software Development", "Cloud Services", "Enterprise IT", "Startups"],
     isFeatured: false,
     difficulty: "Intermediate",
     rating: 4.8
@@ -963,7 +963,7 @@ export const blogPostsData = [
     views: 1789,
     readTime: "14 min",
     category: "sustainability",
-    tags: ["Circular Economy", "Zero Waste", "Sustainable Manufacturing", "Resource Efficiency"],
+    tags: ["Software Development", "Cloud Services", "Enterprise IT", "Startups"],
     isFeatured: false,
     difficulty: "Intermediate",
     rating: 4.7
@@ -981,7 +981,7 @@ export const blogPostsData = [
     views: 1623,
     readTime: "11 min",
     category: "manufacturing",
-    tags: ["Advanced Composites", "Automated Fiber Placement", "Aerospace Materials", "Lightweight Design"],
+      tags: ["Software Development", "Cloud Services", "Enterprise IT", "Startups"],
     isFeatured: false,
     difficulty: "Advanced",
     rating: 4.8
@@ -1001,29 +1001,29 @@ export const blogStats = {
 // Featured blog topics for homepage
 export const featuredBlogTopics = [
   {
-    title: "AI in Engineering",
-    description: "Artificial intelligence revolutionizing mechanical design",
+    title: "AI in Software Development",
+    description: "Artificial intelligence revolutionizing software development",
     postCount: 5,
     icon: "mdi:robot",
     color: "neon"
   },
   {
-    title: "Sustainable Manufacturing",
-    description: "Green technologies and circular economy solutions",
+    title: "Cloud Services",
+    description: "Cloud services and circular economy solutions",
     postCount: 4,
     icon: "mdi:leaf",
     color: "cyber"
   },
   {
-    title: "Advanced Materials",
+    title: "Enterprise IT",
     description: "Next-generation materials and smart composites",
     postCount: 6,
     icon: "mdi:molecule",
     color: "quantum"
   },
   {
-    title: "Industry 4.0",
-    description: "Smart manufacturing and IoT integration",
+      title: "Startups",
+    description: "Startups and innovation",
     postCount: 7,
     icon: "mdi:factory",
     color: "plasma"
@@ -1033,9 +1033,9 @@ export const featuredBlogTopics = [
 export const team = [
   {
     id: 1,
-    name: "Dr. Alexandra Kumar",
+    name: "Dr. Naeem Ahmed",
     position: "CEO & Founder",
-    bio: "15+ years in mechanical design. PhD in Mechanical Engineering from MIT.",
+    bio: "15+ years in software development. PhD in Computer Science from University of Karachi.",
     image: "https://randomuser.me/api/portraits/women/10.jpg",
     social: {
       linkedin: "#",
@@ -1046,8 +1046,8 @@ export const team = [
   {
     id: 2,
     name: "Marcus Johnson",
-    position: "Chief Design Engineer",
-    bio: "Former Tesla engineer. Expert in CAD automation and DFM.",
+    position: "Chief Technology Officer",
+    bio: "Former Google engineer. Expert in cloud architecture and distributed systems.",
     image: "https://randomuser.me/api/portraits/men/11.jpg",
     social: {
       linkedin: "#",
@@ -1058,8 +1058,8 @@ export const team = [
   {
     id: 3,
     name: "Elena Rodriguez",
-    position: "Head of Simulation",
-    bio: "Published researcher in FEA/CFD. ANSYS certified professional.",
+    position: "Head of Development",
+    bio: "Full-stack expert with 12+ years experience. AWS certified architect.",
     image: "https://randomuser.me/api/portraits/women/12.jpg",
     social: {
       linkedin: "#",
@@ -1070,8 +1070,8 @@ export const team = [
   {
     id: 4,
     name: "David Park",
-    position: "VP of Manufacturing",
-    bio: "20+ years in production engineering. Six Sigma Black Belt.",
+    position: "VP of Engineering",
+    bio: "20+ years in software engineering. Agile and DevOps transformation expert.",
     image: "https://randomuser.me/api/portraits/men/13.jpg",
     social: {
       linkedin: "#",
@@ -1082,56 +1082,56 @@ export const team = [
 ];
 
 export const industries = [
-  { name: "Consumer Products", icon: "mdi:package-variant", projects: 45 },
-  { name: "Medical Devices", icon: "mdi:medical-bag", projects: 38 },
-  { name: "Industrial Automation", icon: "mdi:robot-industrial", projects: 52 },
-  { name: "Automotive", icon: "mdi:car-cog", projects: 31 },
-  { name: "Aerospace", icon: "mdi:airplane", projects: 28 },
-  { name: "IoT & Smart Hardware", icon: "mdi:chip", projects: 24 },
-  { name: "Wearables", icon: "mdi:package-variant", projects: 19 },
-  { name: "Equipment Design", icon: "mdi:cog-outline", projects: 35 }
+  { name: "Finance & Banking", icon: "mdi:bank", projects: 85 },
+  { name: "Healthcare", icon: "mdi:hospital-box", projects: 72 },
+  { name: "E-commerce", icon: "mdi:cart", projects: 94 },
+  { name: "Education", icon: "mdi:school", projects: 61 },
+  { name: "Logistics", icon: "mdi:truck-delivery", projects: 58 },
+  { name: "Real Estate", icon: "mdi:office-building", projects: 43 },
+  { name: "Entertainment", icon: "mdi:movie-open", projects: 37 },
+  { name: "Manufacturing", icon: "mdi:factory", projects: 52 }
 ];
 
 export const process = [
   {
     id: 1,
-    phase: "Ideation",
-    title: "Concept Development",
-    description: "Transform your ideas into viable mechanical concepts with feasibility analysis and market alignment.",
+    phase: "Discovery",
+    title: "Requirements Analysis",
+    description: "Understand your business needs, technical requirements, and project goals through detailed consultation.",
     duration: "1-2 weeks",
-    activities: ["Concept Sketching", "Feasibility Study", "Market Analysis", "Cost Estimation"]
+    activities: ["Requirement Gathering", "Technical Analysis", "Project Scoping", "Cost Estimation"]
   },
   {
     id: 2,
     phase: "Design",
-    title: "3D Modeling & CAD",
-    description: "Create detailed 3D models with parametric design, assembly modeling, and design optimization.",
-    duration: "2-4 weeks",
-    activities: ["3D CAD Modeling", "Parametric Design", "Assembly Creation", "Design Review"]
+    title: "UI/UX & Architecture",
+    description: "Create intuitive user interfaces and robust system architecture for scalable applications.",
+    duration: "2-3 weeks",
+    activities: ["Wireframing", "UI/UX Design", "System Architecture", "Database Design"]
   },
   {
     id: 3,
-    phase: "Simulation",
-    title: "Analysis & Validation",
-    description: "Virtual testing through FEA and CFD analysis to validate design performance and optimize.",
-    duration: "1-3 weeks",
-    activities: ["FEA Analysis", "CFD Simulation", "Thermal Analysis", "Design Optimization"]
+    phase: "Development",
+    title: "Agile Development",
+    description: "Build your application using agile methodologies with regular sprints and continuous feedback.",
+    duration: "8-16 weeks",
+    activities: ["Sprint Planning", "Frontend Development", "Backend Development", "API Integration"]
   },
   {
     id: 4,
-    phase: "Prototyping",
-    title: "Build & Test",
-    description: "Physical prototyping using 3D printing, CNC machining, and real-world testing.",
-    duration: "2-4 weeks",
-    activities: ["3D Printing", "CNC Machining", "Assembly", "Testing & Iteration"]
+    phase: "Testing",
+    title: "Quality Assurance",
+    description: "Comprehensive testing to ensure your application is bug-free, secure, and performs optimally.",
+    duration: "2-3 weeks",
+    activities: ["Unit Testing", "Integration Testing", "Performance Testing", "Security Testing"]
   },
   {
     id: 5,
-    phase: "Manufacturing",
-    title: "Production Ready",
-    description: "Prepare for mass production with DFM optimization, technical drawings, and supplier coordination.",
-    duration: "2-3 weeks",
-    activities: ["DFM Optimization", "Technical Drawings", "BOM Creation", "Supplier Liaison"]
+    phase: "Deployment",
+    title: "Launch & Support",
+    description: "Deploy your application to production with continuous monitoring and ongoing support.",
+    duration: "1 week + ongoing",
+    activities: ["Production Deployment", "Performance Monitoring", "User Training", "Maintenance Support"]
   }
 ];
 
@@ -1186,15 +1186,15 @@ export const faqs = [
   {
     id: 1,
     category: "General",
-    question: "What services does MechNovate offer?",
-    answer: "We offer comprehensive mechanical engineering services including concept design, CAD modeling, FEA/CFD simulation, prototyping, reverse engineering, and design for manufacturing. Our team specializes in transforming ideas into manufacturable products.",
+    question: "What services does Q HUB INFORMATION offer?",
+    answer: "We offer comprehensive software development services including web development, mobile app development, cloud solutions, AI/ML integration, API development, and cybersecurity. Our team specializes in delivering custom enterprise solutions that drive business growth.",
     icon: "carbon:information"
   },
   {
     id: 2,
     category: "Process",
-    question: "How long does a typical design project take?",
-    answer: "Project timelines vary based on complexity. A simple component design might take 2-4 weeks, while complex assemblies can take 2-3 months. We follow a structured process with regular design reviews, ensuring transparency throughout the development cycle.",
+    question: "How long does a typical software project take?",
+    answer: "Project timelines vary based on complexity. A simple web application might take 4-8 weeks, while complex enterprise solutions can take 3-6 months. We follow agile methodology with regular sprints, ensuring transparency throughout the development cycle.",
     icon: "carbon:time"
   },
   {
@@ -1207,8 +1207,8 @@ export const faqs = [
   {
     id: 4,
     category: "Technology",
-    question: "What CAD software and tools do you use?",
-    answer: "We work with industry-leading tools including SolidWorks, CATIA, Fusion 360, ANSYS, COMSOL for simulation, and various manufacturing technologies. Our team is certified in multiple platforms to deliver optimal solutions for your specific needs.",
+    question: "What technologies and frameworks do you use?",
+    answer: "We work with cutting-edge technologies including React, Angular, Node.js, Python, Java, .NET, AWS, Azure, and Google Cloud. Our team stays updated with the latest frameworks and best practices to deliver optimal solutions for your specific needs.",
     icon: "carbon:code"
   },
   {
@@ -1515,10 +1515,10 @@ export const companyStats = [
 // Enhanced Contact data for the contact page
 export const contactInfo = {
   headquarters: {
-    name: "MechNovate Headquarters",
+    name: "Q-hub Information Headquarters",
     address: "450 W Innovation Drive, Detroit, MI 48226",
     phone: "+1 (555) 123-4567",
-    email: "headquarters@mechnovate.com",
+    email: "headquarters@q-hub.com",
     hours: {
       weekdays: "8:00 AM - 6:00 PM",
       saturday: "9:00 AM - 1:00 PM",
@@ -1899,7 +1899,7 @@ export const aboutTimeline = [
   {
     year: "2010",
     title: "Company Founded",
-    description: "MechNovate was established with a vision to revolutionize mechanical engineering through innovation and precision."
+    description: "Q-hub Information was founded in 2010 by Dr. Naeem, a Software Engineer with a passion for innovation and precision."
   },
   {
     year: "2013",
@@ -2013,31 +2013,38 @@ export const officeLocations = [
 
 // Hero Section Data
 export const heroData = {
-  title: "STEGANOX",
+  title: "Q HUB INFORMATION",
   subtitle: "Enterprise Software Solutions",
-  description: "Transform Your Business with AI-Powered Technology",
-  subDescription: "Trusted by Fortune 500 companies worldwide for mission-critical applications",
+  description: "Transform Your Business with Cutting-Edge Technology",
+  subDescription: "Trusted by leading companies worldwide for innovative software development",
   buttons: [
-    { text: "Schedule Consultation", primary: true },
-    { text: "View Case Studies", primary: false }
+    { text: "Get Started", primary: true },
+    { text: "View Portfolio", primary: false }
   ]
 };
 
 // About Section Data
 export const aboutData = {
-  title: "About Steganox",
-  mainText: "We are a global technology consultancy specializing in enterprise-grade software solutions. With over a decade of experience, we've helped transform businesses across 25+ countries.",
+  title: "About Q HUB INFORMATION",
+  mainText: "We are a leading software development company specializing in enterprise-grade solutions. With years of proven expertise, we've helped transform businesses globally through innovative technology.",
   secondaryText: "Our team of 150+ certified engineers combines deep technical expertise with industry-specific knowledge to deliver solutions that drive measurable business impact.",
   highlights: {
     title: "Excellence in Every Line of Code",
     description: "We don't just build software; we architect digital ecosystems that scale with your ambitions."
   },
   stats: [
-    { value: 500, label: "Enterprise Clients", suffix: "+" },
+    { value: 500, label: "Projects Delivered", suffix: "+" },
     { value: 150, label: "Expert Engineers", suffix: "+" },
-    { value: 25, label: "Countries Served", suffix: "+" },
-    { value: 98, label: "Client Retention Rate", suffix: "%" }
-  ]
+    { value: 120, label: "Happy Clients", suffix: "+" },
+    { value: 98, label: "Client Satisfaction", suffix: "%" }
+  ],
+  image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=80",
+  imageAlt: "Q HUB INFORMATION team collaborating on software development",
+  badges: ["Innovative Solutions", "Agile Development", "24/7 Support", "Global Reach"],
+  cta: {
+    label: "Learn More About Us",
+    href: "/about"
+  }
 };
 
 // Services Data

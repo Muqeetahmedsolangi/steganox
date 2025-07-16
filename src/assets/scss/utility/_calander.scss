@@ -30,7 +30,7 @@
     .react-calendar__tile {
       @apply text-slate-600;
       &.react-calendar__month-view__days__day--weekend {
-        @apply text-danger-500;
+        @apply text-red-500;
       }
     }
   }
@@ -50,7 +50,7 @@
     .react-calendar__tile {
       @apply text-slate-400;
       &.react-calendar__month-view__days__day--weekend {
-        @apply text-danger-500;
+        @apply text-red-500;
       }
     }
     .react-calendar__tile:enabled:hover,

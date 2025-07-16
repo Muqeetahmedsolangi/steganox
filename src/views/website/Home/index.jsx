@@ -1,7 +1,5 @@
-import { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useNavigate } from 'react-router-dom';
+import { Icon } from '@iconify/react';
 import FuturisticHero from '../../../components/FuturisticHero';
 import AboutSection from '../../../components/AboutSection';
 import ServicesSection from '../../../components/ServicesSection';
@@ -9,282 +7,195 @@ import IndustriesSection from '../../../components/IndustriesSection';
 import WhyChooseSection from '../../../components/WhyChooseSection';
 import MissionVisionSection from '../../../components/MissionVisionSection';
 import ExpertiseSection from '../../../components/ExpertiseSection';
-import ParallaxShowcase from '../../../components/ParallaxShowcase';
+import PortfolioShowcase from '../../../components/PortfolioShowcase';
 import TimelineScroll from '../../../components/TimelineScroll';
-
-// Register GSAP plugins
-gsap.registerPlugin(ScrollTrigger);
+import FAQSection from '../../../components/FAQSection';
+import { testimonials } from '../../../constant/data';
 
 const Home = () => {
-  const location = useLocation();
   const navigate = useNavigate();
-  useEffect(() => {
-    // Smooth scrolling
-    document.documentElement.style.scrollBehavior = 'smooth';
-    
-    // Refresh ScrollTrigger
-    ScrollTrigger.refresh();
-
-    // Temporarily disabled custom scroll handling to fix navigation
-    // let scrollY = window.scrollY;
-    // let targetY = window.scrollY;
-    
-    // const updateScroll = () => {
-    //   scrollY += (targetY - scrollY) * 0.1;
-    //   window.scrollTo(0, scrollY);
-      
-    //   if (Math.abs(targetY - scrollY) > 0.5) {
-    //     requestAnimationFrame(updateScroll);
-    //   }
-    // };
-
-    // const onWheel = (e) => {
-    //   e.preventDefault();
-    //   targetY += e.deltaY;
-    //   targetY = Math.max(0, Math.min(targetY, document.body.scrollHeight - window.innerHeight));
-    //   requestAnimationFrame(updateScroll);
-    // };
-
-    // window.addEventListener('wheel', onWheel, { passive: false });
-
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-      document.documentElement.style.scrollBehavior = 'auto';
-      // window.removeEventListener('wheel', onWheel);
-    };
-  }, [location]);
 
   return (
-    <div style={{ backgroundColor: '#000000', minHeight: '100vh' }}>
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-black">
       {/* Hero Section */}
-      <div id="home">
+      <section id="home" className="relative">
         <FuturisticHero />
-      </div>
+      </section>
 
-      {/* About Section */}
-      <AboutSection />
-
-      {/* Services Section */}
-      <div id="services">
-        <ServicesSection />
-      </div>
-
-      {/* Industries We Serve */}
-      <IndustriesSection />
-
-      {/* Why Choose Section */}
-      <WhyChooseSection />
-
-      {/* Mission & Vision */}
-      <MissionVisionSection />
-
-      {/* Tech Stack */}
-      <ExpertiseSection />
-
-      {/* Portfolio Showcase */}
-      <ParallaxShowcase />
-
-      {/* Process Timeline */}
-      <div id="process">
-        <TimelineScroll />
-      </div>
-
-      {/* Stats Section with Count Animation */}
-      {/* <Stats3D /> */}
-
-      {/* FAQ Section */}
-      {/* <FAQSection /> */}
-
-      {/* Testimonials with 3D Cards */}
-      <section 
-        className="relative py-32 overflow-hidden"
-        style={{ backgroundColor: '#000000' }}
-      >
+      {/* About Company Section */}
+      <section id="about" className="relative py-20 bg-gradient-to-b from-black to-gray-900">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/10 to-black" />
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl" />
+          <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+          <div className="absolute top-1/4 left-10 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-10 w-80 h-80 bg-accent-500/10 rounded-full blur-3xl"></div>
+        </div>
+        <div className="relative z-10">
+          <AboutSection />
+        </div>
+      </section>
+
+      {/* Core Services Section */}
+      <section id="services" className="relative py-20 bg-gradient-to-b from-gray-900 to-black">
+        <div className="absolute inset-0">
+          <div className="absolute top-20 right-20 w-72 h-72 bg-secondary-500/10 rounded-full blur-3xl"></div>
+        </div>
+        <div className="relative z-10">
+          <ServicesSection />
+        </div>
+      </section>
+
+      {/* Industry Solutions Section */}
+      <section id="industries" className="relative py-20 bg-gradient-to-b from-black to-gray-900">
+        <div className="absolute inset-0">
+          <div className="absolute top-1/3 left-20 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl"></div>
+        </div>
+        <div className="relative z-10">
+          <IndustriesSection />
+        </div>
+      </section>
+
+      {/* Technology Excellence Section */}
+      <section id="expertise" className="relative py-20 bg-gradient-to-b from-gray-900 to-black">
+        <div className="absolute inset-0 bg-grid-pattern opacity-3"></div>
+        <div className="relative z-10">
+          <ExpertiseSection />
+        </div>
+      </section>
+
+      {/* Portfolio Showcase Section */}
+      <section id="portfolio" className="relative py-20 bg-gradient-to-b from-black to-gray-900">
+        <div className="absolute inset-0">
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-accent-500/8 rounded-full blur-3xl"></div>
+        </div>
+        <div className="relative z-10">
+          <PortfolioShowcase />
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section id="why-choose" className="relative py-20 bg-gradient-to-b from-gray-900 to-black">
+        <div className="absolute inset-0">
+          <div className="absolute top-10 left-1/4 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl"></div>
+        </div>
+        <div className="relative z-10">
+          <WhyChooseSection />
+        </div>
+      </section>
+
+      {/* Company Vision Section */}
+      <section id="mission" className="relative py-20 bg-gradient-to-b from-black to-gray-900">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div className="relative z-10">
+          <MissionVisionSection />
+        </div>
+      </section>
+
+      {/* Development Process Section */}
+      <section id="process" className="relative py-20 bg-gradient-to-b from-gray-900 to-black">
+        <div className="absolute inset-0">
+          <div className="absolute top-1/2 right-1/4 w-72 h-72 bg-secondary-500/8 rounded-full blur-3xl"></div>
+        </div>
+        <div className="relative z-10">
+          <TimelineScroll />
+        </div>
+      </section>
+
+      {/* Client Testimonials Section */}
+      <section id="testimonials" className="relative py-24 bg-gradient-to-b from-black to-gray-900">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900/50 to-black" />
+          <div className="absolute top-20 left-10 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-accent-500/10 rounded-full blur-3xl"></div>
         </div>
         
         <div className="container mx-auto px-6 relative z-10">
-          <div className="text-center mb-20">
-            <div className="inline-block mb-6">
-              <span className="px-4 py-2 bg-gradient-to-r from-purple-600/20 to-blue-600/20 text-purple-300 text-sm font-semibold rounded-full border border-purple-600/30">
-                TESTIMONIALS
-              </span>
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full mb-8">
+              <Icon icon="carbon:chat" className="w-5 h-5 text-accent-400 mr-3" />
+              <span className="text-sm font-medium text-white/90 tracking-wide uppercase">Client Stories</span>
             </div>
-            <h2 
-              className="font-bold mb-6"
-              style={{
-                fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-                lineHeight: '1.1',
-                color: '#ffffff'
-              }}
-            >
-              Client Success <span style={{
-                background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
-              }}>Stories</span>
+            
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+              <span className="bg-gradient-to-r from-white via-primary-200 to-accent-300 bg-clip-text text-transparent">
+                Success
+              </span>
+              <br />
+              <span className="text-white/90">Testimonials</span>
             </h2>
-            <p 
-              style={{
-                fontSize: '1.3rem',
-                color: 'rgba(255,255,255,0.6)',
-                maxWidth: '600px',
-                margin: '0 auto'
-              }}
-            >
-              Trusted by industry leaders worldwide. See how we've transformed their businesses.
+            
+            <p className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+              Discover how we've transformed businesses and exceeded expectations for clients worldwide
             </p>
+            
+            <div className="flex items-center justify-center gap-8 mt-8">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-accent-400">120+</div>
+                <div className="text-sm text-white/60">Happy Clients</div>
+              </div>
+              <div className="w-px h-12 bg-white/20"></div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary-400">98%</div>
+                <div className="text-sm text-white/60">Satisfaction</div>
+              </div>
+              <div className="w-px h-12 bg-white/20"></div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white">4.9/5</div>
+                <div className="text-sm text-white/60">Average Rating</div>
+              </div>
+            </div>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {[
-              {
-                name: "Sarah Chen",
-                role: "CEO, TechVentures",
-                company: "AI Platform",
-                comment: "Steganox delivered our AI platform in record time. The code quality and architecture are exceptional. Their team's expertise in machine learning and scalable systems exceeded our expectations.",
-                rating: 5,
-                image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop&crop=face",
-                impact: "300% ROI",
-                industry: "Technology"
-              },
-              {
-                name: "Michael Torres",
-                role: "CTO, FinanceHub",
-                company: "DeFi Platform",
-                comment: "Their blockchain expertise helped us launch a DeFi platform that now handles $100M+ in daily volume. The security implementation and performance optimization are outstanding.",
-                rating: 5,
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
-                impact: "$100M+ Daily Volume",
-                industry: "Finance"
-              },
-              {
-                name: "Emily Watson",
-                role: "Founder, HealthTech Pro",
-                company: "Mobile App",
-                comment: "The mobile app they built scaled to 1M+ users seamlessly. Best development team we've worked with. Their attention to detail and user experience design is unmatched.",
-                rating: 5,
-                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face",
-                impact: "1M+ Users",
-                industry: "Healthcare"
-              }
-            ].map((testimonial, index) => (
+          {/* Testimonials Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-16">
+            {testimonials.slice(0, 6).map((testimonial, index) => (
               <div
                 key={index}
-                className="group relative rounded-3xl overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2"
+                className="group relative rounded-2xl overflow-hidden transition-all duration-500 hover:scale-105 hover:-translate-y-2"
                 style={{
-                  backgroundColor: 'rgba(255,255,255,0.03)',
+                  background: 'linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)',
                   backdropFilter: 'blur(20px)',
                   border: '1px solid rgba(255,255,255,0.1)'
                 }}
               >
-                {/* Glow effect */}
-                <div 
-                  className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"
-                  style={{
-                    background: 'radial-gradient(circle at center, rgba(168,85,247,0.3), transparent 70%)'
-                  }}
-                />
-
-                {/* Header with large image */}
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  
-                  {/* Industry badge */}
-                  <div 
-                    className="absolute top-4 left-4 px-3 py-1.5 rounded-full text-xs font-medium"
-                    style={{
-                      backgroundColor: 'rgba(0,0,0,0.7)',
-                      backdropFilter: 'blur(10px)',
-                      border: '1px solid rgba(255,255,255,0.2)',
-                      color: '#ffffff'
-                    }}
-                  >
-                    {testimonial.industry}
-                  </div>
-
-                  {/* Impact badge */}
-                  <div 
-                    className="absolute top-4 right-4 px-3 py-1.5 rounded-full text-xs font-medium"
-                    style={{
-                      background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
-                      color: '#ffffff'
-                    }}
-                  >
-                    {testimonial.impact}
-                  </div>
-                </div>
-
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-accent-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
                 {/* Content */}
-                <div className="p-8">
-                  {/* Rating */}
-                  <div className="flex gap-1 mb-4">
+                <div className="relative p-8">
+                  {/* Rating Stars */}
+                  <div className="flex gap-1 mb-6">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <span key={i} style={{ color: '#fbbf24', fontSize: '1.1rem' }}>⭐</span>
+                      <Icon key={i} icon="carbon:star-filled" className="w-5 h-5 text-yellow-400" />
                     ))}
                   </div>
 
-                  {/* Quote */}
+                  {/* Quote Icon */}
                   <div className="mb-6">
-                    <svg 
-                      className="w-8 h-8 mb-4 opacity-30"
-                      fill="currentColor" 
-                      viewBox="0 0 24 24"
-                      style={{ color: '#a855f7' }}
-                    >
-                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                    </svg>
-                    <p 
-                      className="text-lg leading-relaxed"
-                      style={{
-                        color: 'rgba(255,255,255,0.9)',
-                        fontStyle: 'italic'
-                      }}
-                    >
-                      "{testimonial.comment}"
-                    </p>
+                    <Icon icon="carbon:quotes" className="w-8 h-8 text-primary-400/60" />
                   </div>
 
-                  {/* Author info */}
-                  <div className="flex items-center gap-4 pt-4 border-t border-white/10">
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover ring-2 ring-purple-500/30"
-                    />
+                  {/* Testimonial Content */}
+                  <blockquote className="text-lg text-white/90 leading-relaxed mb-6 font-light">
+                    "{testimonial.content}"
+                  </blockquote>
+
+                  {/* Project Info */}
+                  <div className="mb-6 p-3 bg-white/5 rounded-lg border border-white/10">
+                    <div className="text-sm text-accent-400 font-medium">Project: {testimonial.project}</div>
+                  </div>
+
+                  {/* Author Info */}
+                  <div className="flex items-center gap-4 pt-6 border-t border-white/10">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary-500 to-accent-500 flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">
+                        {testimonial.name.charAt(0)}
+                      </span>
+                    </div>
                     <div>
-                      <h4 
-                        className="font-bold text-lg"
-                        style={{ color: '#ffffff' }}
-                      >
-                        {testimonial.name}
-                      </h4>
-                      <p 
-                        className="font-medium"
-                        style={{
-                          color: 'rgba(168,85,247,0.8)',
-                          fontSize: '0.9rem'
-                        }}
-                      >
-                        {testimonial.role}
-                      </p>
-                      <p 
-                        style={{
-                          color: 'rgba(255,255,255,0.6)', 
-                          fontSize: '0.85rem'
-                        }}
-                      >
-                        {testimonial.company}
-                      </p>
+                      <h4 className="font-bold text-white text-lg">{testimonial.name}</h4>
+                      <p className="text-primary-300 font-medium text-sm">{testimonial.position}</p>
+                      <p className="text-white/60 text-sm">{testimonial.company}</p>
                     </div>
                   </div>
                 </div>
@@ -293,41 +204,114 @@ const Home = () => {
           </div>
 
           {/* CTA Section */}
-          <div className="text-center mt-16">
-            <p 
-              className="mb-8 text-lg"
-              style={{ color: 'rgba(255,255,255,0.7)' }}
-            >
-              Ready to join our success stories?
-            </p>
-            <button 
-              onClick={() => navigate('/contact-us')}
-              className="group relative px-8 py-4 rounded-full overflow-hidden transition-all duration-300 hover:scale-105"
-              style={{
-                background: 'linear-gradient(135deg, #a855f7 0%, #3b82f6 100%)',
-                color: '#ffffff',
-                fontWeight: '600',
-                border: 'none',
-                boxShadow: '0 10px 30px rgba(168,85,247,0.3)'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.boxShadow = '0 15px 40px rgba(168,85,247,0.5)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.boxShadow = '0 10px 30px rgba(168,85,247,0.3)';
-              }}
-            >
-              <span className="relative z-10">Start Your Project</span>
+          <div className="text-center">
+            <div className="max-w-2xl mx-auto mb-8">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                Ready to Join Our Success Stories?
+              </h3>
+              <p className="text-lg text-white/70">
+                Let's discuss your project and create the next success story together
+              </p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button 
+                onClick={() => navigate('/contact-us')}
+                className="group relative px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-lg hover:from-primary-600 hover:to-primary-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl"
+              >
+                <span className="relative z-10 flex items-center justify-center">
+                  <Icon icon="carbon:arrow-right" className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
+                  Start Your Project
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-500 rounded-lg blur opacity-50 group-hover:opacity-75 transition-opacity"></div>
+              </button>
               
-              {/* Hover effect overlay */}
-              <div 
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                style={{
-                  background: 'linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.2) 100%)',
-                  mixBlendMode: 'overlay'
-                }}
-              />
-            </button>
+              <button 
+                onClick={() => navigate('/portfolio')}
+                className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300"
+              >
+                <span className="flex items-center justify-center">
+                  <Icon icon="carbon:view" className="w-5 h-5 mr-2" />
+                  View All Projects
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ & Support Section */}
+      <section id="faq" className="relative py-20 bg-gradient-to-b from-gray-900 to-black">
+        <div className="absolute inset-0">
+          <div className="absolute bottom-10 left-1/3 w-72 h-72 bg-accent-500/8 rounded-full blur-3xl"></div>
+        </div>
+        <div className="relative z-10">
+          <FAQSection />
+        </div>
+      </section>
+
+      {/* Call to Action Section */}
+      <section className="relative py-24 bg-gradient-to-b from-black via-gray-900 to-black">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="container mx-auto px-6 text-center relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              Ready to Transform Your
+              <span className="block bg-gradient-to-r from-primary-400 via-accent-400 to-primary-400 bg-clip-text text-transparent">
+                Digital Future?
+              </span>
+            </h2>
+            
+            <p className="text-xl md:text-2xl text-white/70 mb-12 leading-relaxed">
+              Join 120+ companies that trust Q HUB INFORMATION for their software development needs
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+              <button 
+                onClick={() => navigate('/contact-us')}
+                className="group relative px-10 py-5 bg-gradient-to-r from-primary-500 to-accent-500 text-white font-bold rounded-xl hover:from-primary-600 hover:to-accent-600 transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl text-lg"
+              >
+                <span className="relative z-10 flex items-center justify-center">
+                  <Icon icon="carbon:rocket" className="w-6 h-6 mr-3 group-hover:translate-x-1 transition-transform" />
+                  Get Started Today
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-accent-400 rounded-xl blur opacity-50 group-hover:opacity-75 transition-opacity"></div>
+              </button>
+              
+              <button 
+                onClick={() => navigate('/services')}
+                className="px-10 py-5 bg-white/10 backdrop-blur-sm text-white font-bold rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 text-lg"
+              >
+                <span className="flex items-center justify-center">
+                  <Icon icon="carbon:information" className="w-6 h-6 mr-3" />
+                  Learn More
+                </span>
+              </button>
+            </div>
+            
+            {/* Trust Indicators */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary-400 mb-2">500+</div>
+                <div className="text-white/60 text-sm">Projects Delivered</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-accent-400 mb-2">150+</div>
+                <div className="text-white/60 text-sm">Expert Developers</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white mb-2">98%</div>
+                <div className="text-white/60 text-sm">Client Satisfaction</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary-400 mb-2">24/7</div>
+                <div className="text-white/60 text-sm">Support Available</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

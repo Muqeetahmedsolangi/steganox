@@ -1,34 +1,45 @@
-import FuturisticHeader from '../components/FuturisticHeader';
-import { Suspense, useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
+import FuturisticHeader from '../components/FuturisticHeader';
 import FuturisticFooter from '../components/FuturisticFooter';
-import Loading from '../components/Loading';
-import CustomCursor from '../components/CustomCursor';
+import ScrollToTop from '../components/ui/ScrollToTop';
+import Header from '../components/Header/Header';
 
-function WebsiteLayout() {
+const WebsiteLayout = () => {
   const location = useLocation();
-  
+
+  // Scroll to top on route change
   useEffect(() => {
-    // Smooth scroll to top on route change
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth',
-    });
+    window.scrollTo(0, 0);
   }, [location.pathname]);
 
   return (
-    <div className="font-inter bg-black text-white min-h-screen relative overflow-x-hidden">
-      <FuturisticHeader />
-      <CustomCursor />
-      <div className="relative z-10 pt-16 md:pt-20">
-        <Suspense fallback={<Loading />}>
-          <Outlet />
+    <div className="min-h-screen bg-black">
+      {/* <FuturisticHeader />
+       */}
+       <Header/>
+      <main className="relative">
+        <Suspense fallback={
+          <div className="min-h-screen bg-black flex items-center justify-center">
+            <div className="text-center">
+              <div className="relative">
+                <div className="w-16 h-16 border-4 border-primary-500/30 rounded-full animate-spin border-t-primary-500 mx-auto mb-4"></div>
+                <div className="absolute inset-0 w-16 h-16 border-2 border-accent-500/20 rounded-full animate-pulse mx-auto"></div>
+              </div>
+              <p className="text-white text-lg">Loading page...</p>
+              <p className="text-gray-400 text-sm mt-2">Please wait</p>
+            </div>
+          </div>
+        }>
+          <div className="page-transition">
+            <Outlet />
+          </div>
         </Suspense>
-        <FuturisticFooter />
-      </div>
+      </main>
+      <FuturisticFooter />
+      <ScrollToTop />
     </div>
   );
-}
+};
 
 export default WebsiteLayout;
