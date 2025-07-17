@@ -1,7 +1,10 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import { whyChooseData } from '../constant/data';
 
 const WhyChooseSection = () => {
+  const navigate = useNavigate();
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4 md:px-6">
@@ -37,11 +40,12 @@ const WhyChooseSection = () => {
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <a href="/contact-us" className="inline-block">
-            <button className="px-8 py-4 rounded-lg bg-qhub-primary text-white font-semibold hover:bg-qhub-primary/90 transition-colors">
-              Start Your Project Today
-            </button>
-          </a>
+          <button 
+            onClick={() => navigate('/contact-us')}
+            className="px-8 py-4 rounded-lg bg-qhub-primary text-white font-semibold hover:bg-qhub-primary/90 transition-colors"
+          >
+            Start Your Project Today
+          </button>
         </div>
       </div>
     </section>

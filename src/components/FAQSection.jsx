@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import { faqs, faqCategories } from '../constant/data';
 
 const FAQSection = () => {
+  const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState('all');
   const [openItems, setOpenItems] = useState([]);
 
@@ -119,11 +121,17 @@ const FAQSection = () => {
               Can't find the answer you're looking for? Our team is here to help.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
-              <button className="px-6 py-3 rounded-lg bg-qhub-primary text-white font-medium hover:bg-qhub-primary/90 transition-colors flex items-center gap-2">
+              <button 
+                onClick={() => navigate('/contact-us')}
+                className="px-6 py-3 rounded-lg bg-qhub-primary text-white font-medium hover:bg-qhub-primary/90 transition-colors flex items-center gap-2"
+              >
                 <Icon icon="carbon:chat" className="w-5 h-5" />
                 Contact Support
               </button>
-              <button className="px-6 py-3 rounded-lg border-2 border-qhub-primary text-qhub-primary font-medium hover:bg-qhub-light transition-colors flex items-center gap-2">
+              <button 
+                onClick={() => navigate('/contact-us')}
+                className="px-6 py-3 rounded-lg border-2 border-qhub-primary text-qhub-primary font-medium hover:bg-qhub-light transition-colors flex items-center gap-2"
+              >
                 <Icon icon="carbon:calendar" className="w-5 h-5" />
                 Schedule a Call
               </button>

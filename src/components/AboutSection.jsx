@@ -1,10 +1,12 @@
 import { Icon } from '@iconify/react';
 import { useState, useEffect } from 'react';
 import { aboutData } from '../constant/data';
+import { useNavigate } from 'react-router-dom';
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeFeature, setActiveFeature] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsVisible(true);
@@ -169,18 +171,21 @@ const AboutSection = () => {
 
                 {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <a
-                    href={aboutData.cta?.href}
+                  <button
+                    onClick={() => navigate('/about')}
                     className="group relative px-8 py-4 bg-gradient-to-r from-primary-500 to-accent-500 text-white font-semibold rounded-xl hover:from-primary-600 hover:to-accent-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl overflow-hidden"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
                     <span className="relative z-10 flex items-center justify-center">
                       <Icon icon="carbon:arrow-right" className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
-                      {aboutData.cta?.label || "Learn More"}
+                      Learn More About Us
                     </span>
-                  </a>
+                  </button>
                   
-                  <button className="group px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300">
+                  <button 
+                    onClick={() => navigate('/portfolio')}
+                    className="group px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300"
+                  >
                     <span className="flex items-center justify-center">
                       <Icon icon="carbon:play-filled" className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                       Watch Story
@@ -253,7 +258,10 @@ const AboutSection = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="group relative px-10 py-5 bg-gradient-to-r from-primary-500 to-accent-500 text-white font-bold rounded-2xl hover:from-primary-600 hover:to-accent-600 transform hover:scale-105 transition-all duration-300 shadow-2xl overflow-hidden">
+                <button 
+                  onClick={() => navigate('/contact-us')}
+                  className="group relative px-10 py-5 bg-gradient-to-r from-primary-500 to-accent-500 text-white font-bold rounded-2xl hover:from-primary-600 hover:to-accent-600 transform hover:scale-105 transition-all duration-300 shadow-2xl overflow-hidden"
+                >
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
                   <span className="relative z-10 flex items-center justify-center">
                     <Icon icon="carbon:rocket" className="w-6 h-6 mr-3 group-hover:animate-bounce" />
@@ -261,7 +269,10 @@ const AboutSection = () => {
                   </span>
                 </button>
                 
-                <button className="group px-10 py-5 bg-white/10 backdrop-blur-sm text-white font-bold rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <button 
+                  onClick={() => navigate('/contact-us')}
+                  className="group px-10 py-5 bg-white/10 backdrop-blur-sm text-white font-bold rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-300"
+                >
                   <span className="flex items-center justify-center">
                     <Icon icon="carbon:chat" className="w-6 h-6 mr-3 group-hover:scale-110 transition-transform" />
                     Schedule Call

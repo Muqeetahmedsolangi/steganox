@@ -1,7 +1,17 @@
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import { portfolioData } from '../constant/data';
 
 const PortfolioShowcase = () => {
+  const navigate = useNavigate();
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const handleProjectClick = (project) => {
+    setSelectedProject(project);
+    navigate(`/portfolio/${project.id}`);
+  };
+
   return (
     <section className="relative py-16 md:py-24 lg:py-32 bg-black">
       <div className="container mx-auto px-4 md:px-6">
@@ -115,13 +125,13 @@ const PortfolioShowcase = () => {
 
         {/* CTA */}
         <div className="text-center mt-12">
-          <a 
-            href="/portfolio"
+          <button 
+            onClick={() => navigate('/portfolio')}
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-primary to-accent text-white font-medium transition-all duration-300 hover:shadow-lg hover:scale-105"
           >
             <span>View All Projects</span>
             <Icon icon="fluent:arrow-right-16-filled" className="w-5 h-5" />
-          </a>
+          </button>
         </div>
       </div>
     </section>

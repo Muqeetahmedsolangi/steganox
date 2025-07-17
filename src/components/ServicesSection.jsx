@@ -1,8 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import { services } from '../constant/data';
 
 const ServicesSection = () => {
+  const navigate = useNavigate();
+  
   const serviceIcons = {
     1: 'carbon:application-web',
     2: 'carbon:mobile-check',
@@ -70,7 +73,10 @@ const ServicesSection = () => {
               </ul>
 
               {/* CTA */}
-              <button className="group/btn inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all duration-200">
+              <button 
+                onClick={() => navigate(`/services`)}
+                className="group/btn inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all duration-200"
+              >
                 <span>Learn More</span>
                 <Icon icon="carbon:arrow-right" className="w-4 h-4" />
               </button>
@@ -83,7 +89,10 @@ const ServicesSection = () => {
           <p className="text-slate-600 dark:text-slate-400 mb-6">
             Ready to transform your business with our software solutions?
           </p>
-          <button className="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl">
+          <button 
+            onClick={() => navigate('/contact-us')}
+            className="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl"
+          >
             <Icon icon="carbon:chat" className="w-5 h-5" />
             Start Your Project
           </button>
