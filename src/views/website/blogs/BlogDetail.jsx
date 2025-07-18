@@ -67,11 +67,15 @@ function BlogDetail() {
   // Loading state
   if (loading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-b from-gray-900 via-primary-900 to-black flex items-center justify-center">
         <div className="text-center">
           <div className="relative">
             <div className="w-16 h-16 border-4 border-primary-500/30 rounded-full animate-spin border-t-primary-500 mx-auto mb-4"></div>
             <div className="absolute inset-0 w-16 h-16 border-2 border-accent-500/20 rounded-full animate-pulse mx-auto"></div>
+          </div>
+          <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-4">
+            <Icon icon="carbon:blog" className="w-4 h-4 text-accent-400 mr-2" />
+            <span className="text-sm font-medium text-white/90 tracking-wide">Q HUB BLOG</span>
           </div>
           <p className="text-white text-lg">Loading article...</p>
           <p className="text-gray-400 text-sm mt-2">Please wait while we fetch the content</p>
@@ -83,9 +87,12 @@ function BlogDetail() {
   // Error state
   if (error || !blog) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-b from-gray-900 via-primary-900 to-black flex items-center justify-center">
         <div className="text-center max-w-md">
           <Icon icon="carbon:warning" className="w-20 h-20 text-red-400 mx-auto mb-6" />
+          <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-6">
+            <span className="text-sm font-medium text-white/90 tracking-wide">Q HUB BLOG</span>
+          </div>
           <h1 className="text-2xl font-bold text-white mb-4">Article Not Found</h1>
           <p className="text-gray-400 mb-8">
             {error || "The article you're looking for doesn't exist or has been removed."}
@@ -93,7 +100,7 @@ function BlogDetail() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => navigate('/blogs')}
-              className="px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-lg hover:from-primary-600 hover:to-primary-700 transition-all duration-300"
+              className="px-6 py-3 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-lg hover:from-primary-600 hover:to-accent-600 transition-all duration-300 hover:scale-105"
             >
               <Icon icon="carbon:arrow-left" className="w-5 h-5 mr-2 inline" />
               Back to Blog
@@ -123,11 +130,11 @@ function BlogDetail() {
   const categoryInfo = blogCategories.find(cat => cat.id === blog.category);
 
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="bg-gradient-to-b from-gray-900 via-primary-900 to-black text-white min-h-screen">
       {/* Reading Progress Bar */}
       <div className="fixed top-0 left-0 w-full h-1 bg-gray-800 z-50">
         <div 
-          className="h-full bg-gradient-to-r from-primary-500 to-secondary-500 transition-all duration-300"
+          className="h-full bg-gradient-to-r from-primary-500 to-accent-500 transition-all duration-300"
           style={{ width: `${readingProgress}%` }}
         />
       </div>
@@ -138,20 +145,23 @@ function BlogDetail() {
           <div className="flex items-center justify-between">
             <button
               onClick={() => navigate('/blogs')}
-              className="flex items-center gap-2 text-gray-400 hover:text-primary-500 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-all duration-300 hover:scale-105"
             >
               <Icon icon="carbon:arrow-left" className="text-lg" />
-              <span className="hidden sm:inline">Back to Blog</span>
-              <span className="sm:hidden">Back</span>
+              <span className="hidden sm:inline font-medium">Back to Blog</span>
+              <span className="sm:hidden font-medium">Back</span>
             </button>
             
             <div className="flex items-center gap-3 sm:gap-4">
+              <div className="hidden md:flex items-center px-3 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full">
+                <span className="text-sm font-medium text-white/90 tracking-wide">Q HUB BLOG</span>
+              </div>
               <div className="hidden md:flex items-center gap-2 text-sm text-gray-400">
                 <Icon icon="carbon:time" className="text-primary-500" />
                 <span>{blog.readTime}</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-gray-400">
-                <Icon icon="carbon:view" className="text-secondary-500" />
+                <Icon icon="carbon:view" className="text-accent-500" />
                 <span>{blog.views}</span>
               </div>
             </div>
@@ -168,6 +178,9 @@ function BlogDetail() {
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/60" />
+          <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+          <div className="absolute top-20 left-20 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-20 w-80 h-80 bg-accent-500/10 rounded-full blur-3xl"></div>
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20 lg:py-24">
@@ -176,26 +189,28 @@ function BlogDetail() {
             <div className="flex items-center justify-center gap-2 text-sm text-gray-400 mb-6">
               <Link to="/" className="hover:text-primary-500 transition-colors">Home</Link>
               <Icon icon="carbon:chevron-right" className="text-xs" />
-              <Link to="/blogs" className="hover:text-primary-500 transition-colors">Blog</Link>
+              <Link to="/blogs" className="hover:text-primary-500 transition-colors">Q HUB Blog</Link>
               <Icon icon="carbon:chevron-right" className="text-xs" />
-              <span className="text-primary-500">{categoryInfo?.name}</span>
+              <span className="text-accent-400">{categoryInfo?.name}</span>
             </div>
 
             {/* Category Badge */}
             <div className="flex justify-center mb-6">
-              <span className="inline-flex items-center gap-2 bg-primary-500/20 backdrop-blur-sm text-primary-500 px-4 py-2 rounded-full text-sm font-medium border border-primary-500/30">
-                <Icon icon={categoryInfo?.icon || "carbon:folder"} />
-                {categoryInfo?.name}
-              </span>
+              <div className="inline-flex items-center px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full">
+                <Icon icon={categoryInfo?.icon || "carbon:folder"} className="w-5 h-5 text-accent-400 mr-3" />
+                <span className="text-sm font-medium text-white/90 tracking-wide uppercase">{categoryInfo?.name}</span>
+              </div>
             </div>
 
             {/* Title */}
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-tight">
-              {blog.title}
+              <span className="bg-gradient-to-r from-white via-primary-200 to-accent-300 bg-clip-text text-transparent">
+                {blog.title}
+              </span>
             </h1>
 
             {/* Excerpt */}
-            <p className="text-lg sm:text-xl text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-white/70 mb-8 leading-relaxed max-w-3xl mx-auto">
               {blog.excerpt}
             </p>
 

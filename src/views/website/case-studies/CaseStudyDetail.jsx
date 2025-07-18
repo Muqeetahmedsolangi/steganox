@@ -59,10 +59,17 @@ const CaseStudyDetail = () => {
 
   if (!caseStudy) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-b from-gray-900 via-primary-900 to-black flex items-center justify-center">
         <div className="text-center">
-          <Icon icon="carbon:loading" className="w-12 h-12 text-primary-500 animate-spin mx-auto mb-4" />
-          <p className="text-white">Loading case study...</p>
+          <div className="relative">
+            <div className="w-16 h-16 border-4 border-primary-500/30 rounded-full animate-spin border-t-primary-500 mx-auto mb-4"></div>
+            <div className="absolute inset-0 w-16 h-16 border-2 border-accent-500/20 rounded-full animate-pulse mx-auto"></div>
+          </div>
+          <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-4">
+            <span className="text-sm font-medium text-white/90 tracking-wide">Q HUB INFORMATION</span>
+          </div>
+          <p className="text-white text-lg">Loading case study...</p>
+          <p className="text-gray-400 text-sm mt-2">Please wait while we fetch the details</p>
         </div>
       </div>
     );
@@ -329,25 +336,31 @@ const CaseStudyDetail = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-primary-900 to-black">
       {/* Navigation */}
-      <div className="relative z-50 py-6">
+      <div className="relative z-50 py-6 bg-black/50 backdrop-blur-xl border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <button
               onClick={() => navigate(-1)}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-all duration-300 hover:scale-105"
             >
-              <Icon icon="carbon:arrow-left" className="w-4 h-4" />
-              <span>Back</span>
+              <Icon icon="carbon:arrow-left" className="w-5 h-5" />
+              <span className="font-medium">Back</span>
             </button>
             
             <div className="flex items-center gap-4">
+              <div className="hidden md:flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full">
+                <span className="text-sm font-medium text-white/90 tracking-wide">Q HUB INFORMATION</span>
+              </div>
               <button
                 onClick={() => navigate('/contact-us')}
-                className="px-4 py-2 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white hover:from-primary-600 hover:to-secondary-600 transition-all duration-300"
+                className="px-6 py-3 rounded-full bg-gradient-to-r from-primary-500 to-accent-500 text-white hover:from-primary-600 hover:to-accent-600 transition-all duration-300 hover:scale-105 shadow-lg shadow-primary-500/25"
               >
-                Start Similar Project
+                <span className="flex items-center gap-2">
+                  <Icon icon="carbon:rocket" className="w-4 h-4" />
+                  Start Similar Project
+                </span>
               </button>
             </div>
           </div>
@@ -358,8 +371,10 @@ const CaseStudyDetail = () => {
       <section className="relative pt-8 pb-16 md:pb-24 overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-600/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary-600/10 rounded-full blur-3xl" />
+          <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-500/10 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-secondary-500/8 rounded-full blur-3xl" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -367,23 +382,29 @@ const CaseStudyDetail = () => {
             <div className="text-center mb-12">
               {/* Industry Badge */}
               <div className="inline-block mb-6">
-                <span className="px-4 py-2 rounded-full bg-gradient-to-r from-primary-600/20 to-secondary-600/20 border border-primary-600/30 text-primary-300 text-sm font-medium">
-                  {caseStudy.industry}
-                </span>
+                <div className="inline-flex items-center px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full">
+                  <Icon icon="carbon:industry" className="w-5 h-5 text-accent-400 mr-3" />
+                  <span className="text-sm font-medium text-white/90 tracking-wide uppercase">{caseStudy.industry}</span>
+                </div>
               </div>
 
               {/* Title */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                {caseStudy.title}
+                <span className="bg-gradient-to-r from-white via-primary-200 to-accent-300 bg-clip-text text-transparent">
+                  {caseStudy.title}
+                </span>
               </h1>
 
               {/* Client */}
-              <p className="text-xl text-primary-400 mb-8">
-                Client: {caseStudy.client}
-              </p>
+              <div className="flex items-center justify-center gap-2 mb-8">
+                <Icon icon="carbon:user-avatar" className="w-5 h-5 text-accent-400" />
+                <p className="text-xl text-accent-400 font-medium">
+                  Client: {caseStudy.client}
+                </p>
+              </div>
 
               {/* Description */}
-              <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-lg md:text-xl text-white/70 mb-12 max-w-4xl mx-auto leading-relaxed">
                 {caseStudy.challenge}
               </p>
             </div>
@@ -403,14 +424,18 @@ const CaseStudyDetail = () => {
               {enhancedMetrics.map((metric, index) => (
                 <div
                   key={index}
-                  className="text-center p-6 bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-primary-500/30 transition-all duration-300"
+                  className="group text-center p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-primary-500/30 transition-all duration-300 hover:scale-105"
+                  style={{
+                    background: 'linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)',
+                    backdropFilter: 'blur(20px)'
+                  }}
                 >
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <Icon icon={metric.icon} className="w-8 h-8 text-white" />
                   </div>
                   <div className="text-2xl font-bold text-white mb-2">{metric.value}</div>
-                  <div className="text-sm text-gray-400 mb-1">{metric.label}</div>
-                  <div className="text-xs text-gray-500">{metric.description}</div>
+                  <div className="text-sm text-white/60 mb-1">{metric.label}</div>
+                  <div className="text-xs text-white/40">{metric.description}</div>
                 </div>
               ))}
             </div>
@@ -419,20 +444,20 @@ const CaseStudyDetail = () => {
       </section>
 
       {/* Tab Navigation */}
-      <section className="py-8 border-t border-white/10 sticky top-0 z-40 bg-black/80 backdrop-blur-sm">
+      <section className="py-8 border-t border-white/10 sticky top-0 z-40 bg-black/80 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-2">
             {tabNavigation.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-4 py-3 rounded-full transition-all duration-300 ${
+                className={`flex items-center gap-2 px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 ${
                   activeTab === tab.id
-                    ? 'bg-gradient-to-r from-primary-500 to-secondary-500 text-white shadow-lg shadow-primary-500/30'
-                    : 'bg-white/5 border border-white/10 text-gray-300 hover:bg-white/10 hover:text-white'
+                    ? 'bg-gradient-to-r from-primary-500 to-accent-500 text-white shadow-lg shadow-primary-500/30'
+                    : 'bg-white/5 border border-white/10 text-white/80 hover:bg-white/10 hover:text-white'
                 }`}
               >
-                <Icon icon={tab.icon} className="w-4 h-4" />
+                <Icon icon={tab.icon} className="w-5 h-5" />
                 <span className="font-medium">{tab.label}</span>
               </button>
             ))}

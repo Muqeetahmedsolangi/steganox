@@ -23,132 +23,62 @@ module.exports = {
     },
     extend: {
       colors: {
-        // Q HUB Brand Colors - Professional Blue Theme
-        qhub: {
-          primary: '#1B4DFF',    // Vibrant Blue
-          secondary: '#0A2463', // Dark Blue
-          accent: '#00D4FF',    // Cyan Blue
-          dark: '#050A30',      // Very Dark Blue
-          light: '#E8F1FF',     // Light Blue
-          gray: {
-            50: '#F8FAFC',
-            100: '#F1F5F9',
-            200: '#E2E8F0',
-            300: '#CBD5E1',
-            400: '#94A3B8',
-            500: '#64748B',
-            600: '#475569',
-            700: '#334155',
-            800: '#1E293B',
-            900: '#0F172A',
-          }
-        },
-        // Keep simplified color scheme
+        // Q HUB Logo-Based Color Palette - Professional & Consistent
         primary: {
-          DEFAULT: '#1B4DFF',
-          50: '#E8F1FF',
-          100: '#D6E4FF',
-          200: '#ADC9FF',
-          300: '#84AEFF',
-          400: '#5B93FF',
-          500: '#1B4DFF',
-          600: '#0040E6',
-          700: '#0033B3',
-          800: '#002680',
-          900: '#001A4D',
+          DEFAULT: '#1e3a8a',   // Deep Navy Blue (main logo color)
+          50: '#eff6ff',
+          100: '#dbeafe',
+          200: '#bfdbfe',
+          300: '#93c5fd',
+          400: '#60a5fa',
+          500: '#3b82f6',       // Medium Blue
+          600: '#2563eb',       // Bright Blue
+          700: '#1d4ed8',
+          800: '#1e40af',
+          900: '#1e3a8a',       // Deep Navy Blue
         },
         secondary: {
-          DEFAULT: '#0A2463',
-          50: '#E6EBF5',
-          100: '#CDD7EB',
-          200: '#9BAFD7',
-          300: '#6988C3',
-          400: '#3760AF',
-          500: '#0A2463',
-          600: '#081E52',
-          700: '#061841',
-          800: '#041230',
-          900: '#020C1F',
+          DEFAULT: '#2563eb',   // Bright Blue (secondary logo color)
+          50: '#eff6ff',
+          100: '#dbeafe',
+          200: '#bfdbfe',
+          300: '#93c5fd',
+          400: '#60a5fa',
+          500: '#3b82f6',
+          600: '#2563eb',       // Bright Blue
+          700: '#1d4ed8',
+          800: '#1e40af',
+          900: '#1e3a8a',
         },
         accent: {
-          DEFAULT: '#00D4FF',
-          50: '#E6FAFF',
-          100: '#CCF5FF',
-          200: '#99EBFF',
-          300: '#66E1FF',
-          400: '#33D7FF',
-          500: '#00D4FF',
-          600: '#00A9CC',
-          700: '#007E99',
-          800: '#005466',
-          900: '#002A33',
+          DEFAULT: '#3b82f6',   // Light Blue (accent logo color)
+          50: '#eff6ff',
+          100: '#dbeafe',
+          200: '#bfdbfe',
+          300: '#93c5fd',
+          400: '#60a5fa',
+          500: '#3b82f6',       // Light Blue
+          600: '#2563eb',
+          700: '#1d4ed8',
+          800: '#1e40af',
+          900: '#1e3a8a',
         },
-        // Additional color mappings for legacy classes
-        success: {
-          DEFAULT: '#10B981',
-          50: '#ECFDF5',
-          100: '#D1FAE5',
-          200: '#A7F3D0',
-          300: '#6EE7B7',
-          400: '#34D399',
-          500: '#10B981',
-          600: '#059669',
-          700: '#047857',
-          800: '#065F46',
-          900: '#064E3B',
+        gray: {
+          50: '#f8fafc',        // Clean white-gray
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+          300: '#cbd5e1',
+          400: '#94a3b8',
+          500: '#64748b',
+          600: '#475569',
+          700: '#334155',
+          800: '#1e293b',
+          900: '#0f172a',       // Deep dark for contrast
         },
-        danger: {
-          DEFAULT: '#EF4444',
-          50: '#FEF2F2',
-          100: '#FEE2E2',
-          200: '#FECACA',
-          300: '#FCA5A5',
-          400: '#F87171',
-          500: '#EF4444',
-          600: '#DC2626',
-          700: '#B91C1C',
-          800: '#991B1B',
-          900: '#7F1D1D',
-        },
-        warning: {
-          DEFAULT: '#F59E0B',
-          50: '#FFFBEB',
-          100: '#FEF3C7',
-          200: '#FDE68A',
-          300: '#FCD34D',
-          400: '#FBBF24',
-          500: '#F59E0B',
-          600: '#D97706',
-          700: '#B45309',
-          800: '#92400E',
-          900: '#78350F',
-        },
-        info: {
-          DEFAULT: '#3B82F6',
-          50: '#EFF6FF',
-          100: '#DBEAFE',
-          200: '#BFDBFE',
-          300: '#93C5FD',
-          400: '#60A5FA',
-          500: '#3B82F6',
-          600: '#2563EB',
-          700: '#1D4ED8',
-          800: '#1E40AF',
-          900: '#1E3A8A',
-        },
-        black: {
-          DEFAULT: '#000000',
-          50: '#F8F8F8',
-          100: '#F1F1F1',
-          200: '#DCDCDC',
-          300: '#BFBFBF',
-          400: '#8C8C8C',
-          500: '#595959',
-          600: '#404040',
-          700: '#2D2D2D',
-          800: '#1A1A1A',
-          900: '#0D0D0D',
-        },
+        // Clean semantic colors
+        white: '#ffffff',
+        black: '#000000',
+        transparent: 'transparent',
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
