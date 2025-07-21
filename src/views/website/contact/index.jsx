@@ -159,7 +159,7 @@ const Contact = () => {
         keywords="contact, software development, consultation, Q HUB INFORMATION, get quote"
       />
       
-      <div className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-900">
+      <div className="min-h-screen bg-gradient-to-b from-slate-900 via-blue-900 to-slate-800">
         {/* Hero Section */}
         <section className="relative py-24 overflow-hidden">
           <div className="absolute inset-0">
@@ -177,15 +177,15 @@ const Contact = () => {
                 <span className="text-sm font-medium text-white/90 tracking-wide uppercase">Contact Us</span>
               </div>
               
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
-                <span className="bg-gradient-to-r from-white via-primary-200 to-accent-300 bg-clip-text text-transparent">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-100 mb-8 leading-tight">
+                <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-500 bg-clip-text text-transparent">
                   Let's
                 </span>
                 <br />
-                <span className="text-white/90">Connect</span>
+                <span className="text-blue-100/90">Connect</span>
               </h1>
               
-              <p className="text-xl md:text-2xl text-white/70 leading-relaxed">
+              <p className="text-xl md:text-2xl text-blue-100/70 leading-relaxed">
                 Ready to transform your business? Get in touch with our experts today
               </p>
             </div>

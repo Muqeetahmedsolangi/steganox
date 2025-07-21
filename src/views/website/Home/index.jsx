@@ -133,14 +133,14 @@ const Home = () => {
             {/* Badge */}
               <div className="inline-flex items-center px-6 py-3 bg-blue-600/20 backdrop-blur-sm border border-blue-500/30 rounded-full mb-8">
               <Icon icon="carbon:enterprise" className="w-5 h-5 text-blue-300 mr-3" />
-                <span className="text-sm font-medium text-white tracking-wide">Q INFORMATION HUB</span>
+                <span className="text-sm font-medium text-blue-100 tracking-wide">QUEST INFORMATION HUB</span>
             </div>
             
             {/* Headline */}
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-                <span className="text-white/90">Ready to Transform Your</span>
+                <span className="text-blue-100/90">Ready to Transform Your</span>
                 <span className="block bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-500 bg-clip-text text-transparent">
-                  Business with Q Information Hub?
+                  Business with Quest Information Hub?
               </span>
             </h2>
             
@@ -179,11 +179,11 @@ const Home = () => {
               <div className="bg-blue-800/20 backdrop-blur-sm border border-blue-500/30 rounded-xl p-6 md:p-8">
                 
                 <div className="text-center mb-6">
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
+                  <h3 className="text-xl md:text-2xl font-bold text-blue-100 mb-2">
                     Trusted by Businesses Worldwide
                   </h3>
                   <p className="text-blue-100/70">
-                    Join companies that trust Q Information Hub for their software needs
+                    Join companies that trust Quest Information Hub for their software needs
                   </p>
               </div>
               
@@ -197,7 +197,7 @@ const Home = () => {
                     <div className="text-blue-100/70 text-sm">Years Experience</div>
                 </div>
                 <div className="text-center">
-                    <div className="text-2xl md:text-3xl font-bold text-white mb-1">98%</div>
+                    <div className="text-2xl md:text-3xl font-bold text-blue-100 mb-1">98%</div>
                     <div className="text-blue-100/70 text-sm">Success Rate</div>
                 </div>
                 <div className="text-center">

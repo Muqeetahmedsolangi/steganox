@@ -219,7 +219,7 @@ const FuturisticHero = () => {
           <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="inline-flex items-center px-6 py-3 bg-blue-950/40 backdrop-blur-xl border border-blue-400/30 rounded-full mb-8">
               <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse mr-3"></div>
-              <span className="text-sm font-semibold text-blue-100 tracking-wider">Q INFORMATION HUB</span>
+              <span className="text-sm font-semibold text-blue-100 tracking-wider">QUEST INFORMATION HUB</span>
               <div className="ml-3 text-blue-300">
                 <Icon icon="carbon:star-filled" className="w-4 h-4" />
               </div>
@@ -228,7 +228,7 @@ const FuturisticHero = () => {
 
           {/* Main Heading */}
           <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-blue-100 mb-6 leading-tight">
               <span className="block mb-2">Crafting Digital</span>
               <span className="block bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-500 bg-clip-text text-transparent animate-gradient-x">
                 Excellence
@@ -270,7 +270,7 @@ const FuturisticHero = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
               <button 
                 onClick={() => navigate('/contact-us')}
-                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-indigo-700 transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-blue-500/40"
+                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-blue-100 font-semibold rounded-xl hover:from-blue-700 hover:to-indigo-700 transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-blue-500/40"
               >
                 <span className="relative z-10 flex items-center justify-center">
                   <Icon icon="carbon:rocket" className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
@@ -329,7 +329,7 @@ const FuturisticHero = () => {
         onClick={() => navigate('/contact-us')}
         className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-110 group"
       >
-        <Icon icon="carbon:chat" className="w-6 h-6 text-white mx-auto group-hover:rotate-12 transition-transform" />
+        <Icon icon="carbon:chat" className="w-6 h-6 text-blue-100 mx-auto group-hover:rotate-12 transition-transform" />
       </button>
 
       {/* Advanced CSS Animations */}

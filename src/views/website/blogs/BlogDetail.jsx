@@ -73,11 +73,11 @@ function BlogDetail() {
             <div className="w-16 h-16 border-4 border-primary-500/30 rounded-full animate-spin border-t-primary-500 mx-auto mb-4"></div>
             <div className="absolute inset-0 w-16 h-16 border-2 border-accent-500/20 rounded-full animate-pulse mx-auto"></div>
           </div>
-          <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-4">
-            <Icon icon="carbon:blog" className="w-4 h-4 text-accent-400 mr-2" />
-            <span className="text-sm font-medium text-white/90 tracking-wide">Q HUB BLOG</span>
+          <div className="inline-flex items-center px-4 py-2 bg-blue-800/30 backdrop-blur-sm border border-blue-500/30 rounded-full mb-4">
+            <Icon icon="carbon:blog" className="w-4 h-4 text-blue-400 mr-2" />
+            <span className="text-sm font-medium text-blue-100/90 tracking-wide">QUEST HUB BLOG</span>
           </div>
-          <p className="text-white text-lg">Loading article...</p>
+          <p className="text-blue-100 text-lg">Loading article...</p>
           <p className="text-gray-400 text-sm mt-2">Please wait while we fetch the content</p>
         </div>
       </div>
@@ -130,7 +130,7 @@ function BlogDetail() {
   const categoryInfo = blogCategories.find(cat => cat.id === blog.category);
 
   return (
-    <div className="bg-gradient-to-b from-gray-900 via-primary-900 to-black text-white min-h-screen">
+    <div className="bg-gradient-to-b from-slate-900 via-blue-900 to-slate-800 text-blue-100 min-h-screen">
       {/* Reading Progress Bar */}
       <div className="fixed top-0 left-0 w-full h-1 bg-gray-800 z-50">
         <div 

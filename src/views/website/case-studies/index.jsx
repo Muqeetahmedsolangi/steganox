@@ -14,7 +14,7 @@ const CaseStudies = () => {
     : caseStudies.filter(study => study.industry === filter);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-primary-900 to-black">
+    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-blue-900 to-slate-800">
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0">
@@ -28,19 +28,19 @@ const CaseStudies = () => {
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full mb-8">
               <Icon icon="carbon:chart-line-smooth" className="w-5 h-5 text-accent-400 mr-3" />
-              <span className="text-sm font-medium text-white/90 tracking-wide uppercase">Q HUB Case Studies</span>
+              <span className="text-sm font-medium text-blue-100/90 tracking-wide uppercase">QUEST HUB Case Studies</span>
             </div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
-              <span className="bg-gradient-to-r from-white via-primary-200 to-accent-300 bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-100 mb-8 leading-tight">
+              <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-500 bg-clip-text text-transparent">
                 Success
               </span>
               <br />
-              <span className="text-white/90">Stories</span>
+              <span className="text-blue-100/90">Stories</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">
-              Real-world examples of how Q HUB INFORMATION has transformed businesses through innovative software solutions and cutting-edge technology
+            <p className="text-xl md:text-2xl text-blue-100/70 leading-relaxed max-w-3xl mx-auto">
+              Real-world examples of how Quest Information Hub has transformed businesses through innovative software solutions and cutting-edge technology
             </p>
             
             {/* Stats */}
@@ -253,15 +253,15 @@ const CaseStudies = () => {
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-8">
             <Icon icon="carbon:enterprise" className="w-5 h-5 text-accent-400 mr-3" />
-            <span className="text-sm font-medium text-white/90 tracking-wide">Q HUB INFORMATION</span>
+            <span className="text-sm font-medium text-blue-100/90 tracking-wide">QUEST INFORMATION HUB</span>
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Ready to Create Your Success Story?
           </h2>
-          <p className="text-xl text-white/70 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Let's discuss how Q HUB INFORMATION can help you achieve similar breakthrough results for your business through innovative software solutions
-          </p>
+                      <p className="text-xl text-blue-100/70 mb-12 max-w-3xl mx-auto leading-relaxed">
+              Let's discuss how Quest Information Hub can help you achieve similar breakthrough results for your business through innovative software solutions
+            </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
             <button className="group relative px-10 py-5 bg-gradient-to-r from-primary-500 to-accent-500 text-white font-bold rounded-xl hover:from-primary-600 hover:to-accent-600 transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-primary-500/25">

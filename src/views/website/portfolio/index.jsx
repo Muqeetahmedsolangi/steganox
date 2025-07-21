@@ -40,7 +40,7 @@ const Portfolio = () => {
   const currentFeatured = featuredProjects[featuredProject] || featuredProjects[0];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-primary-900 to-black">
+    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-blue-900 to-slate-800">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
@@ -53,19 +53,19 @@ const Portfolio = () => {
         <div className="container mx-auto px-6 relative z-10 py-20">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <div className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-8">
-                <Icon icon="carbon:enterprise" className="w-5 h-5 text-accent-400 mr-3" />
-                <span className="text-sm font-medium text-white/90 tracking-wide">OUR PORTFOLIO</span>
+              <div className="inline-flex items-center px-6 py-3 bg-blue-800/30 backdrop-blur-sm border border-blue-500/30 rounded-full mb-8">
+                <Icon icon="carbon:enterprise" className="w-5 h-5 text-blue-400 mr-3" />
+                <span className="text-sm font-medium text-blue-100/90 tracking-wide">OUR PORTFOLIO</span>
               </div>
               
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
-                <span className="text-white/90">Our</span>
-                <span className="block bg-gradient-to-r from-primary-300 via-accent-400 to-secondary-400 bg-clip-text text-transparent">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-100 mb-8 leading-tight">
+                <span className="text-blue-100/90">Our</span>
+                <span className="block bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-500 bg-clip-text text-transparent">
                   Featured Work
                 </span>
               </h1>
               
-              <p className="text-xl md:text-2xl text-white/70 mb-12 leading-relaxed max-w-4xl mx-auto">
+              <p className="text-xl md:text-2xl text-blue-100/70 mb-12 leading-relaxed max-w-4xl mx-auto">
                 Discover our latest software development projects showcasing innovation, technical excellence, and proven business results
               </p>
 
