@@ -122,7 +122,6 @@ const AboutSection = () => {
     <section id="about-section" className="relative py-16 sm:py-20 lg:py-24 overflow-hidden bg-black min-h-screen" aria-labelledby="about-heading">
       {/* Enhanced Background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-900/30 via-black/50 to-secondary-900/30"></div>
         <div className="absolute inset-0" style={{
           backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0)',
           backgroundSize: '20px 20px'

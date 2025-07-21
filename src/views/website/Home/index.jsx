@@ -16,371 +16,200 @@ const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-primary-900 to-black">
-      {/* Hero Section */}
-      <section id="home" className="relative">
-        <FuturisticHero />
-      </section>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 relative">
+      {/* Global IT Background Pattern with Dark Blue Theme */}
+      <div className="absolute inset-0 z-0">
+        {/* Primary Grid Pattern with Dark Blue */}
+        <div className="absolute inset-0" style={{
+          backgroundImage: `
+            radial-gradient(circle at 1px 1px, rgba(30, 58, 138, 0.15) 1px, transparent 0),
+            linear-gradient(90deg, rgba(29, 78, 216, 0.08) 1px, transparent 1px),
+            linear-gradient(rgba(29, 78, 216, 0.08) 1px, transparent 1px)
+          `,
+          backgroundSize: '30px 30px, 60px 60px, 60px 60px'
+        }}></div>
 
-      {/* About Company Section */}
-      <section id="about" className="relative bg-gradient-to-b from-black to-primary-900">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-          <div className="absolute top-1/4 left-10 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-10 w-80 h-80 bg-accent-500/10 rounded-full blur-3xl"></div>
+        {/* IT Mockup Elements with Dark Blue Theme */}
+        {/* Terminal/Console Mockup */}
+        <div className="absolute top-20 left-10 bg-slate-800/30 border border-blue-600/20 rounded p-2 text-xs font-mono text-blue-300/40 select-none hidden lg:block">
+          <div className="flex items-center mb-1">
+            <div className="w-2 h-2 bg-red-400/40 rounded-full mr-1"></div>
+            <div className="w-2 h-2 bg-yellow-400/40 rounded-full mr-1"></div>
+            <div className="w-2 h-2 bg-blue-400/40 rounded-full"></div>
+          </div>
+          <div>$ npm run dev</div>
+          <div className="text-blue-400/40">✓ Server started</div>
         </div>
-        <div className="relative z-10">
+
+        {/* Code Snippet Mockup */}
+        <div className="absolute top-32 right-16 bg-slate-800/30 border border-blue-600/20 rounded p-2 text-xs font-mono text-blue-300/40 select-none hidden lg:block">
+          <div>{'function() {'}</div>
+          <div className="ml-2">{'return <App />'}</div>
+          <div>{'}'}</div>
+        </div>
+
+        {/* Database/Server Icons */}
+        <div className="absolute bottom-40 left-16 flex flex-col gap-2 text-blue-500/30 hidden md:block">
+          <Icon icon="carbon:db2-database" className="w-6 h-6" />
+          <Icon icon="carbon:server" className="w-6 h-6" />
+          <Icon icon="carbon:cloud" className="w-6 h-6" />
+        </div>
+
+        {/* API Endpoints Mockup */}
+        <div className="absolute top-1/2 right-10 bg-slate-800/30 border border-blue-600/20 rounded p-2 text-xs font-mono text-blue-300/40 select-none hidden xl:block">
+          <div className="text-blue-400/40">GET /api/users</div>
+          <div className="text-indigo-400/40">POST /api/auth</div>
+          <div className="text-blue-500/40">PUT /api/data</div>
+        </div>
+
+        {/* Binary/Hex Patterns */}
+        <div className="absolute bottom-20 right-20 text-blue-400/15 font-mono text-xs select-none leading-relaxed hidden lg:block">
+          1010 0101<br/>
+          1100 0011<br/>
+          0xFF 0x00
+        </div>
+
+        {/* Circuit Board Pattern */}
+        <div className="absolute top-1/3 left-1/4 w-32 h-0.5 bg-gradient-to-r from-blue-600/20 to-transparent"></div>
+        <div className="absolute top-1/3 left-1/4 w-0.5 h-16 bg-gradient-to-b from-blue-600/20 to-transparent"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-40 h-0.5 bg-gradient-to-l from-indigo-600/20 to-transparent"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-0.5 h-20 bg-gradient-to-t from-indigo-600/20 to-transparent"></div>
+
+        {/* Floating Tech Elements */}
+        <div className="absolute top-20 left-1/3 w-4 h-4 border border-blue-500/40 rotate-45 animate-pulse"></div>
+        <div className="absolute top-40 right-1/3 w-3 h-3 bg-indigo-500/30 rounded-full animate-bounce delay-300"></div>
+        <div className="absolute bottom-32 left-1/5 w-2 h-2 bg-blue-400/40 rotate-45 animate-ping delay-700"></div>
+        <div className="absolute bottom-48 right-1/5 w-3 h-3 border border-indigo-500/30 rounded-sm animate-pulse delay-1000"></div>
+
+        {/* Network Connection Nodes */}
+        <div className="absolute top-1/4 left-1/6 w-2 h-2 bg-blue-500/50 rounded-full animate-ping"></div>
+        <div className="absolute top-1/2 right-1/4 w-2 h-2 bg-indigo-500/50 rounded-full animate-ping delay-500"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-2 h-2 bg-blue-600/50 rounded-full animate-ping delay-1000"></div>
+
+        {/* Connection Lines */}
+        <div className="absolute top-1/4 left-1/6 w-16 h-0.5 bg-gradient-to-r from-blue-500/30 to-indigo-500/30 rotate-12"></div>
+        <div className="absolute top-1/2 right-1/4 w-20 h-0.5 bg-gradient-to-r from-indigo-500/30 to-blue-600/30 -rotate-12"></div>
+
+        {/* Code Symbols */}
+        <div className="absolute top-16 left-1/2 text-blue-500/20 font-mono text-lg select-none">{'</>'}</div>
+        <div className="absolute bottom-16 left-1/3 text-indigo-500/20 font-mono text-lg select-none">{'{}'}</div>
+        <div className="absolute top-1/3 right-1/6 text-blue-600/20 font-mono text-lg select-none">{'[]'}</div>
+      </div>
+
+      {/* Content with unified dark blue background */}
+      <div className="relative z-10">
+        {/* Hero Section */}
+        <section id="home" className="relative">
+          <FuturisticHero />
+        </section>
+
+        {/* About Company Section */}
+        <section id="about" className="relative bg-gradient-to-b from-slate-900 to-blue-900">
           <AboutSection />
-        </div>
-      </section>
+        </section>
 
-      {/* Core Services Section */}
-      <section id="services" className="relative bg-gradient-to-b from-primary-900 to-black">
-        <div className="absolute inset-0">
-          <div className="absolute top-20 right-20 w-72 h-72 bg-secondary-500/10 rounded-full blur-3xl"></div>
-        </div>
-        <div className="relative z-10">
+        {/* Core Services Section */}
+        <section id="services" className="relative bg-gradient-to-b from-blue-900 to-slate-800">
           <ServicesSection />
-        </div>
-      </section>
+        </section>
 
-      {/* Industry Solutions Section */}
-      <section id="industries" className="relative bg-gradient-to-b from-black to-primary-900">
-        <div className="absolute inset-0">
-          <div className="absolute top-1/3 left-20 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl"></div>
-        </div>
-        <div className="relative z-10">
-          <IndustriesSection />
-        </div>
-      </section>
-
-      {/* Technology Excellence Section */}
-      <section id="expertise" className="relative bg-gradient-to-b from-primary-900 to-black">
-        <div className="absolute inset-0 bg-grid-pattern opacity-3"></div>
-        <div className="relative z-10">
-          <ExpertiseSection />
-        </div>
-      </section>
-
-      {/* Portfolio Showcase Section */}
-      <section id="portfolio" className="relative bg-gradient-to-b from-black to-primary-900">
-        <div className="absolute inset-0">
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-accent-500/8 rounded-full blur-3xl"></div>
-        </div>
-        <div className="relative z-10">
+        {/* Portfolio Showcase Section */}
+        <section id="portfolio" className="relative bg-gradient-to-b from-slate-800 to-blue-900">
           <PortfolioShowcase />
-        </div>
-      </section>
+        </section>
 
-      {/* Why Choose Us Section */}
-      <section id="why-choose" className="relative bg-gradient-to-b from-primary-900 to-black">
-        <div className="absolute inset-0">
-          <div className="absolute top-10 left-1/4 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl"></div>
-        </div>
-        <div className="relative z-10">
-          <WhyChooseSection />
-        </div>
-      </section>
-
-      {/* Company Vision Section */}
-      <section id="mission" className="relative bg-gradient-to-b from-black to-primary-900">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        <div className="relative z-10">
-          <MissionVisionSection />
-        </div>
-      </section>
-
-      {/* Development Process Section */}
-      <section id="process" className="relative bg-gradient-to-b from-primary-900 to-black">
-        <div className="absolute inset-0">
-          <div className="absolute top-1/2 right-1/4 w-72 h-72 bg-secondary-500/8 rounded-full blur-3xl"></div>
-        </div>
-        <div className="relative z-10">
-          <TimelineScroll />
-        </div>
-      </section>
-
-      {/* Client Testimonials Section */}
-      <section id="testimonials" className="relative bg-gradient-to-b from-black to-primary-900">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-primary-900/50 to-black" />
-          <div className="absolute top-20 left-10 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-accent-500/10 rounded-full blur-3xl"></div>
-        </div>
-        
-        <div className="container mx-auto px-6 relative z-10 py-16">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full mb-8">
-              <Icon icon="carbon:chat" className="w-5 h-5 text-accent-400 mr-3" />
-              <span className="text-sm font-medium text-white/90 tracking-wide uppercase">Client Stories</span>
-            </div>
-            
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-white via-primary-300 to-accent-400 bg-clip-text text-transparent">
-                Success
-              </span>
-              <br />
-              <span className="text-white/90">Testimonials</span>
-            </h2>
-            
-            <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-              Discover how we've transformed businesses and exceeded expectations for clients worldwide
-            </p>
-            
-            <div className="flex items-center justify-center gap-8 mt-8">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-accent-400">120+</div>
-                <div className="text-sm text-white/60">Happy Clients</div>
-              </div>
-              <div className="w-px h-10 bg-white/20"></div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary-400">98%</div>
-                <div className="text-sm text-white/60">Satisfaction</div>
-              </div>
-              <div className="w-px h-10 bg-white/20"></div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-white">4.9/5</div>
-                <div className="text-sm text-white/60">Average Rating</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Testimonials Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto mb-12">
-            {testimonials.slice(0, 6).map((testimonial, index) => (
-              <div
-                key={index}
-                className="group relative rounded-xl overflow-hidden transition-all duration-500 hover:scale-105 hover:-translate-y-2"
-                style={{
-                  background: 'linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)',
-                  backdropFilter: 'blur(20px)',
-                  border: '1px solid rgba(255,255,255,0.1)'
-                }}
-              >
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-accent-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                {/* Content */}
-                <div className="relative p-6">
-                  {/* Rating Stars */}
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Icon key={i} icon="carbon:star-filled" className="w-4 h-4 text-yellow-400" />
-                    ))}
-                  </div>
-
-                  {/* Quote Icon */}
-                  <div className="mb-4">
-                    <Icon icon="carbon:quotes" className="w-6 h-6 text-primary-400/60" />
-                  </div>
-
-                  {/* Testimonial Content */}
-                  <blockquote className="text-base text-white/90 leading-relaxed mb-4 font-light">
-                    "{testimonial.content}"
-                  </blockquote>
-
-                  {/* Project Info */}
-                  <div className="mb-4 p-2 bg-white/5 rounded-lg border border-white/10">
-                    <div className="text-xs text-accent-400 font-medium">Project: {testimonial.project}</div>
-                  </div>
-
-                  {/* Author Info */}
-                  <div className="flex items-center gap-3 pt-4 border-t border-white/10">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-primary-500 to-accent-500 flex items-center justify-center">
-                      <span className="text-white font-bold text-sm">
-                        {testimonial.name.charAt(0)}
-                      </span>
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-white text-sm">{testimonial.name}</h4>
-                      <p className="text-primary-300 font-medium text-xs">{testimonial.position}</p>
-                      <p className="text-white/60 text-xs">{testimonial.company}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* CTA Section */}
-          <div className="text-center">
-            <div className="max-w-2xl mx-auto mb-8">
-              <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
-                Ready to Join Our Success Stories?
-              </h3>
-              <p className="text-base text-white/70">
-                Let's discuss your project and create the next success story together
-              </p>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                onClick={() => navigate('/contact-us')}
-                className="group relative px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-lg hover:from-primary-600 hover:to-primary-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl"
-              >
-                <span className="relative z-10 flex items-center justify-center">
-                  <Icon icon="carbon:arrow-right" className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
-                  Start Your Project
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-500 rounded-lg blur opacity-50 group-hover:opacity-75 transition-opacity"></div>
-              </button>
-              
-              <button 
-                onClick={() => navigate('/portfolio')}
-                className="px-6 py-3 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300"
-              >
-                <span className="flex items-center justify-center">
-                  <Icon icon="carbon:view" className="w-5 h-5 mr-2" />
-                  View All Projects
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ & Support Section */}
-      <section id="faq" className="relative bg-gradient-to-b from-primary-900 to-black">
-        <div className="absolute inset-0">
-          <div className="absolute bottom-10 left-1/3 w-72 h-72 bg-accent-500/8 rounded-full blur-3xl"></div>
-        </div>
-        <div className="relative z-10">
+        {/* FAQ & Support Section */}
+        <section id="faq" className="relative bg-gradient-to-b from-blue-900 to-slate-900">
           <FAQSection />
-        </div>
-      </section>
+        </section>
 
-      {/* Call to Action Section */}
-      <section className="relative bg-gradient-to-b from-black via-primary-900 to-primary-800">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute top-20 left-20 w-64 h-64 bg-accent-500/8 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-secondary-500/8 rounded-full blur-3xl"></div>
-        </div>
-        
-        <div className="container mx-auto px-6 relative z-10 py-20">
+        {/* Call to Action Section */}
+        <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 py-16">
+          <div className="container mx-auto px-6 relative z-10">
           
           {/* Main CTA Content */}
-          <div className="max-w-5xl mx-auto text-center mb-16">
+            <div className="max-w-4xl mx-auto text-center mb-12">
             
             {/* Badge */}
-            <div className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-8">
-              <Icon icon="carbon:enterprise" className="w-5 h-5 text-accent-400 mr-3" />
-              <span className="text-sm font-medium text-white/90 tracking-wide">Q HUB INFORMATION</span>
+              <div className="inline-flex items-center px-6 py-3 bg-blue-600/20 backdrop-blur-sm border border-blue-500/30 rounded-full mb-8">
+              <Icon icon="carbon:enterprise" className="w-5 h-5 text-blue-300 mr-3" />
+                <span className="text-sm font-medium text-white tracking-wide">Q INFORMATION HUB</span>
             </div>
             
             {/* Headline */}
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              <span className="text-white/90">Partner with</span>
-              <span className="block bg-gradient-to-r from-primary-300 via-accent-400 to-secondary-400 bg-clip-text text-transparent">
-                Software Experts
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                <span className="text-white/90">Ready to Transform Your</span>
+                <span className="block bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-500 bg-clip-text text-transparent">
+                  Business with Q Information Hub?
               </span>
-              <span className="block text-white/90">Who Deliver Results</span>
             </h2>
             
             {/* Subheading */}
-            <p className="text-xl md:text-2xl text-white/70 mb-12 leading-relaxed max-w-4xl mx-auto">
-              From concept to deployment, we build scalable software solutions that drive growth and innovation for forward-thinking businesses
+              <p className="text-lg md:text-xl text-blue-100/70 mb-10 leading-relaxed max-w-3xl mx-auto">
+                Let's discuss your project requirements and build something extraordinary together
             </p>
             
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <button 
                 onClick={() => navigate('/contact-us')}
-                className="group relative px-10 py-5 bg-gradient-to-r from-primary-500 to-accent-500 text-white font-bold rounded-xl hover:from-primary-600 hover:to-accent-600 transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-primary-500/25"
+                  className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold rounded-lg hover:from-blue-700 hover:to-indigo-700 transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-blue-500/25"
               >
                 <span className="relative z-10 flex items-center justify-center">
-                  <Icon icon="carbon:chat" className="w-6 h-6 mr-3 group-hover:scale-110 transition-transform" />
-                  Start Your Project
+                    <Icon icon="carbon:chat" className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
+                    Let's Talk Business
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-accent-400 rounded-xl blur opacity-50 group-hover:opacity-75 transition-opacity"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg blur opacity-50 group-hover:opacity-75 transition-opacity"></div>
               </button>
               
               <button 
                 onClick={() => navigate('/portfolio')}
-                className="px-10 py-5 bg-white/10 backdrop-blur-sm text-white font-bold rounded-xl border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300"
+                  className="px-8 py-4 bg-slate-700/30 backdrop-blur-sm text-white font-bold rounded-lg border border-blue-500/30 hover:bg-blue-800/30 hover:border-blue-400/40 transition-all duration-300"
               >
                 <span className="flex items-center justify-center">
-                  <Icon icon="carbon:portfolio" className="w-6 h-6 mr-3" />
-                  View Our Work
+                    <Icon icon="carbon:portfolio" className="w-5 h-5 mr-3" />
+                    View Our Portfolio
                 </span>
               </button>
             </div>
           </div>
           
-          {/* Value Propositions Grid */}
-          <div className="max-w-7xl mx-auto mb-16">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              
-              {/* Enterprise Solutions */}
-              <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-105">
-                <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Icon icon="carbon:enterprise" className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-4">Enterprise-Grade Solutions</h3>
-                <p className="text-white/70 leading-relaxed">Scalable architecture and robust security designed for enterprise environments with 99.9% uptime guarantee.</p>
+            {/* Trust Indicators */}
+            <div className="max-w-4xl mx-auto">
+              <div className="bg-blue-800/20 backdrop-blur-sm border border-blue-500/30 rounded-xl p-6 md:p-8">
+                
+                <div className="text-center mb-6">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
+                    Trusted by Businesses Worldwide
+                  </h3>
+                  <p className="text-blue-100/70">
+                    Join companies that trust Q Information Hub for their software needs
+                  </p>
               </div>
               
-              {/* Agile Development */}
-              <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-105">
-                <div className="w-16 h-16 bg-gradient-to-r from-secondary-500 to-primary-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Icon icon="carbon:flow" className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-4">Agile Development</h3>
-                <p className="text-white/70 leading-relaxed">Transparent workflow with regular updates, milestone delivery, and continuous client collaboration throughout the project.</p>
-              </div>
-              
-              {/* 24/7 Support */}
-              <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-105">
-                <div className="w-16 h-16 bg-gradient-to-r from-accent-500 to-secondary-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Icon icon="carbon:code" className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-4">Dedicated Support</h3>
-                <p className="text-white/70 leading-relaxed">Round-the-clock technical support, maintenance, and monitoring to ensure your applications run smoothly.</p>
-              </div>
-            </div>
-          </div>
-          
-          {/* Company Statistics */}
-          <div className="max-w-5xl mx-auto">
-            <div className="bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-2xl p-8 md:p-12">
-              
-              <div className="text-center mb-8">
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                  Trusted by Industry Leaders
-                </h3>
-                <p className="text-white/70 text-lg">
-                  Join the growing list of successful companies that rely on Q HUB INFORMATION
-                </p>
-              </div>
-              
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-primary-400 mb-2">500+</div>
-                  <div className="text-white/70 font-medium">Projects Delivered</div>
-                  <div className="text-white/50 text-sm">Across 25+ Industries</div>
+                    <div className="text-2xl md:text-3xl font-bold text-blue-400 mb-1">500+</div>
+                    <div className="text-blue-100/70 text-sm">Projects Delivered</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-accent-400 mb-2">150+</div>
-                  <div className="text-white/70 font-medium">Expert Developers</div>
-                  <div className="text-white/50 text-sm">Senior & Lead Engineers</div>
+                    <div className="text-2xl md:text-3xl font-bold text-indigo-400 mb-1">8+</div>
+                    <div className="text-blue-100/70 text-sm">Years Experience</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-white mb-2">98%</div>
-                  <div className="text-white/70 font-medium">Client Satisfaction</div>
-                  <div className="text-white/50 text-sm">Based on 120+ Reviews</div>
+                    <div className="text-2xl md:text-3xl font-bold text-white mb-1">98%</div>
+                    <div className="text-blue-100/70 text-sm">Success Rate</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-secondary-400 mb-2">8+</div>
-                  <div className="text-white/70 font-medium">Years Experience</div>
-                  <div className="text-white/50 text-sm">Industry Expertise</div>
+                    <div className="text-2xl md:text-3xl font-bold text-blue-300 mb-1">24/7</div>
+                    <div className="text-blue-100/70 text-sm">Support</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        </section>
         </div>
-      </section>
     </div>
   );
 }

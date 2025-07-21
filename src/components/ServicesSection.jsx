@@ -124,11 +124,13 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services-section" className="relative py-16 sm:py-20 lg:py-24 overflow-hidden">
+    <section id="services-section" className="relative py-16 sm:py-20 lg:py-24 overflow-hidden bg-black">
       {/* Enhanced Background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/60 via-black/40 to-gray-800/60"></div>
-        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.08) 1px, transparent 0)',
+          backgroundSize: '30px 30px'
+        }}></div>
         
         {/* Floating Elements */}
         <div className="absolute top-20 right-10 sm:right-20 w-48 sm:w-72 h-48 sm:h-72 bg-secondary-500/20 rounded-full blur-3xl animate-pulse delay-500"></div>

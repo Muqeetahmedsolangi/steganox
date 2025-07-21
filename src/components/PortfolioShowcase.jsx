@@ -121,7 +121,7 @@ const PortfolioShowcase = () => {
   });
 
   return (
-    <section className="relative py-16 bg-gradient-to-b from-black to-primary-900">
+    <section className="relative py-16 bg-black">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

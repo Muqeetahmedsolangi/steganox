@@ -40,7 +40,7 @@ const FuturisticFooter = () => {
   ];
 
   return (
-    <footer className="bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+    <footer className="bg-black border-t border-white/10 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Footer Content */}
@@ -54,16 +54,13 @@ const FuturisticFooter = () => {
                   <Icon icon="carbon:code" className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <span className="text-xl font-bold text-slate-900 dark:text-white">
-                    Q HUB
-                  </span>
-                  <span className="text-xl font-bold text-primary ml-1">
-                    INFORMATION
+                  <span className="text-xl font-bold text-white">
+                    Q Information Hub
                   </span>
                 </div>
               </Link>
               
-              <p className="text-slate-600 dark:text-slate-400 mb-6 max-w-sm">
+              <p className="text-white/70 mb-6 max-w-sm">
                 Transforming ideas into digital excellence. We build scalable, 
                 secure software solutions that drive business growth.
               </p>
@@ -74,10 +71,10 @@ const FuturisticFooter = () => {
                   <a
                     key={social.name}
                     href={social.href}
-                    className="flex items-center justify-center w-10 h-10 rounded-lg bg-slate-200 dark:bg-slate-800 hover:bg-primary hover:text-white transition-all duration-200"
+                    className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 hover:bg-primary-500 hover:text-white transition-all duration-200"
                     aria-label={social.name}
                   >
-                    <Icon icon={social.icon} className="w-5 h-5" />
+                    <Icon icon={social.icon} className="w-5 h-5 text-white/70 hover:text-white" />
                   </a>
                 ))}
               </div>
@@ -85,13 +82,13 @@ const FuturisticFooter = () => {
 
             {/* Navigation Sections */}
             <div>
-              <h3 className="font-semibold text-slate-900 dark:text-white mb-4">Company</h3>
+              <h3 className="font-semibold text-white mb-4">Company</h3>
               <ul className="space-y-3">
                 {footerSections.company.map((item) => (
                   <li key={item.name}>
                     <Link
                       to={item.href}
-                      className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+                      className="text-white/70 hover:text-primary-400 transition-colors"
                     >
                       {item.name}
                     </Link>
@@ -101,13 +98,13 @@ const FuturisticFooter = () => {
             </div>
 
             <div>
-              <h3 className="font-semibold text-slate-900 dark:text-white mb-4">Services</h3>
+              <h3 className="font-semibold text-white mb-4">Services</h3>
               <ul className="space-y-3">
                 {footerSections.services.map((item) => (
                   <li key={item.name}>
                     <Link
                       to={item.href}
-                      className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+                      className="text-white/70 hover:text-primary-400 transition-colors"
                     >
                       {item.name}
                     </Link>
@@ -117,13 +114,13 @@ const FuturisticFooter = () => {
             </div>
 
             <div>
-              <h3 className="font-semibold text-slate-900 dark:text-white mb-4">Resources</h3>
+              <h3 className="font-semibold text-white mb-4">Resources</h3>
               <ul className="space-y-3">
                 {footerSections.resources.map((item) => (
                   <li key={item.name}>
                     <Link
                       to={item.href}
-                      className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+                      className="text-white/70 hover:text-primary-400 transition-colors"
                     >
                       {item.name}
                     </Link>
@@ -133,13 +130,13 @@ const FuturisticFooter = () => {
             </div>
 
             <div>
-              <h3 className="font-semibold text-slate-900 dark:text-white mb-4">Legal</h3>
+              <h3 className="font-semibold text-white mb-4">Legal</h3>
               <ul className="space-y-3">
                 {footerSections.legal.map((item) => (
                   <li key={item.name}>
                     <Link
                       to={item.href}
-                      className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+                      className="text-white/70 hover:text-primary-400 transition-colors"
                     >
                       {item.name}
                     </Link>
@@ -151,13 +148,13 @@ const FuturisticFooter = () => {
         </div>
 
         {/* Newsletter Subscription */}
-        <div className="py-8 border-t border-slate-200 dark:border-slate-800">
+        <div className="py-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
-              <h3 className="font-semibold text-slate-900 dark:text-white mb-2">
+              <h3 className="font-semibold text-white mb-2">
                 Stay updated with our newsletter
               </h3>
-              <p className="text-slate-600 dark:text-slate-400">
+              <p className="text-white/70">
                 Get the latest insights and updates about technology and software development.
               </p>
             </div>
@@ -166,9 +163,9 @@ const FuturisticFooter = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent"
+                className="flex-1 px-4 py-2 border border-white/20 rounded-lg bg-white/10 text-white placeholder-white/50 focus:ring-2 focus:ring-primary-500 focus:border-primary-400 transition-all"
               />
-              <button className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg transition-all duration-200">
+              <button className="flex items-center gap-2 px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white font-medium rounded-lg transition-all duration-200">
                 <Icon icon="carbon:email" className="w-4 h-4" />
                 <span>Subscribe</span>
               </button>
@@ -177,20 +174,20 @@ const FuturisticFooter = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="py-6 border-t border-slate-200 dark:border-slate-800">
+        <div className="py-6 border-t border-white/10">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <div className="flex items-center gap-4 text-sm text-slate-600 dark:text-slate-400">
-              <span>© {currentYear} Q HUB INFORMATION. All rights reserved.</span>
+            <div className="flex items-center gap-4 text-sm text-white/70">
+              <span>© {currentYear} Q Information Hub. All rights reserved.</span>
             </div>
             
-            <div className="flex items-center gap-6 text-sm text-slate-600 dark:text-slate-400">
+            <div className="flex items-center gap-6 text-sm text-white/70">
               <div className="flex items-center gap-2">
                 <Icon icon="carbon:location" className="w-4 h-4" />
                 <span>Global</span>
               </div>
               <div className="flex items-center gap-2">
                 <Icon icon="carbon:email" className="w-4 h-4" />
-                <span>info@qhubinformation.com</span>
+                <span>info@qinformationhub.com</span>
               </div>
               <div className="flex items-center gap-2">
                 <Icon icon="carbon:phone" className="w-4 h-4" />

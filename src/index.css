@@ -8,6 +8,7 @@ html {
   scroll-behavior: smooth !important;
   background-color: #000000 !important;
   cursor: default !important;
+  height: 100%;
 }
 
 body {
@@ -16,6 +17,73 @@ body {
   color: #ffffff !important;
   overflow-x: hidden;
   cursor: default !important;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Ensure proper scrolling behavior */
+#root {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Fix any potential scroll issues with fixed elements */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced animations for the new hero */
+@keyframes grid-move {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+@keyframes animate-gradient {
+  0%, 100% { 
+    background-position: 0% 50%; 
+    background-size: 200% 200%;
+  }
+  50% { 
+    background-position: 100% 50%; 
+    background-size: 200% 200%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: animate-gradient 4s ease infinite;
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+    opacity: 0.6; 
+  }
+  33% { 
+    transform: translateY(-15px) rotate(120deg); 
+    opacity: 0.8; 
+  }
+  66% { 
+    transform: translateY(-8px) rotate(240deg); 
+    opacity: 0.4; 
+  }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+/* Pulse animation enhancement */
+@keyframes pulse {
+  0%, 100% { 
+    transform: scale(1); 
+    opacity: 0.8; 
+  }
+  50% { 
+    transform: scale(1.05); 
+    opacity: 0.6; 
+  }
 }
 
 #root {

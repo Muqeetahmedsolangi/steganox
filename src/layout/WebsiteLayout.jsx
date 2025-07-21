@@ -15,10 +15,8 @@ const WebsiteLayout = () => {
 
   return (
     <div className="min-h-screen bg-black">
-      {/* <FuturisticHeader />
-       */}
-       <Header/>
-      <main className="relative">
+      <Header/>
+      <main className="relative bg-black overflow-x-hidden">
         <Suspense fallback={
           <div className="min-h-screen bg-black flex items-center justify-center">
             <div className="text-center">
@@ -31,7 +29,7 @@ const WebsiteLayout = () => {
             </div>
           </div>
         }>
-          <div className="page-transition">
+          <div className="page-transition bg-black">
             <Outlet />
           </div>
         </Suspense>
